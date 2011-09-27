@@ -1,0 +1,67 @@
+---
+layout: post
+title: Posting a Task with locations
+---
+# Posting a Task with locations
+
+Posting a Task with locations allows TaskRabbit to alert based on geography in conjunction with other Task attributes.
+
+## Setup
+
+* There is a user who is authenticated to your client application
+* The user has an authorization token of "rRou72pewt102y926jfhwow438238poQR31d"
+
+### Required Values
+
+By passing in the address of a Task location, source or destination (pickup/delivery example) will allow us to geolocate the task for alerting. You do not need to pass in the city as it will be calculated and assigned automatically based on the location information provided.
+
+### POST /api/v1/tasks
+
+* Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d
+* Content-Type: application/json
+
+```json
+{
+  "task": {
+    "name":"My First Task", 
+    "named_price": 20, 
+    "other_locations_attributes": [
+      {
+        "name": "Home",
+        "address": "123 Main St",
+        "city": "Boston",
+        "state": "MA",
+        "zip": "02154",
+        "lat": "42.358432",
+        "lng": "-71.059774"
+      }, 
+      {
+        "name": "Middle of the park",
+        "lat": "42.358430",
+        "lng": "-71.059772"
+      }
+    ]
+  }
+}
+```
+
+### Simplified Response
+
+* Status Code: 200
+* Content-Type: application/json
+
+```json
+{
+  "id": 2820,
+  "name": "My First Task",
+  "named_price": 20,
+  "state": "opened",
+  "city": {
+    "name": "Boston",
+    "id": 1
+  },
+  "links": {
+    "get": "/api/v1/tasks/2820"
+  }
+}
+```

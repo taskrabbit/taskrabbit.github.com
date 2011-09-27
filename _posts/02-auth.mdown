@@ -1,0 +1,109 @@
+---
+layout: post
+title: Oauth
+---
+# Oauth
+
+TODO: Description
+
+## Setup
+
+* You are the developer of the client application "MyAppName"
+* The client application url is http://myappname.com
+* The client application callback_url is http://myappname.com/callback
+* The client application key is F4evGKi20tXBoPNT3CQwJdKm8kgM3lfJchYg0g34
+
+## Manage your client application
+
+* When you login
+* Go to your account page
+* Follow the link on the sidebar "Client Applications"
+* Click on "MyAppName"
+* Then you will see your client application details
+
+## Authorization
+
+TODO: Description, to give the permission to use TaskRabbit in the behalf of the user 
+
+## Setup
+
+* The authorization url will be https://taskrabbit.com/api/authorize?client_id=F4evGKi20tXBoPNT3CQwJdKm8kgM3lfJchYg0g34
+
+### User not logged in with no account
+
+* When the user follows the authorization url
+* He will be asked to signup or signin
+* After filling his informations to signup
+* And filling his credit card informations
+* He will be redirected to http://myappname.com/callback?access_token=someacesstoken
+
+### User not logged in with an account
+
+* Given the user has a TaskRabbit account
+* the user follows the authorization url
+* He will be asked to signup or signin
+* After filling his credentials to signin
+* He will be redirected to http://myappname.com/callback?access_token=someacesstoken
+
+### User is already logged in taskrabbit
+
+* Given the user has a TaskRabbit account
+* The user is logged in
+* The user follows the authorization url
+* He will be asked to authorize the application
+* After authorizing your application
+* He will be redirected to http://myappname.com/callback?access_token=someacesstoken
+
+# Other cases
+
+## Allow authorization without having to set the credit card
+
+* Then the authorization url will be https://taskrabbit.com/api/authorize?client_id=F4evGKi20tXBoPNT3CQwJdKm8kgM3lfJchYg0g34&card=false
+* The user follows the authorization url
+* He will be asked to signup or signin
+* After filling his informations to signup
+* He will be redirected to http://myappname.com/callback?access_token=someacesstoken
+
+## Prefill fields
+
+* Possible fields to set
+  * name: first name and last name
+  * mobile_phone
+  * zip_code
+  * email
+
+* Then the authorization url will be https://taskrabbit.com/api/authorize?client_id=F4evGKi20tXBoPNT3CQwJdKm8kgM3lfJchYg0g34&name=John+Doe&email=johndoe@example.com
+* The user follows the authorization url
+* He will be asked to signup or signin
+* The "Full name" field should contain "John Doe"
+* The "Email" field should contain "johndoe@example.com"
+
+## Your client application has no callback url
+
+* When the client application has no callback_url
+* The authorization url will be https://taskrabbit.com/api/authorize?client_id=F4evGKi20tXBoPNT3CQwJdKm8kgM3lfJchYg0g34
+
+### User not logged in with no account
+
+* When the user follows the authorization url
+* He will be asked to signup or signin
+* After filling his informations to signup
+* And filling his credit card informations
+* He will see a confirmation message that the application has been accepted
+
+### User not logged in with an account
+
+* Given the user has a TaskRabbit account
+* the user follows the authorization url
+* He will be asked to signup or signin
+* After filling his credentials to signin
+* He will see a confirmation message that the application has been accepted
+
+### User is already logged in taskrabbit
+
+* Given the user has a TaskRabbit account
+* The user is logged in
+* The user follows the authorization url
+* He will be asked to authorize the application
+* After authorizing your application
+* He will see a confirmation message that the application has been accepted

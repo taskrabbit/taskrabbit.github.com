@@ -1,0 +1,316 @@
+---
+layout: post
+title: Parameters for posting a task
+---
+# Parameters for posting a task
+
+TaskRabbit allows posting of Tasks by a client application on behalf of a user that has authorized that application. Authorization is done through OAuth and assigns a unique token to the user for for the application to use. This key is passed in all requests.
+
+The same scenario is employed when an application/company is posting directly to TaskRabbit. First create a user for the company/application, authorize the user, and utilize the returned token for posting a Task to TaskRabbit.
+
+## Setup
+
+* There is a user who is authenticated to your client application
+* The user has an authorization token of "rRou72pewt102y926jfhwow438238poQR31d"
+
+## Creating a new Task
+
+To create a task, the client application POSTs data, the content can be either a json or x-www-form-urlencoded.
+
+### Parameters list
+
+The following is a list of parameters available, each parameter is marked as "required" when needed.
+
+#### name
+
+The short, public text shown to describe the Task 
+
+* required
+
+```
+"name": "Dog walking"
+```
+
+#### named_price
+
+The integer amount, in whole US Dollars, the TaskPoster is willing to pay for the Task
+
+* required
+
+```
+"named_price": 20
+```
+
+#### city_id
+
+The metro area where the Task will occur
+
+* Possible Values
+  * 1 -> Boston
+  * 3 -> SF Bay Area
+  * 4 -> New York City
+  * 5 -> Chicago
+  * 6 -> Los Angeles
+  * 40 -> Orange County
+* required when no locations are sent
+
+```
+"city_id": 1
+```
+
+#### description
+
+The description of the task
+
+```
+"description": "I want you to walk him to his favorite state park"
+```
+  
+#### cost_in_cents
+
+The estimate price that the Rabbit will have to spend in cents.
+
+```
+"cost_in_cents": 500
+```
+
+#### virtual
+
+The task can be done online.
+
+```
+"virtual": true
+```
+
+
+### POST /api/v1/tasks
+
+* Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d
+* Content-Type: application/json
+
+```json
+{
+  "task": {
+    "name":"Dog walking",
+    "named_price": 20, 
+    "city_id": 1,
+    "description": "I want you to walk him to his favorite state park",
+    "cost_in_cents": 500,
+    "virtual": true
+  }
+}
+```
+
+### Simplified Response
+
+* Status Code: 200
+* Content-Type: application/json
+
+```json
+{
+  "id": 2835,
+  "name": "Dog walking",
+  "city": {
+    "name": "Boston",
+    "id": 1
+  },
+  "named_price": 20,
+  "cost_in_cents": 500,
+  "description": "I want you to walk him to his favorite state park",
+  "state": "opened",
+  "links": {
+    "get": "/api/v1/tasks/2835"
+  }
+}
+```
+
+## Task Times
+
+All times are epoch GMT.
+
+### Setup
+
+* The timezone is "Eastern Time (US & Canada)" (GMT-05:00)
+* The date is "2011-09-09 09:00 AM"
+
+#### complete_by_time
+
+A specific time that the Task must be completed by. 
+
+* timestamp of the time
+
+```
+"complete_by_time": 1315582320 // 2011-09-09 11:32 AM
+```
+
+#### assign_by_time
+
+A specific time that the Task must be assigned by. This time is set so that the end user knows that a TaskRabbit is on the job or not.
+
+* timestamp of the time
+
+```
+"assign_by_time": 1315578000 // 2011-09-09 10:20 AM
+```
+
+### Examples
+
+## Setting both parameters
+
+### POST /api/v1/tasks
+
+* Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d
+* Content-Type: application/json
+
+```json
+{
+  "task": {
+    "name":"Dog walking",
+    "named_price": 20, 
+    "city_id": 1,
+    "complete_by_time": 1315582320, // 2011-09-09 11:32 AM
+    "assign_by_time": 1315578000    // 2011-09-09 10:20 AM
+  }
+}
+```
+
+### Simplified Response
+
+* Status Code: 200
+* Content-Type: application/json
+
+```json
+{
+  "complete_by_time": 1315582320, // 2011-09-09 11:32 AM
+  "assign_by_time": 1315578000    // 2011-09-09 10:20 AM
+}
+```
+
+If the assigned by time is later than the complete by time, we will reset the assigned by time to the same time as the complete by time.
+
+## Setting only the complete by time
+
+### POST /api/v1/tasks
+
+* Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d
+* Content-Type: application/json
+
+```json
+{
+  "task": {
+    "name":"Dog walking",
+    "named_price": 20, 
+    "city_id": 1,
+    "complete_by_time": 1315582320 // 2011-09-09 11:32 AM
+  }
+}
+```
+
+### Simplified Response
+
+* Status Code: 200
+* Content-Type: application/json
+
+```json
+{
+  "complete_by_time": 1315582320, // 2011-09-09 11:32 AM
+  "assign_by_time": 1315582320    // 2011-09-09 11:32 AM
+}
+```
+The assign by time is set to the same time as complete by time.
+
+## Setting only the assign by time
+
+### POST /api/v1/tasks
+
+* Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d
+* Content-Type: application/json
+
+```json
+{
+  "task": {
+    "name":"Dog walking",
+    "named_price": 20, 
+    "city_id": 1,
+    "assign_by_time": 1315578000 // 2011-09-09 10:20 AM
+  }
+}
+```
+
+### Simplified Response
+
+* Status Code: 200
+* Content-Type: application/json
+
+```json
+{
+  "complete_by_time": 1315591200, // 2011-09-09 02:00 PM
+  "assign_by_time": 1315578000    // 2011-09-09 10:20 AM
+}
+```
+
+The complete by time will have will be set to the assigned by time plus 3 hours.
+
+## Setting the complete by time in the past
+
+### POST /api/v1/tasks
+
+* Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d
+* Content-Type: application/json
+
+```json
+{
+  "task": {
+    "name":"Dog walking",
+    "named_price": 20, 
+    "city_id": 1,
+    "complete_by_time": 1315571520 // 2011-09-09 08:32 AM
+  }
+}
+```
+
+### Simplified Response
+
+* Status Code: 200
+* Content-Type: application/json
+
+```json
+{
+  "complete_by_time": 1315609200, // 2011-09-09 07:00 PM
+  "assign_by_time": 1315594800    // 2011-09-09 03:00 PM
+}
+```
+
+Default times will be set by TaskRabbit. Defaults are determined programmatically based on task types.
+
+## Setting the assign by time in the past
+
+### POST /api/v1/tasks
+
+* Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d
+* Content-Type: application/json
+
+```json
+{
+  "task": {
+    "name":"Dog walking",
+    "named_price": 20, 
+    "city_id": 1,
+    "assign_by_time": 1315571520 // 2011-09-09 08:32 AM
+  }
+}
+```
+
+### Simplified Response
+
+* Status Code: 200
+* Content-Type: application/json
+
+```json
+{
+  "complete_by_time": 1315609200, // 2011-09-09 07:00 PM
+  "assign_by_time": 1315594800    // 2011-09-09 03:00 PM
+}
+```
+
+Default times will be set by TaskRabbit. Defaults are determined programmatically based on task types.
