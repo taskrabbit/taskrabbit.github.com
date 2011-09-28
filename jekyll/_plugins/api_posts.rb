@@ -11,7 +11,7 @@ module Jekyll
     #
     # Returns -1, 0, 1
     def <=>(other)
-      cmp = self.order <=> other.order
+      cmp = other.order <=> self.order
       if 0 == cmp
        cmp = super
       end
