@@ -1,2 +1,3 @@
 permalink: /:title.html
-markdown: rdiscount
+markdown: kramdown
+auto: true
