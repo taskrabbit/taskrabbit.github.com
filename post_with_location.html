@@ -35,75 +35,75 @@
       </div>
       <div id="content" class="span-18 last">
 
-        <h1 id="posting-a-task-with-locations">Posting a Task with locations</h1>
+        <h1>Posting a Task with locations</h1>
 
 <p>Posting a Task with locations allows TaskRabbit to alert based on geography in conjunction with other Task attributes.</p>
 
-<h2 id="setup">Setup</h2>
+<h2>Setup</h2>
 
 <ul>
-  <li>There is a user who is authenticated to your client application</li>
-  <li>The user has an authorization token of &ldquo;rRou72pewt102y926jfhwow438238poQR31d&rdquo;</li>
+<li>There is a user who is authenticated to your client application</li>
+<li>The user has an authorization token of &quot;rRou72pewt102y926jfhwow438238poQR31d&quot;</li>
 </ul>
 
-<h3 id="required-values">Required Values</h3>
+<h3>Required Values</h3>
 
-<p>By passing in the address of a Task location, source or destination (pickup/delivery example) will allow us to geolocate the task for alerting. You do not need to pass in the city as it will be calculated and assigned automatically based on the location information provided.</p>
+<p>By passing in the address of a Task location, source or destination (pickup&#47;delivery example) will allow us to geolocate the task for alerting. You do not need to pass in the city as it will be calculated and assigned automatically based on the location information provided.</p>
 
-<h3 id="post-apiv1tasks">POST /api/v1/tasks</h3>
+<h3>POST &#47;api&#47;v1&#47;tasks</h3>
 
 <ul>
-  <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
-  <li>Content-Type: application/json</li>
+<li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
+<li>Content-Type: application&#47;json</li>
 </ul>
-
-<p><code>json
-{
-  "task": {
-    "name":"My First Task", 
-    "named_price": 20, 
-    "other_locations_attributes": [
+<div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>task</span><span style="color:#404">&quot;</span></span>: {
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">My First Task</span><span style="color:#710">&quot;</span></span>, 
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">20</span>, 
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>other_locations_attributes</span><span style="color:#404">&quot;</span></span>: [
       {
-        "name": "Home",
-        "address": "123 Main St",
-        "city": "Boston",
-        "state": "MA",
-        "zip": "02154",
-        "lat": "42.358432",
-        "lng": "-71.059774"
+        <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Home</span><span style="color:#710">&quot;</span></span>,
+        <span style="color:#606"><span style="color:#404">&quot;</span><span>address</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">123 Main St</span><span style="color:#710">&quot;</span></span>,
+        <span style="color:#606"><span style="color:#404">&quot;</span><span>city</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Boston</span><span style="color:#710">&quot;</span></span>,
+        <span style="color:#606"><span style="color:#404">&quot;</span><span>state</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">MA</span><span style="color:#710">&quot;</span></span>,
+        <span style="color:#606"><span style="color:#404">&quot;</span><span>zip</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">02154</span><span style="color:#710">&quot;</span></span>,
+        <span style="color:#606"><span style="color:#404">&quot;</span><span>lat</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">42.358432</span><span style="color:#710">&quot;</span></span>,
+        <span style="color:#606"><span style="color:#404">&quot;</span><span>lng</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">-71.059774</span><span style="color:#710">&quot;</span></span>
       }, 
       {
-        "name": "Middle of the park",
-        "lat": "42.358430",
-        "lng": "-71.059772"
+        <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Middle of the park</span><span style="color:#710">&quot;</span></span>,
+        <span style="color:#606"><span style="color:#404">&quot;</span><span>lat</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">42.358430</span><span style="color:#710">&quot;</span></span>,
+        <span style="color:#606"><span style="color:#404">&quot;</span><span>lng</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">-71.059772</span><span style="color:#710">&quot;</span></span>
       }
     ]
   }
 }
-</code></p>
+</pre></div>
+</div>
 
-<h3 id="simplified-response">Simplified Response</h3>
+<h3>Simplified Response</h3>
 
 <ul>
-  <li>Status Code: 200</li>
-  <li>Content-Type: application/json</li>
+<li>Status Code: 200</li>
+<li>Content-Type: application&#47;json</li>
 </ul>
-
-<p><code>json
-{
-  "id": 2820,
-  "name": "My First Task",
-  "named_price": 20,
-  "state": "opened",
-  "city": {
-    "name": "Boston",
-    "id": 1
+<div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">2820</span>,
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">My First Task</span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">20</span>,
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>state</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">opened</span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>city</span><span style="color:#404">&quot;</span></span>: {
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Boston</span><span style="color:#710">&quot;</span></span>,
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>
   },
-  "links": {
-    "get": "/api/v1/tasks/2820"
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>links</span><span style="color:#404">&quot;</span></span>: {
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>get</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">/api/v1/tasks/2820</span><span style="color:#710">&quot;</span></span>
   }
 }
-</code></p>
+</pre></div>
+</div>
 
 
       </div>

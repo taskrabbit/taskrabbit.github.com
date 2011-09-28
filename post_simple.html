@@ -35,227 +35,228 @@
       </div>
       <div id="content" class="span-18 last">
 
-        <h1 id="posting-a-simple-task">Posting a Simple Task</h1>
+        <h1>Posting a Simple Task</h1>
 
 <p>TaskRabbit allows posting of Tasks by a client application on behalf of a user that has authorized that application. Authorization is done through OAuth and assigns a unique token to the user for for the application to use. This key is passed in all requests.</p>
 
-<h2 id="setup">Setup</h2>
+<h2>Setup</h2>
 
 <ul>
-  <li>There is a user who is authenticated to your client application</li>
-  <li>The user has an authorization token of &ldquo;rRou72pewt102y926jfhwow438238poQR31d&rdquo;</li>
+<li>There is a user who is authenticated to your client application</li>
+<li>The user has an authorization token of &quot;rRou72pewt102y926jfhwow438238poQR31d&quot;</li>
 </ul>
 
-<h2 id="creating-a-new-task">Creating a new Task</h2>
+<h2>Creating a new Task</h2>
 
 <p>To create a task, the client application POSTs data, the content can be either a json or x-www-form-urlencoded.</p>
 
-<h3 id="required-values">Required Values</h3>
+<h3>Required Values</h3>
 
 <ul>
-  <li>name: The short, public text shown to describe the Task</li>
-  <li>named_price: The integer amount, in whole US Dollars, the TaskPoster is willing to pay for the Task</li>
-  <li>city_id: The metro area where the Task will occur
-    <ul>
-      <li>1 -&gt; Boston</li>
-      <li>3 -&gt; SF Bay Area</li>
-      <li>4 -&gt; New York City</li>
-      <li>6 -&gt; Los Angeles</li>
-      <li>40 -&gt; Orange County</li>
-    </ul>
-  </li>
-</ul>
-
-<h3 id="post-apiv1tasks">POST /api/v1/tasks</h3>
+<li>name: The short, public text shown to describe the Task</li>
+<li>named_price: The integer amount, in whole US Dollars, the TaskPoster is willing to pay for the Task</li>
+<li>city_id: The metro area where the Task will occur
 
 <ul>
-  <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
-  <li>Content-Type: application/json</li>
+<li>1 -&gt; Boston</li>
+<li>3 -&gt; SF Bay Area</li>
+<li>4 -&gt; New York City</li>
+<li>6 -&gt; Los Angeles</li>
+<li>40 -&gt; Orange County</li>
+</ul></li>
 </ul>
 
-<p><code>json
-{
-  "task": {
-    "name":"My First Task", 
-    "named_price": 20, 
-    "city_id": 4
+<h3>POST &#47;api&#47;v1&#47;tasks</h3>
+
+<ul>
+<li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
+<li>Content-Type: application&#47;json</li>
+</ul>
+<div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>task</span><span style="color:#404">&quot;</span></span>: {
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">My First Task</span><span style="color:#710">&quot;</span></span>, 
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">20</span>, 
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>city_id</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">4</span>
   }
 }
-</code></p>
+</pre></div>
+</div>
 
-<h3 id="simplified-response">Simplified Response</h3>
+<h3>Simplified Response</h3>
 
 <ul>
-  <li>Status Code: 200</li>
-  <li>Content-Type: application/json</li>
+<li>Status Code: 200</li>
+<li>Content-Type: application&#47;json</li>
 </ul>
-
-<p><code>json
-{
-  "id":9221,
-  "name":"My First Task",
-  "named_price": 20,
-  "state":"opened",
-  "city":{
-    "id":4,
-    "name":"New York City"
+<div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>:<span style="color:#00D">9221</span>,
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">My First Task</span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">20</span>,
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>state</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">opened</span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>city</span><span style="color:#404">&quot;</span></span>:{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>:<span style="color:#00D">4</span>,
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">New York City</span><span style="color:#710">&quot;</span></span>
   },
-  "links":{
-    "get":"/api/v1/tasks/9221"
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>links</span><span style="color:#404">&quot;</span></span>:{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>get</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">/api/v1/tasks/9221</span><span style="color:#710">&quot;</span></span>
   }
 }
-</code></p>
+</pre></div>
+</div>
 
-<h3 id="post-apiv1tasks-1">POST /api/v1/tasks</h3>
+<h3>POST &#47;api&#47;v1&#47;tasks</h3>
 
 <ul>
-  <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
-  <li>Content-Type: application/x-www-form-urlencoded</li>
+<li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
+<li>Content-Type: application&#47;x-www-form-urlencoded</li>
 </ul>
-
-<p><code>
-task:
+<div class="CodeRay">
+  <div class="code"><pre>task:
   name: My Second Task
   named_price: 20
   city_id: 4
-</code></p>
+</pre></div>
+</div>
 
-<h3 id="simplified-response-1">Simplified Response</h3>
+<h3>Simplified Response</h3>
 
 <ul>
-  <li>Status Code: 200</li>
-  <li>Content-Type: application/json</li>
+<li>Status Code: 200</li>
+<li>Content-Type: application&#47;json</li>
 </ul>
-
-<p><code>json
-{
-  "id":9222,
-  "name":"My Second Task",
-  "named_price": 20,
-  "state":"opened",
-  "city":{
-    "id":4,
-    "name":"New York City"
+<div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>:<span style="color:#00D">9222</span>,
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">My Second Task</span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">20</span>,
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>state</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">opened</span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>city</span><span style="color:#404">&quot;</span></span>:{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>:<span style="color:#00D">4</span>,
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">New York City</span><span style="color:#710">&quot;</span></span>
   },
-  "links":{
-    "get":"/api/v1/tasks/9222"
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>links</span><span style="color:#404">&quot;</span></span>:{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>get</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">/api/v1/tasks/9222</span><span style="color:#710">&quot;</span></span>
   }
 }
-</code></p>
+</pre></div>
+</div>
 
-<h1 id="error-cases">Error Cases</h1>
+<h1>Error Cases</h1>
 
 <p>The server will respond with different status codes when there is a problem posting the Task.</p>
 
-<h2 id="incorrect-authorization">Incorrect Authorization</h2>
+<h2>Incorrect Authorization</h2>
 
-<h3 id="post-apiv1tasks-2">POST /api/v1/tasks</h3>
+<h3>POST &#47;api&#47;v1&#47;tasks</h3>
 
 <ul>
-  <li>Authorization: OAuth XXXXXX</li>
-  <li>Content-Type: application/json</li>
+<li>Authorization: OAuth XXXXXX</li>
+<li>Content-Type: application&#47;json</li>
 </ul>
-
-<p><code>json
-{
-  "task": {
-    "name":"My First Task", 
-    "named_price": 20, 
-    "city_id": 4
+<div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>task</span><span style="color:#404">&quot;</span></span>: {
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">My First Task</span><span style="color:#710">&quot;</span></span>, 
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">20</span>, 
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>city_id</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">4</span>
   }
 }
-</code></p>
+</pre></div>
+</div>
 
-<h3 id="unauthorized">401 Unauthorized</h3>
+<h3>401 Unauthorized</h3>
+
 <ul>
-  <li>Content-Type: application/json</li>
+<li>Content-Type: application&#47;json</li>
 </ul>
-
-<p><code>json
-{
-  "error":"There must be an authenticated user for this action"
+<div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>error</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">There must be an authenticated user for this action</span><span style="color:#710">&quot;</span></span>
 }
-</code></p>
+</pre></div>
+</div>
 
-<h2 id="missing-required-fields">Missing Required Fields</h2>
+<h2>Missing Required Fields</h2>
 
-<h3 id="post-apiv1tasks-3">POST /api/v1/tasks</h3>
+<h3>POST &#47;api&#47;v1&#47;tasks</h3>
 
 <ul>
-  <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
-  <li>Content-Type: application/json</li>
+<li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
+<li>Content-Type: application&#47;json</li>
 </ul>
-
-<p><code>json
-{
-  "task": {
-    "name":"", 
-    "named_price": "twenty"
+<div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>task</span><span style="color:#404">&quot;</span></span>: {
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#710">&quot;</span></span>, 
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">twenty</span><span style="color:#710">&quot;</span></span>
   }
 }
-</code></p>
+</pre></div>
+</div>
 
-<h3 id="unprocessable-entity">422 Unprocessable Entity</h3>
-
-<p><code>json
-{
-  "errors":{
-    "messages":["Task title can't be blank", "Amount you are willing to pay is not a number"],
-    "fields":[["name","can't be blank"], ["named_price","is not a number"]]
+<h3>422 Unprocessable Entity</h3>
+<div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>errors</span><span style="color:#404">&quot;</span></span>:{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>messages</span><span style="color:#404">&quot;</span></span>:[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Task title can't be blank</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Amount you are willing to pay is not a number</span><span style="color:#710">&quot;</span></span>],
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>fields</span><span style="color:#404">&quot;</span></span>:[[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">name</span><span style="color:#710">&quot;</span></span>,<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">can't be blank</span><span style="color:#710">&quot;</span></span>], [<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">named_price</span><span style="color:#710">&quot;</span></span>,<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">is not a number</span><span style="color:#710">&quot;</span></span>]]
   },
-  "error":"Task title can't be blank, \nAmount you are willing to pay is not a number"
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>error</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Task title can't be blank, </span><span style="color:#b0b">\n</span><span style="color:#D20">Amount you are willing to pay is not a number</span><span style="color:#710">&quot;</span></span>
 }
-</code></p>
+</pre></div>
+</div>
 
-<h2 id="credit-card-problems">Credit Card Problems</h2>
+<h2>Credit Card Problems</h2>
 
-<p>In the previous requests, TaskRabbit was using the user&rsquo;s credit card on file.</p>
-
-<ul>
-  <li>Given the user does not have a credit card on file</li>
-  <li>Then the Task will still be created, but not posted</li>
-</ul>
-
-<h3 id="post-apiv1tasks-4">POST /api/v1/tasks</h3>
+<p>In the previous requests, TaskRabbit was using the user&#39;s credit card on file.</p>
 
 <ul>
-  <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
-  <li>Content-Type: application/json</li>
+<li>Given the user does not have a credit card on file</li>
+<li>Then the Task will still be created, but not posted</li>
 </ul>
 
-<p><code>json
-{
-  "task": {
-    "name":"My Third Task", 
-    "named_price": 20, 
-    "city_id": 4
+<h3>POST &#47;api&#47;v1&#47;tasks</h3>
+
+<ul>
+<li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
+<li>Content-Type: application&#47;json</li>
+</ul>
+<div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>task</span><span style="color:#404">&quot;</span></span>: {
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">My Third Task</span><span style="color:#710">&quot;</span></span>, 
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">20</span>, 
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>city_id</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">4</span>
   }
 }
-</code></p>
+</pre></div>
+</div>
 
-<h3 id="simplified-response-2">Simplified Response</h3>
+<h3>Simplified Response</h3>
 
 <ul>
-  <li>Status Code: 201</li>
-  <li>Content-Type: application/json</li>
+<li>Status Code: 201</li>
+<li>Content-Type: application&#47;json</li>
 </ul>
-
-<p><code>json
-{
-  "id":9223,
-  "name":"My Third Task",
-  "named_price": 20,
-  "state":"unpaid",
-  "city":{
-    "id":4,
-    "name":"New York City"
+<div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>:<span style="color:#00D">9223</span>,
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">My Third Task</span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">20</span>,
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>state</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">unpaid</span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>city</span><span style="color:#404">&quot;</span></span>:{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>:<span style="color:#00D">4</span>,
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">New York City</span><span style="color:#710">&quot;</span></span>
   },
-  "links":{
-    "get":"/api/v1/tasks/9223",
-    "redirect":"https://test.taskrabbit.com/tasks/my-third-task?card=true"
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>links</span><span style="color:#404">&quot;</span></span>:{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>get</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">/api/v1/tasks/9223</span><span style="color:#710">&quot;</span></span>,
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>redirect</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">https://test.taskrabbit.com/tasks/my-third-task?card=true</span><span style="color:#710">&quot;</span></span>
   }
 }
-</code></p>
+</pre></div>
+</div>
 
 <p>Whenever the links[redirect] key is present, the user should be shown the URL given. In this case, the page will allow the user to enter her credit card number to complete the transaction.</p>
 

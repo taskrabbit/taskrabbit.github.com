@@ -35,61 +35,61 @@
       </div>
       <div id="content" class="span-18 last">
 
-        <h1 id="posting-a-task-with-a-sound">Posting a Task with a sound</h1>
+        <h1>Posting a Task with a sound</h1>
 
 <p>TaskRabbit allows the posting of a sound recording in MP3 and AAC format with a size limit of 2MB.
 Adding a descriptive sound recording from application with limited text input greatly increases the assignment rate.</p>
 
-<h2 id="setup">Setup</h2>
+<h2>Setup</h2>
 
 <ul>
-  <li>There is a user who is authenticated to your client application</li>
-  <li>The user has an authorization token of &ldquo;rRou72pewt102y926jfhwow438238poQR31d&rdquo;</li>
+<li>There is a user who is authenticated to your client application</li>
+<li>The user has an authorization token of &quot;rRou72pewt102y926jfhwow438238poQR31d&quot;</li>
 </ul>
 
-<h3 id="required-values">Required Values</h3>
+<h3>Required Values</h3>
 
-<h3 id="post-apiv1tasks">POST /api/v1/tasks</h3>
+<h3>POST &#47;api&#47;v1&#47;tasks</h3>
 
 <ul>
-  <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
+<li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
 </ul>
-
-<p><code>
-task:
+<div class="CodeRay">
+  <div class="code"><pre>task:
   name: Walk my dog
   named_price: 15
   city_id: 3
   uploaded_sounds_attributes:
-    "1":
+    &quot;1&quot;:
       audio: BINARY_FILE_GETS_REPLACED_HERE
-</code></p>
+</pre></div>
+</div>
 
-<h3 id="simplified-response">Simplified Response</h3>
+<h3>Simplified Response</h3>
 
 <ul>
-  <li>Status Code: 200</li>
-  <li>Content-Type: application/json</li>
+<li>Status Code: 200</li>
+<li>Content-Type: application&#47;json</li>
 </ul>
-
-<p><code>json
-{
-  "id":9221,
-  "name":"Walk my dog",
-  "named_price": 15,
-  "state":"opened",
-  "city":{
-    "id":3,
-    "name":"SF Bay Area"
+<div class="CodeRay">
+  <div class="code"><pre>{
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>:<span style="color:#00D">9221</span>,
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Walk my dog</span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">15</span>,
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>state</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">opened</span><span style="color:#710">&quot;</span></span>,
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>city</span><span style="color:#404">&quot;</span></span>:{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>:<span style="color:#00D">3</span>,
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">SF Bay Area</span><span style="color:#710">&quot;</span></span>
   },
-  "links":{
-    "get":"/api/v1/tasks/9221"
+  <span style="color:#606"><span style="color:#404">&quot;</span><span>links</span><span style="color:#404">&quot;</span></span>:{
+    <span style="color:#606"><span style="color:#404">&quot;</span><span>get</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">/api/v1/tasks/9221</span><span style="color:#710">&quot;</span></span>
   }
 }
-</code></p>
+</pre></div>
+</div>
 
 <ul>
-  <li>And the &ldquo;Walk my dog&rdquo; task should have 1 sound even though it&rsquo;s not returned in the JSON</li>
+<li>And the &quot;Walk my dog&quot; task should have 1 sound even though it&#39;s not returned in the JSON</li>
 </ul>
 
 
