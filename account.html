@@ -8,6 +8,7 @@
     <link href="/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/grid.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/documentation.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/pigments.css" media="screen" rel="stylesheet" type="text/css" />
   </head>
   
   <body>
@@ -62,46 +63,45 @@
 <li>Status Code: 200</li>
 <li>Content-Type: application&#47;json</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>city</span><span style="color:#404">&quot;</span></span>: {
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Boston</span><span style="color:#710">&quot;</span></span>
-  },
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>zip_code</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">02102</span><span style="color:#710">&quot;</span></span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">3766</span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>tasks</span><span style="color:#404">&quot;</span></span>: {
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>items</span><span style="color:#404">&quot;</span></span>: [
-      {
-        <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">My Task</span><span style="color:#710">&quot;</span></span>,
-        <span style="color:#606"><span style="color:#404">&quot;</span><span>state</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">opened</span><span style="color:#710">&quot;</span></span>,
-        <span style="color:#606"><span style="color:#404">&quot;</span><span>city</span><span style="color:#404">&quot;</span></span>: {
-          <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>,
-          <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Boston</span><span style="color:#710">&quot;</span></span>
-        }
-      }
-    ],
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>links</span><span style="color:#404">&quot;</span></span>: {
-      <span style="color:#606"><span style="color:#404">&quot;</span><span>get</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">/api/v1/users/3766/tasks</span><span style="color:#710">&quot;</span></span>
-    }
-  },
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>first_name</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Willis</span><span style="color:#710">&quot;</span></span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>short_name</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Willis</span><span style="color:#710">&quot;</span></span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>full_name</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Willis Ford</span><span style="color:#710">&quot;</span></span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>last_name</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Ford</span><span style="color:#710">&quot;</span></span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>display_name</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Willis F.</span><span style="color:#710">&quot;</span></span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>links</span><span style="color:#404">&quot;</span></span>: {
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>get</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">/api/v1/users/3766</span><span style="color:#710">&quot;</span></span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>avatar_url</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">http://test.taskrabbit.com/images/default_avatars/poster_thumb.gif</span><span style="color:#710">&quot;</span></span>
-  },
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>locations</span><span style="color:#404">&quot;</span></span>: {
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>items</span><span style="color:#404">&quot;</span></span>: [],
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>links</span><span style="color:#404">&quot;</span></span>: {
-      <span style="color:#606"><span style="color:#404">&quot;</span><span>get</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">/api/v1/users/3766/locations</span><span style="color:#710">&quot;</span></span>
-    }
-  }
-}
-</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;city&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Boston&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;zip_code&quot;</span><span class="o">:</span> <span class="s2">&quot;02102&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">3766</span><span class="p">,</span>
+  <span class="s2">&quot;tasks&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;My Task&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;state&quot;</span><span class="o">:</span> <span class="s2">&quot;opened&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;city&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Boston&quot;</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;links&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;get&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/users/3766/tasks&quot;</span>
+    <span class="p">}</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;first_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Willis&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;short_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Willis&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;full_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Willis Ford&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;last_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Ford&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;display_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Willis F.&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;links&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;get&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/users/3766&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;avatar_url&quot;</span><span class="o">:</span> <span class="s2">&quot;http://test.taskrabbit.com/images/default_avatars/poster_thumb.gif&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;locations&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">[],</span>
+    <span class="s2">&quot;links&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;get&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/users/3766/locations&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
 </div>
 
 <h1>Error Cases</h1>
@@ -116,16 +116,15 @@
 <li>Authorization: OAuth XXXXXX</li>
 </ul>
 
-<h76163584>401 Unauthorized</h3>
+<h3>401 Unauthorized</h3>
 
 <ul>
 <li>Content-Type: application&#47;json</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>error</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">There must be an authenticated user for this action</span><span style="color:#710">&quot;</span></span>
-}
-</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="s2">&quot;There must be an authenticated user for this action&quot;</span>
+<span class="p">}</span>
+</pre>
 </div>
 
 

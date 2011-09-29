@@ -8,6 +8,7 @@
     <link href="/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/grid.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/documentation.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/pigments.css" media="screen" rel="stylesheet" type="text/css" />
   </head>
   
   <body>
@@ -54,16 +55,13 @@ Adding a descriptive sound recording from application with limited text input gr
 <ul>
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>task:
+task:
   name: Walk my dog
   named_price: 15
   city_id: 3
   uploaded_sounds_attributes:
-    &quot;1&quot;:
+    "1":
       audio: BINARY_FILE_GETS_REPLACED_HERE
-</pre></div>
-</div>
 
 <h3>Simplified Response</h3>
 
@@ -71,21 +69,20 @@ Adding a descriptive sound recording from application with limited text input gr
 <li>Status Code: 200</li>
 <li>Content-Type: application&#47;json</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>:<span style="color:#00D">9221</span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Walk my dog</span><span style="color:#710">&quot;</span></span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">15</span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>state</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">opened</span><span style="color:#710">&quot;</span></span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>city</span><span style="color:#404">&quot;</span></span>:{
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>:<span style="color:#00D">3</span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">SF Bay Area</span><span style="color:#710">&quot;</span></span>
-  },
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>links</span><span style="color:#404">&quot;</span></span>:{
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>get</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">/api/v1/tasks/9221</span><span style="color:#710">&quot;</span></span>
-  }
-}
-</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">9221</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;Walk my dog&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">15</span><span class="p">,</span>
+  <span class="s2">&quot;state&quot;</span><span class="o">:</span><span class="s2">&quot;opened&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;city&quot;</span><span class="o">:</span><span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">3</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;SF Bay Area&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;links&quot;</span><span class="o">:</span><span class="p">{</span>
+    <span class="s2">&quot;get&quot;</span><span class="o">:</span><span class="s2">&quot;/api/v1/tasks/9221&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
 </div>
 
 <ul>

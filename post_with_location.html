@@ -8,6 +8,7 @@
     <link href="/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/grid.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/documentation.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/pigments.css" media="screen" rel="stylesheet" type="text/css" />
   </head>
   
   <body>
@@ -56,30 +57,29 @@
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
 <li>Content-Type: application&#47;json</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>task</span><span style="color:#404">&quot;</span></span>: {
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">My First Task</span><span style="color:#710">&quot;</span></span>, 
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">20</span>, 
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>other_locations_attributes</span><span style="color:#404">&quot;</span></span>: [
-      {
-        <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Home</span><span style="color:#710">&quot;</span></span>,
-        <span style="color:#606"><span style="color:#404">&quot;</span><span>address</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">123 Main St</span><span style="color:#710">&quot;</span></span>,
-        <span style="color:#606"><span style="color:#404">&quot;</span><span>city</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Boston</span><span style="color:#710">&quot;</span></span>,
-        <span style="color:#606"><span style="color:#404">&quot;</span><span>state</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">MA</span><span style="color:#710">&quot;</span></span>,
-        <span style="color:#606"><span style="color:#404">&quot;</span><span>zip</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">02154</span><span style="color:#710">&quot;</span></span>,
-        <span style="color:#606"><span style="color:#404">&quot;</span><span>lat</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">42.358432</span><span style="color:#710">&quot;</span></span>,
-        <span style="color:#606"><span style="color:#404">&quot;</span><span>lng</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">-71.059774</span><span style="color:#710">&quot;</span></span>
-      }, 
-      {
-        <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Middle of the park</span><span style="color:#710">&quot;</span></span>,
-        <span style="color:#606"><span style="color:#404">&quot;</span><span>lat</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">42.358430</span><span style="color:#710">&quot;</span></span>,
-        <span style="color:#606"><span style="color:#404">&quot;</span><span>lng</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">-71.059772</span><span style="color:#710">&quot;</span></span>
-      }
-    ]
-  }
-}
-</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;My First Task&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> 
+    <span class="s2">&quot;other_locations_attributes&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Home&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;address&quot;</span><span class="o">:</span> <span class="s2">&quot;123 Main St&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;city&quot;</span><span class="o">:</span> <span class="s2">&quot;Boston&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;state&quot;</span><span class="o">:</span> <span class="s2">&quot;MA&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;zip&quot;</span><span class="o">:</span> <span class="s2">&quot;02154&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;lat&quot;</span><span class="o">:</span> <span class="s2">&quot;42.358432&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;lng&quot;</span><span class="o">:</span> <span class="s2">&quot;-71.059774&quot;</span>
+      <span class="p">},</span> 
+      <span class="p">{</span>
+        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Middle of the park&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;lat&quot;</span><span class="o">:</span> <span class="s2">&quot;42.358430&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;lng&quot;</span><span class="o">:</span> <span class="s2">&quot;-71.059772&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
 </div>
 
 <h3>Simplified Response</h3>
@@ -88,21 +88,20 @@
 <li>Status Code: 200</li>
 <li>Content-Type: application&#47;json</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">2820</span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">My First Task</span><span style="color:#710">&quot;</span></span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">20</span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>state</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">opened</span><span style="color:#710">&quot;</span></span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>city</span><span style="color:#404">&quot;</span></span>: {
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Boston</span><span style="color:#710">&quot;</span></span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>
-  },
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>links</span><span style="color:#404">&quot;</span></span>: {
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>get</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">/api/v1/tasks/2820</span><span style="color:#710">&quot;</span></span>
-  }
-}
-</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">2820</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;My First Task&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+  <span class="s2">&quot;state&quot;</span><span class="o">:</span> <span class="s2">&quot;opened&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;city&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Boston&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">1</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;links&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;get&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/tasks/2820&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
 </div>
 
 

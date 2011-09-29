@@ -8,6 +8,7 @@
     <link href="/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/grid.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/documentation.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/pigments.css" media="screen" rel="stylesheet" type="text/css" />
   </head>
   
   <body>
@@ -72,15 +73,14 @@
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
 <li>Content-Type: application&#47;json</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>task</span><span style="color:#404">&quot;</span></span>: {
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">My First Task</span><span style="color:#710">&quot;</span></span>, 
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">20</span>, 
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>city_id</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">4</span>
-  }
-}
-</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;My First Task&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> 
+    <span class="s2">&quot;city_id&quot;</span><span class="o">:</span> <span class="mi">4</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
 </div>
 
 <h3>Simplified Response</h3>
@@ -89,21 +89,20 @@
 <li>Status Code: 200</li>
 <li>Content-Type: application&#47;json</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>:<span style="color:#00D">9221</span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">My First Task</span><span style="color:#710">&quot;</span></span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">20</span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>state</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">opened</span><span style="color:#710">&quot;</span></span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>city</span><span style="color:#404">&quot;</span></span>:{
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>:<span style="color:#00D">4</span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">New York City</span><span style="color:#710">&quot;</span></span>
-  },
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>links</span><span style="color:#404">&quot;</span></span>:{
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>get</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">/api/v1/tasks/9221</span><span style="color:#710">&quot;</span></span>
-  }
-}
-</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">9221</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;My First Task&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+  <span class="s2">&quot;state&quot;</span><span class="o">:</span><span class="s2">&quot;opened&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;city&quot;</span><span class="o">:</span><span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">4</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;New York City&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;links&quot;</span><span class="o">:</span><span class="p">{</span>
+    <span class="s2">&quot;get&quot;</span><span class="o">:</span><span class="s2">&quot;/api/v1/tasks/9221&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
 </div>
 
 <h3>POST &#47;api&#47;v1&#47;tasks</h3>
@@ -112,13 +111,10 @@
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
 <li>Content-Type: application&#47;x-www-form-urlencoded</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>task:
+task:
   name: My Second Task
   named_price: 20
   city_id: 4
-</pre></div>
-</div>
 
 <h3>Simplified Response</h3>
 
@@ -126,21 +122,20 @@
 <li>Status Code: 200</li>
 <li>Content-Type: application&#47;json</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>:<span style="color:#00D">9222</span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">My Second Task</span><span style="color:#710">&quot;</span></span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">20</span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>state</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">opened</span><span style="color:#710">&quot;</span></span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>city</span><span style="color:#404">&quot;</span></span>:{
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>:<span style="color:#00D">4</span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">New York City</span><span style="color:#710">&quot;</span></span>
-  },
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>links</span><span style="color:#404">&quot;</span></span>:{
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>get</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">/api/v1/tasks/9222</span><span style="color:#710">&quot;</span></span>
-  }
-}
-</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">9222</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;My Second Task&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+  <span class="s2">&quot;state&quot;</span><span class="o">:</span><span class="s2">&quot;opened&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;city&quot;</span><span class="o">:</span><span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">4</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;New York City&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;links&quot;</span><span class="o">:</span><span class="p">{</span>
+    <span class="s2">&quot;get&quot;</span><span class="o">:</span><span class="s2">&quot;/api/v1/tasks/9222&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
 </div>
 
 <h1>Error Cases</h1>
@@ -155,15 +150,14 @@
 <li>Authorization: OAuth XXXXXX</li>
 <li>Content-Type: application&#47;json</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>task</span><span style="color:#404">&quot;</span></span>: {
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">My First Task</span><span style="color:#710">&quot;</span></span>, 
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">20</span>, 
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>city_id</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">4</span>
-  }
-}
-</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;My First Task&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> 
+    <span class="s2">&quot;city_id&quot;</span><span class="o">:</span> <span class="mi">4</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
 </div>
 
 <h3>401 Unauthorized</h3>
@@ -171,11 +165,10 @@
 <ul>
 <li>Content-Type: application&#47;json</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>error</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">There must be an authenticated user for this action</span><span style="color:#710">&quot;</span></span>
-}
-</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="s2">&quot;There must be an authenticated user for this action&quot;</span>
+<span class="p">}</span>
+</pre>
 </div>
 
 <h2>Missing Required Fields</h2>
@@ -186,26 +179,24 @@
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
 <li>Content-Type: application&#47;json</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>task</span><span style="color:#404">&quot;</span></span>: {
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#710">&quot;</span></span>, 
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">twenty</span><span style="color:#710">&quot;</span></span>
-  }
-}
-</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="s2">&quot;twenty&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
 </div>
 
 <h3>422 Unprocessable Entity</h3>
-<div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>errors</span><span style="color:#404">&quot;</span></span>:{
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>messages</span><span style="color:#404">&quot;</span></span>:[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Task title can't be blank</span><span style="color:#710">&quot;</span></span>, <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Amount you are willing to pay is not a number</span><span style="color:#710">&quot;</span></span>],
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>fields</span><span style="color:#404">&quot;</span></span>:[[<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">name</span><span style="color:#710">&quot;</span></span>,<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">can't be blank</span><span style="color:#710">&quot;</span></span>], [<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">named_price</span><span style="color:#710">&quot;</span></span>,<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">is not a number</span><span style="color:#710">&quot;</span></span>]]
-  },
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>error</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Task title can't be blank, </span><span style="color:#b0b">\n</span><span style="color:#D20">Amount you are willing to pay is not a number</span><span style="color:#710">&quot;</span></span>
-}
-</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;errors&quot;</span><span class="o">:</span><span class="p">{</span>
+    <span class="s2">&quot;messages&quot;</span><span class="o">:</span><span class="p">[</span><span class="s2">&quot;Task title can&#39;t be blank&quot;</span><span class="p">,</span> <span class="s2">&quot;Amount you are willing to pay is not a number&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;fields&quot;</span><span class="o">:</span><span class="p">[[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="s2">&quot;can&#39;t be blank&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;named_price&quot;</span><span class="p">,</span><span class="s2">&quot;is not a number&quot;</span><span class="p">]]</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="s2">&quot;Task title can&#39;t be blank, \nAmount you are willing to pay is not a number&quot;</span>
+<span class="p">}</span>
+</pre>
 </div>
 
 <h2>Credit Card Problems</h2>
@@ -223,15 +214,14 @@
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
 <li>Content-Type: application&#47;json</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>task</span><span style="color:#404">&quot;</span></span>: {
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">My Third Task</span><span style="color:#710">&quot;</span></span>, 
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">20</span>, 
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>city_id</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">4</span>
-  }
-}
-</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;My Third Task&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> 
+    <span class="s2">&quot;city_id&quot;</span><span class="o">:</span> <span class="mi">4</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
 </div>
 
 <h3>Simplified Response</h3>
@@ -240,22 +230,21 @@
 <li>Status Code: 201</li>
 <li>Content-Type: application&#47;json</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>:<span style="color:#00D">9223</span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">My Third Task</span><span style="color:#710">&quot;</span></span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">20</span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>state</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">unpaid</span><span style="color:#710">&quot;</span></span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>city</span><span style="color:#404">&quot;</span></span>:{
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>:<span style="color:#00D">4</span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">New York City</span><span style="color:#710">&quot;</span></span>
-  },
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>links</span><span style="color:#404">&quot;</span></span>:{
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>get</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">/api/v1/tasks/9223</span><span style="color:#710">&quot;</span></span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>redirect</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">https://test.taskrabbit.com/tasks/my-third-task?card=true</span><span style="color:#710">&quot;</span></span>
-  }
-}
-</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">9223</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;My Third Task&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+  <span class="s2">&quot;state&quot;</span><span class="o">:</span><span class="s2">&quot;unpaid&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;city&quot;</span><span class="o">:</span><span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">4</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;New York City&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;links&quot;</span><span class="o">:</span><span class="p">{</span>
+    <span class="s2">&quot;get&quot;</span><span class="o">:</span><span class="s2">&quot;/api/v1/tasks/9223&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;redirect&quot;</span><span class="o">:</span><span class="s2">&quot;https://test.taskrabbit.com/tasks/my-third-task?card=true&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
 </div>
 
 <p>Whenever the links[redirect] key is present, the user should be shown the URL given. In this case, the page will allow the user to enter her credit card number to complete the transaction.</p>

@@ -8,6 +8,7 @@
     <link href="/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/grid.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/documentation.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/pigments.css" media="screen" rel="stylesheet" type="text/css" />
   </head>
   
   <body>
@@ -43,8 +44,8 @@
 
 <ul>
 <li>You are the developer of the client application &quot;MyAppName&quot;</li>
-<li>The client application url is <a href="http://myappname.com">http:&#47;&#47;myappname.com</a></li>
-<li>The client application callback_url is <a href="http://myappname.com/callback">http:&#47;&#47;myappname.com&#47;callback</a></li>
+<li>The client application url is http:&#47;&#47;myappname.com</li>
+<li>The client application callback_url is http:&#47;&#47;myappname.com&#47;callback</li>
 <li>The client application key is F4evGKi20tXBoPNT3CQwJdKm8kgM3lfJchYg0g34</li>
 </ul>
 
@@ -65,7 +66,7 @@
 <h2>Setup</h2>
 
 <ul>
-<li>The authorization url will be <a href="https://taskrabbit.com/api/authorize?client_id=F4evGKi20tXBoPNT3CQwJdKm8kgM3lfJchYg0g34">https:&#47;&#47;taskrabbit.com&#47;api&#47;authorize?client_id=F4evGKi20tXBoPNT3CQwJdKm8kgM3lfJchYg0g34</a></li>
+<li>The authorization url will be https:&#47;&#47;taskrabbit.com&#47;api&#47;authorize?client_id=F4evGKi20tXBoPNT3CQwJdKm8kgM3lfJchYg0g34</li>
 </ul>
 
 <h3>User not logged in with no account</h3>
@@ -75,7 +76,7 @@
 <li>He will be asked to signup or signin</li>
 <li>After filling his informations to signup</li>
 <li>And filling his credit card informations</li>
-<li>He will be redirected to <a href="http://myappname.com/callback?access_token=someacesstoken">http:&#47;&#47;myappname.com&#47;callback?access_token=someacesstoken</a></li>
+<li>He will be redirected to http:&#47;&#47;myappname.com&#47;callback?access_token=someacesstoken</li>
 </ul>
 
 <h3>User not logged in with an account</h3>
@@ -85,7 +86,7 @@
 <li>the user follows the authorization url</li>
 <li>He will be asked to signup or signin</li>
 <li>After filling his credentials to signin</li>
-<li>He will be redirected to <a href="http://myappname.com/callback?access_token=someacesstoken">http:&#47;&#47;myappname.com&#47;callback?access_token=someacesstoken</a></li>
+<li>He will be redirected to http:&#47;&#47;myappname.com&#47;callback?access_token=someacesstoken</li>
 </ul>
 
 <h3>User is already logged in taskrabbit</h3>
@@ -96,7 +97,7 @@
 <li>The user follows the authorization url</li>
 <li>He will be asked to authorize the application</li>
 <li>After authorizing your application</li>
-<li>He will be redirected to <a href="http://myappname.com/callback?access_token=someacesstoken">http:&#47;&#47;myappname.com&#47;callback?access_token=someacesstoken</a></li>
+<li>He will be redirected to http:&#47;&#47;myappname.com&#47;callback?access_token=someacesstoken</li>
 </ul>
 
 <h1>Other cases</h1>
@@ -104,11 +105,11 @@
 <h2>Allow authorization without having to set the credit card</h2>
 
 <ul>
-<li>Then the authorization url will be <a href="https://taskrabbit.com/api/authorize?client_id=F4evGKi20tXBoPNT3CQwJdKm8kgM3lfJchYg0g34&amp;card=false">https:&#47;&#47;taskrabbit.com&#47;api&#47;authorize?client_id=F4evGKi20tXBoPNT3CQwJdKm8kgM3lfJchYg0g34&amp;card=false</a></li>
+<li>Then the authorization url will be https:&#47;&#47;taskrabbit.com&#47;api&#47;authorize?client_id=F4evGKi20tXBoPNT3CQwJdKm8kgM3lfJchYg0g34&amp;card=false</li>
 <li>The user follows the authorization url</li>
 <li>He will be asked to signup or signin</li>
 <li>After filling his informations to signup</li>
-<li>He will be redirected to <a href="http://myappname.com/callback?access_token=someacesstoken">http:&#47;&#47;myappname.com&#47;callback?access_token=someacesstoken</a></li>
+<li>He will be redirected to http:&#47;&#47;myappname.com&#47;callback?access_token=someacesstoken</li>
 </ul>
 
 <h2>Prefill fields</h2>
@@ -122,18 +123,18 @@
 <li>zip_code</li>
 <li>email</li>
 </ul></li>
-<li><p>Then the authorization url will be <a href="https://taskrabbit.com/api/authorize?client_id=F4evGKi20tXBoPNT3CQwJdKm8kgM3lfJchYg0g34&amp;name=John+Doe&amp;email=johndoe@example.com">https:&#47;&#47;taskrabbit.com&#47;api&#47;authorize?client_id=F4evGKi20tXBoPNT3CQwJdKm8kgM3lfJchYg0g34&amp;name=John+Doe&amp;email=johndoe@example.com</a></p></li>
+<li><p>Then the authorization url will be https:&#47;&#47;taskrabbit.com&#47;api&#47;authorize?client_id=F4evGKi20tXBoPNT3CQwJdKm8kgM3lfJchYg0g34&amp;name=John+Doe&amp;email=johndoe@example.com</p></li>
 <li><p>The user follows the authorization url</p></li>
 <li><p>He will be asked to signup or signin</p></li>
 <li><p>The &quot;Full name&quot; field should contain &quot;John Doe&quot;</p></li>
-<li><p>The &quot;Email&quot; field should contain &quot;<a href="mailto:johndoe@example.com">johndoe@example.com</a>&quot;</p></li>
+<li><p>The &quot;Email&quot; field should contain &quot;johndoe@example.com&quot;</p></li>
 </ul>
 
 <h2>Your client application has no callback url</h2>
 
 <ul>
 <li>When the client application has no callback_url</li>
-<li>The authorization url will be <a href="https://taskrabbit.com/api/authorize?client_id=F4evGKi20tXBoPNT3CQwJdKm8kgM3lfJchYg0g34">https:&#47;&#47;taskrabbit.com&#47;api&#47;authorize?client_id=F4evGKi20tXBoPNT3CQwJdKm8kgM3lfJchYg0g34</a></li>
+<li>The authorization url will be https:&#47;&#47;taskrabbit.com&#47;api&#47;authorize?client_id=F4evGKi20tXBoPNT3CQwJdKm8kgM3lfJchYg0g34</li>
 </ul>
 
 <h3>User not logged in with no account</h3>

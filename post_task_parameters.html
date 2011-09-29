@@ -8,6 +8,7 @@
     <link href="/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/grid.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/documentation.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/pigments.css" media="screen" rel="stylesheet" type="text/css" />
   </head>
   
   <body>
@@ -63,10 +64,7 @@
 <ul>
 <li>required</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>&quot;name&quot;: &quot;Dog walking&quot;
-</pre></div>
-</div>
+"name": "Dog walking"
 
 <h4>named_price</h4>
 
@@ -75,10 +73,7 @@
 <ul>
 <li>required</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>&quot;named_price&quot;: 20
-</pre></div>
-</div>
+"named_price": 20
 
 <h4>city_id</h4>
 
@@ -97,34 +92,22 @@
 </ul></li>
 <li>required when no locations are sent</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>&quot;city_id&quot;: 1
-</pre></div>
-</div>
+"city_id": 1
 
 <h4>description</h4>
 
 <p>The description of the task</p>
-<div class="CodeRay">
-  <div class="code"><pre>&quot;description&quot;: &quot;I want you to walk him to his favorite state park&quot;
-</pre></div>
-</div>
+"description": "I want you to walk him to his favorite state park"
 
-<h4>cost<em>in</em>cents</h4>
+<h4>cost_in_cents</h4>
 
 <p>The estimate price that the Rabbit will have to spend in cents.</p>
-<div class="CodeRay">
-  <div class="code"><pre>&quot;cost_in_cents&quot;: 500
-</pre></div>
-</div>
+"cost_in_cents": 500
 
 <h4>virtual</h4>
 
 <p>The task can be done online.</p>
-<div class="CodeRay">
-  <div class="code"><pre>&quot;virtual&quot;: true
-</pre></div>
-</div>
+"virtual": true
 
 <h3>POST &#47;api&#47;v1&#47;tasks</h3>
 
@@ -132,18 +115,17 @@
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
 <li>Content-Type: application&#47;json</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>task</span><span style="color:#404">&quot;</span></span>: {
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Dog walking</span><span style="color:#710">&quot;</span></span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">20</span>, 
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>city_id</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>description</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">I want you to walk him to his favorite state park</span><span style="color:#710">&quot;</span></span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>cost_in_cents</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">500</span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>virtual</span><span style="color:#404">&quot;</span></span>: <span style="color:#088">true</span>
-  }
-}
-</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;Dog walking&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> 
+    <span class="s2">&quot;city_id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;I want you to walk him to his favorite state park&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;cost_in_cents&quot;</span><span class="o">:</span> <span class="mi">500</span><span class="p">,</span>
+    <span class="s2">&quot;virtual&quot;</span><span class="o">:</span> <span class="kc">true</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
 </div>
 
 <h3>Simplified Response</h3>
@@ -152,23 +134,22 @@
 <li>Status Code: 200</li>
 <li>Content-Type: application&#47;json</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">2835</span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Dog walking</span><span style="color:#710">&quot;</span></span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>city</span><span style="color:#404">&quot;</span></span>: {
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Boston</span><span style="color:#710">&quot;</span></span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>id</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>
-  },
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">20</span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>cost_in_cents</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">500</span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>description</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">I want you to walk him to his favorite state park</span><span style="color:#710">&quot;</span></span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>state</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">opened</span><span style="color:#710">&quot;</span></span>,
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>links</span><span style="color:#404">&quot;</span></span>: {
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>get</span><span style="color:#404">&quot;</span></span>: <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">/api/v1/tasks/2835</span><span style="color:#710">&quot;</span></span>
-  }
-}
-</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">2835</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Dog walking&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;city&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Boston&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">1</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+  <span class="s2">&quot;cost_in_cents&quot;</span><span class="o">:</span> <span class="mi">500</span><span class="p">,</span>
+  <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;I want you to walk him to his favorite state park&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;state&quot;</span><span class="o">:</span> <span class="s2">&quot;opened&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;links&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;get&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/tasks/2835&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
 </div>
 
 <h2>Task Times</h2>
@@ -182,29 +163,23 @@
 <li>The date is &quot;2011-09-09 09:00 AM&quot;</li>
 </ul>
 
-<h4>complete<em>by</em>time</h4>
+<h4>complete_by_time</h4>
 
 <p>A specific time that the Task must be completed by. </p>
 
 <ul>
 <li>timestamp of the time</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>&quot;complete_by_time&quot;: 1315582320 // 2011-09-09 11:32 AM
-</pre></div>
-</div>
+"complete_by_time": 1315582320 // 2011-09-09 11:32 AM
 
-<h4>assign<em>by</em>time</h4>
+<h4>assign_by_time</h4>
 
 <p>A specific time that the Task must be assigned by. This time is set so that the end user knows that a TaskRabbit is on the job or not.</p>
 
 <ul>
 <li>timestamp of the time</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>&quot;assign_by_time&quot;: 1315578000 // 2011-09-09 10:20 AM
-</pre></div>
-</div>
+"assign_by_time": 1315578000 // 2011-09-09 10:20 AM
 
 <h3>Examples</h3>
 
@@ -216,17 +191,16 @@
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
 <li>Content-Type: application&#47;json</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>task</span><span style="color:#404">&quot;</span></span>: {
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Dog walking</span><span style="color:#710">&quot;</span></span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">20</span>, 
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>city_id</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>complete_by_time</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1315582320</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span> <span style="color:#00D">2011</span><span style="color:#00D">-0</span><span style="color:#00D">9</span><span style="color:#00D">-0</span><span style="color:#00D">9</span> <span style="color:#00D">11</span>:<span style="color:#00D">32</span> <span style="color:#F00;background-color:#FAA">A</span><span style="color:#F00;background-color:#FAA">M</span>
-    <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">assign_by_time</span><span style="color:#710">&quot;</span></span>: <span style="color:#00D">1315578000</span>    <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span> <span style="color:#00D">2011</span><span style="color:#00D">-0</span><span style="color:#00D">9</span><span style="color:#00D">-0</span><span style="color:#00D">9</span> <span style="color:#00D">10</span>:<span style="color:#00D">20</span> <span style="color:#F00;background-color:#FAA">A</span><span style="color:#F00;background-color:#FAA">M</span>
-  }
-}
-</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;Dog walking&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> 
+    <span class="s2">&quot;city_id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;complete_by_time&quot;</span><span class="o">:</span> <span class="mi">1315582320</span><span class="p">,</span> <span class="c1">// 2011-09-09 11:32 AM</span>
+    <span class="s2">&quot;assign_by_time&quot;</span><span class="o">:</span> <span class="mi">1315578000</span>    <span class="c1">// 2011-09-09 10:20 AM</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
 </div>
 
 <h3>Simplified Response</h3>
@@ -235,17 +209,16 @@
 <li>Status Code: 200</li>
 <li>Content-Type: application&#47;json</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>complete_by_time</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1315582320</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span> <span style="color:#00D">2011</span><span style="color:#00D">-0</span><span style="color:#00D">9</span><span style="color:#00D">-0</span><span style="color:#00D">9</span> <span style="color:#00D">11</span>:<span style="color:#00D">32</span> <span style="color:#F00;background-color:#FAA">A</span><span style="color:#F00;background-color:#FAA">M</span>
-  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">assign_by_time</span><span style="color:#710">&quot;</span></span>: <span style="color:#00D">1315578000</span>    <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span> <span style="color:#00D">2011</span><span style="color:#00D">-0</span><span style="color:#00D">9</span><span style="color:#00D">-0</span><span style="color:#00D">9</span> <span style="color:#00D">10</span>:<span style="color:#00D">20</span> <span style="color:#F00;background-color:#FAA">A</span><span style="color:#F00;background-color:#FAA">M</span>
-}
-</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;complete_by_time&quot;</span><span class="o">:</span> <span class="mi">1315582320</span><span class="p">,</span> <span class="c1">// 2011-09-09 11:32 AM</span>
+  <span class="s2">&quot;assign_by_time&quot;</span><span class="o">:</span> <span class="mi">1315578000</span>    <span class="c1">// 2011-09-09 10:20 AM</span>
+<span class="p">}</span>
+</pre>
 </div>
 
 <p>If the assigned by time is later than the complete by time, we will reset the assigned by time to the same time as the complete by time.</p>
 
-<h2>Setting only the complete by time</h0>
+<h2>Setting only the complete by time</h2>
 
 <h3>POST &#47;api&#47;v1&#47;tasks</h3>
 
@@ -253,16 +226,15 @@
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
 <li>Content-Type: application&#47;json</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>task</span><span style="color:#404">&quot;</span></span>: {
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Dog walking</span><span style="color:#710">&quot;</span></span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">20</span>, 
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>city_id</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>complete_by_time</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1315582320</span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span> <span style="color:#00D">2011</span><span style="color:#00D">-0</span><span style="color:#00D">9</span><span style="color:#00D">-0</span><span style="color:#00D">9</span> <span style="color:#00D">11</span>:<span style="color:#00D">32</span> <span style="color:#F00;background-color:#FAA">A</span><span style="color:#F00;background-color:#FAA">M</span>
-  }
-}
-</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;Dog walking&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> 
+    <span class="s2">&quot;city_id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;complete_by_time&quot;</span><span class="o">:</span> <span class="mi">1315582320</span> <span class="c1">// 2011-09-09 11:32 AM</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
 </div>
 
 <h3>Simplified Response</h3>
@@ -271,17 +243,16 @@
 <li>Status Code: 200</li>
 <li>Content-Type: application&#47;json</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>complete_by_time</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1315582320</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span> <span style="color:#00D">2011</span><span style="color:#00D">-0</span><span style="color:#00D">9</span><span style="color:#00D">-0</span><span style="color:#00D">9</span> <span style="color:#00D">11</span>:<span style="color:#00D">32</span> <span style="color:#F00;background-color:#FAA">A</span><span style="color:#F00;background-color:#FAA">M</span>
-  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">assign_by_time</span><span style="color:#710">&quot;</span></span>: <span style="color:#00D">1315582320</span>    <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span> <span style="color:#00D">2011</span><span style="color:#00D">-0</span><span style="color:#00D">9</span><span style="color:#00D">-0</span><span style="color:#00D">9</span> <span style="color:#00D">11</span>:<span style="color:#00D">32</span> <span style="color:#F00;background-color:#FAA">A</span><span style="color:#F00;background-color:#FAA">M</span>
-}
-</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;complete_by_time&quot;</span><span class="o">:</span> <span class="mi">1315582320</span><span class="p">,</span> <span class="c1">// 2011-09-09 11:32 AM</span>
+  <span class="s2">&quot;assign_by_time&quot;</span><span class="o">:</span> <span class="mi">1315582320</span>    <span class="c1">// 2011-09-09 11:32 AM</span>
+<span class="p">}</span>
+</pre>
 </div>
 
 <p>The assign by time is set to the same time as complete by time.</p>
 
-<h2>Setting only the assign by time</h2>
+<h2>Setting only the assign by time</h0>
 
 <h3>POST &#47;api&#47;v1&#47;tasks</h3>
 
@@ -289,30 +260,28 @@
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
 <li>Content-Type: application&#47;json</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>task</span><span style="color:#404">&quot;</span></span>: {
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Dog walking</span><span style="color:#710">&quot;</span></span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">20</span>, 
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>city_id</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>assign_by_time</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1315578000</span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span> <span style="color:#00D">2011</span><span style="color:#00D">-0</span><span style="color:#00D">9</span><span style="color:#00D">-0</span><span style="color:#00D">9</span> <span style="color:#00D">10</span>:<span style="color:#00D">20</span> <span style="color:#F00;background-color:#FAA">A</span><span style="color:#F00;background-color:#FAA">M</span>
-  }
-}
-</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;Dog walking&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> 
+    <span class="s2">&quot;city_id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;assign_by_time&quot;</span><span class="o">:</span> <span class="mi">1315578000</span> <span class="c1">// 2011-09-09 10:20 AM</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
 </div>
 
-<h76738560>Simplified Response</h3>
+<h3>Simplified Response</h3>
 
 <ul>
 <li>Status Code: 200</li>
 <li>Content-Type: application&#47;json</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>complete_by_time</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1315591200</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span> <span style="color:#00D">2011</span><span style="color:#00D">-0</span><span style="color:#00D">9</span><span style="color:#00D">-0</span><span style="color:#00D">9</span> <span style="color:#00D">0</span><span style="color:#00D">2</span>:<span style="color:#00D">0</span><span style="color:#00D">0</span> <span style="color:#F00;background-color:#FAA">P</span><span style="color:#F00;background-color:#FAA">M</span>
-  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">assign_by_time</span><span style="color:#710">&quot;</span></span>: <span style="color:#00D">1315578000</span>    <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span> <span style="color:#00D">2011</span><span style="color:#00D">-0</span><span style="color:#00D">9</span><span style="color:#00D">-0</span><span style="color:#00D">9</span> <span style="color:#00D">10</span>:<span style="color:#00D">20</span> <span style="color:#F00;background-color:#FAA">A</span><span style="color:#F00;background-color:#FAA">M</span>
-}
-</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;complete_by_time&quot;</span><span class="o">:</span> <span class="mi">1315591200</span><span class="p">,</span> <span class="c1">// 2011-09-09 02:00 PM</span>
+  <span class="s2">&quot;assign_by_time&quot;</span><span class="o">:</span> <span class="mi">1315578000</span>    <span class="c1">// 2011-09-09 10:20 AM</span>
+<span class="p">}</span>
+</pre>
 </div>
 
 <p>The complete by time will have will be set to the assigned by time plus 3 hours.</p>
@@ -325,16 +294,15 @@
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
 <li>Content-Type: application&#47;json</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>task</span><span style="color:#404">&quot;</span></span>: {
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Dog walking</span><span style="color:#710">&quot;</span></span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">20</span>, 
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>city_id</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>complete_by_time</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1315571520</span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span> <span style="color:#00D">2011</span><span style="color:#00D">-0</span><span style="color:#00D">9</span><span style="color:#00D">-0</span><span style="color:#00D">9</span> <span style="color:#00D">0</span><span style="color:#00D">8</span>:<span style="color:#00D">32</span> <span style="color:#F00;background-color:#FAA">A</span><span style="color:#F00;background-color:#FAA">M</span>
-  }
-}
-</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;Dog walking&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> 
+    <span class="s2">&quot;city_id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;complete_by_time&quot;</span><span class="o">:</span> <span class="mi">1315571520</span> <span class="c1">// 2011-09-09 08:32 AM</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
 </div>
 
 <h3>Simplified Response</h3>
@@ -343,17 +311,16 @@
 <li>Status Code: 200</li>
 <li>Content-Type: application&#47;json</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>complete_by_time</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1315609200</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span> <span style="color:#00D">2011</span><span style="color:#00D">-0</span><span style="color:#00D">9</span><span style="color:#00D">-0</span><span style="color:#00D">9</span> <span style="color:#00D">0</span><span style="color:#00D">7</span>:<span style="color:#00D">0</span><span style="color:#00D">0</span> <span style="color:#F00;background-color:#FAA">P</span><span style="color:#F00;background-color:#FAA">M</span>
-  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">assign_by_time</span><span style="color:#710">&quot;</span></span>: <span style="color:#00D">1315594800</span>    <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span> <span style="color:#00D">2011</span><span style="color:#00D">-0</span><span style="color:#00D">9</span><span style="color:#00D">-0</span><span style="color:#00D">9</span> <span style="color:#00D">0</span><span style="color:#00D">3</span>:<span style="color:#00D">0</span><span style="color:#00D">0</span> <span style="color:#F00;background-color:#FAA">P</span><span style="color:#F00;background-color:#FAA">M</span>
-}
-</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;complete_by_time&quot;</span><span class="o">:</span> <span class="mi">1315609200</span><span class="p">,</span> <span class="c1">// 2011-09-09 07:00 PM</span>
+  <span class="s2">&quot;assign_by_time&quot;</span><span class="o">:</span> <span class="mi">1315594800</span>    <span class="c1">// 2011-09-09 03:00 PM</span>
+<span class="p">}</span>
+</pre>
 </div>
 
 <p>Default times will be set by TaskRabbit. Defaults are determined programmatically based on task types.</p>
 
-<h2>Setting the assign by time in the past</h0>
+<h2>Setting the assign by time in the past</h2>
 
 <h3>POST &#47;api&#47;v1&#47;tasks</h3>
 
@@ -361,16 +328,15 @@
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
 <li>Content-Type: application&#47;json</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>task</span><span style="color:#404">&quot;</span></span>: {
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>name</span><span style="color:#404">&quot;</span></span>:<span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">Dog walking</span><span style="color:#710">&quot;</span></span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>named_price</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">20</span>, 
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>city_id</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1</span>,
-    <span style="color:#606"><span style="color:#404">&quot;</span><span>assign_by_time</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1315571520</span> <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span> <span style="color:#00D">2011</span><span style="color:#00D">-0</span><span style="color:#00D">9</span><span style="color:#00D">-0</span><span style="color:#00D">9</span> <span style="color:#00D">0</span><span style="color:#00D">8</span>:<span style="color:#00D">32</span> <span style="color:#F00;background-color:#FAA">A</span><span style="color:#F00;background-color:#FAA">M</span>
-  }
-}
-</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;Dog walking&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> 
+    <span class="s2">&quot;city_id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s2">&quot;assign_by_time&quot;</span><span class="o">:</span> <span class="mi">1315571520</span> <span class="c1">// 2011-09-09 08:32 AM</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
 </div>
 
 <h3>Simplified Response</h3>
@@ -379,12 +345,11 @@
 <li>Status Code: 200</li>
 <li>Content-Type: application&#47;json</li>
 </ul>
-<div class="CodeRay">
-  <div class="code"><pre>{
-  <span style="color:#606"><span style="color:#404">&quot;</span><span>complete_by_time</span><span style="color:#404">&quot;</span></span>: <span style="color:#00D">1315609200</span>, <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span> <span style="color:#00D">2011</span><span style="color:#00D">-0</span><span style="color:#00D">9</span><span style="color:#00D">-0</span><span style="color:#00D">9</span> <span style="color:#00D">0</span><span style="color:#00D">7</span>:<span style="color:#00D">0</span><span style="color:#00D">0</span> <span style="color:#F00;background-color:#FAA">P</span><span style="color:#F00;background-color:#FAA">M</span>
-  <span style="background-color:hsla(0,100%,50%,0.05)"><span style="color:#710">&quot;</span><span style="color:#D20">assign_by_time</span><span style="color:#710">&quot;</span></span>: <span style="color:#00D">1315594800</span>    <span style="color:#F00;background-color:#FAA">/</span><span style="color:#F00;background-color:#FAA">/</span> <span style="color:#00D">2011</span><span style="color:#00D">-0</span><span style="color:#00D">9</span><span style="color:#00D">-0</span><span style="color:#00D">9</span> <span style="color:#00D">0</span><span style="color:#00D">3</span>:<span style="color:#00D">0</span><span style="color:#00D">0</span> <span style="color:#F00;background-color:#FAA">P</span><span style="color:#F00;background-color:#FAA">M</span>
-}
-</pre></div>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;complete_by_time&quot;</span><span class="o">:</span> <span class="mi">1315609200</span><span class="p">,</span> <span class="c1">// 2011-09-09 07:00 PM</span>
+  <span class="s2">&quot;assign_by_time&quot;</span><span class="o">:</span> <span class="mi">1315594800</span>    <span class="c1">// 2011-09-09 03:00 PM</span>
+<span class="p">}</span>
+</pre>
 </div>
 
 <p>Default times will be set by TaskRabbit. Defaults are determined programmatically based on task types.</p>
