@@ -4,7 +4,7 @@
   
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TaskRabbit - API</title>
+    <title>TaskRabbit - City information</title>
     <link href="/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/grid.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/documentation.css" media="screen" rel="stylesheet" type="text/css" />
@@ -44,7 +44,51 @@
       </div>
       <div id="content" class="span-18 last">
 
-        <h1>Welcome to TaskRabbit API</h1>
+        <h1>City information</h1>
+
+<p>TODO description</p>
+
+<h3>Possible values</h3>
+
+<ul>
+<li>1 -&gt; Boston</li>
+<li>3 -&gt; SF Bay Area</li>
+<li>4 -&gt; New York City</li>
+<li>6 -&gt; Los Angeles</li>
+<li>40 -&gt; Orange County</li>
+</ul>
+
+<h2>Informations for San Francisco</h2>
+
+<h2>Setup</h2>
+
+<ul>
+<li>There is a user who is authenticated to your client application with id &quot;jhfe92kjfklep902mrdfg3jdsuo32b1os&quot;</li>
+<li>The user has an authorization token of &quot;rRou72pewt102y926jfhwow438238poQR31d&quot;</li>
+</ul>
+
+<h3>GET &#47;api&#47;v1&#47;cities&#47;3</h3>
+
+<ul>
+<li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
+</ul>
+
+<h3>Simplified Response</h3>
+
+<ul>
+<li>Status Code: 200</li>
+<li>Content-Type: application&#47;json</li>
+</ul>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">3</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;SF Bay Area&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;lat&quot;</span><span class="o">:</span> <span class="mf">37.77493</span><span class="p">,</span>
+  <span class="s2">&quot;lng&quot;</span><span class="o">:-</span><span class="mf">122.419416</span><span class="p">,</span>
+  <span class="s2">&quot;links&quot;</span><span class="o">:</span> <span class="p">{</span><span class="s2">&quot;get&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/cities/3&quot;</span><span class="p">}</span>
+<span class="p">}</span>
+</pre>
+</div>
+
 
       </div>
     </div>

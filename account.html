@@ -4,7 +4,7 @@
   
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TaskRabbit - User account informations</title>
+    <title>TaskRabbit - User account information</title>
     <link href="/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/grid.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/documentation.css" media="screen" rel="stylesheet" type="text/css" />
@@ -20,7 +20,7 @@
         
           <li><a href="/post_simple.html">Posting a Simple Task</a></li>
         
-          <li><a href="/auth.html">Oauth</a></li>
+          <li><a href="/oauth.html">Oauth</a></li>
         
           <li><a href="/post_task_parameters.html">Parameters for posting a task</a></li>
         
@@ -30,20 +30,28 @@
         
           <li><a href="/post_with_sound.html">Posting a Task with a sound</a></li>
         
-          <li><a href="/account.html">User account informations</a></li>
+          <li><a href="/account.html">User account information</a></li>
+        
+          <li><a href="/client_applications.html">Get informations about Objects</a></li>
+        
+          <li><a href="/get_task.html">Task information</a></li>
+        
+          <li><a href="/get_user.html">User information</a></li>
+        
+          <li><a href="/city.html">City information</a></li>
         
         </ul>
       </div>
       <div id="content" class="span-18 last">
 
-        <h1>User account informations</h1>
+        <h1>User account information</h1>
 
-<p>TODO: Describe</p>
+<p>TaskRabbit allows the retrieval of user account information via an authorized client application.</p>
 
 <h2>Setup</h2>
 
 <ul>
-<li>There is a user who is authenticated to your client application</li>
+<li>There is a user who is authenticated to your client application with id &quot;jhfe92kjfklep902mrdfg3jdsuo32b1os&quot;</li>
 <li>The name of the user is &quot;Willis Ford&quot;</li>
 <li>The zip code of the user is 02102</li>
 <li>The city of the user is Boston</li>
@@ -114,9 +122,10 @@
 
 <ul>
 <li>Authorization: OAuth XXXXXX</li>
+<li>X-Client-Id: jhfe92kjfklep902mrdfg3jdsuo32b1os</li>
 </ul>
 
-<h3>401 Unauthorized</h3>
+<h76118016>401 Unauthorized</h3>
 
 <ul>
 <li>Content-Type: application&#47;json</li>
