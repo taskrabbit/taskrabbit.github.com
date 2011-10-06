@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>TaskRabbit - Posting a Simple Task</title>
+    <link href="/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/grid.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/documentation.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/pigments.css" media="screen" rel="stylesheet" type="text/css" />
+  </head>
+  
+  <body>
+    <div id="header">
+    </div>
+    <div id="main">
+      <div id="sidebar" class="span-6">
+        <ul>
+        
+          <li><a href="/post_simple.html">Posting a Simple Task</a></li>
+        
+          <li><a href="/oauth.html">Oauth</a></li>
+        
+          <li><a href="/post_task_parameters.html">Parameters for posting a task</a></li>
+        
+          <li><a href="/post_with_location.html">Posting a Task with locations</a></li>
+        
+          <li><a href="/post_with_photo.html">Posting a Task with a photo</a></li>
+        
+          <li><a href="/post_with_sound.html">Posting a Task with a sound</a></li>
+        
+          <li><a href="/account.html">User account information</a></li>
+        
+          <li><a href="/get_task.html">Task information</a></li>
+        
+          <li><a href="/get_user.html">User information</a></li>
+        
+          <li><a href="/city.html">City information</a></li>
+        
+        </ul>
+      </div>
+      <div id="content" class="span-18 last">
+
+        <h1>Posting a Simple Task</h1>
+
+<p>TaskRabbit allows posting of Tasks by a client application on behalf of a user that has authorized that application. Authorization is done through OAuth and assigns a unique token to the user for for the application to use. This key is passed in all requests.</p>
+
+<h2>Setup</h2>
+
+<ul>
+<li>There is a user who is authenticated to your client application with id &quot;jhfe92kjfklep902mrdfg3jdsuo32b1os&quot;</li>
+<li>The user has an authorization token of &quot;rRou72pewt102y926jfhwow438238poQR31d&quot;</li>
+</ul>
+
+<h2>Creating a new Task</h2>
+
+<p>To create a task, the client application POSTs data, the content can be either a json or x-www-form-urlencoded.</p>
+
+<h3>Required Values</h3>
+
+<ul>
+<li>name: The short, public text shown to describe the Task</li>
+<li>named_price: The integer amount, in whole US Dollars, the TaskPoster is willing to pay for the Task</li>
+<li>city_id: The metro area where the Task will occur
+
+<ul>
+<li>1 -&gt; Boston</li>
+<li>3 -&gt; SF Bay Area</li>
+<li>4 -&gt; New York City</li>
+<li>6 -&gt; Los Angeles</li>
+<li>40 -&gt; Orange County</li>
+</ul></li>
+</ul>
+
+<h3>POST &#47;api&#47;v1&#47;tasks</h3>
+
+<ul>
+<li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
+<li>Content-Type: application&#47;json</li>
+</ul>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;My First Task&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> 
+    <span class="s2">&quot;city_id&quot;</span><span class="o">:</span> <span class="mi">4</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+<h3>Simplified Response</h3>
+
+<ul>
+<li>Status Code: 200</li>
+<li>Content-Type: application&#47;json</li>
+</ul>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">9221</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;My First Task&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+  <span class="s2">&quot;state&quot;</span><span class="o">:</span><span class="s2">&quot;opened&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;city&quot;</span><span class="o">:</span><span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">4</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;New York City&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;links&quot;</span><span class="o">:</span><span class="p">{</span>
+    <span class="s2">&quot;get&quot;</span><span class="o">:</span><span class="s2">&quot;/api/v1/tasks/9221&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+<h3>POST &#47;api&#47;v1&#47;tasks</h3>
+
+<ul>
+<li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
+<li>Content-Type: application&#47;x-www-form-urlencoded</li>
+</ul>
+<div class="highlight"><pre>task:
+  name: My Second Task
+  named_price: 20
+  city_id: 4
+</pre>
+</div>
+
+<h3>Simplified Response</h3>
+
+<ul>
+<li>Status Code: 200</li>
+<li>Content-Type: application&#47;json</li>
+</ul>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">9222</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;My Second Task&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+  <span class="s2">&quot;state&quot;</span><span class="o">:</span><span class="s2">&quot;opened&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;city&quot;</span><span class="o">:</span><span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">4</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;New York City&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;links&quot;</span><span class="o">:</span><span class="p">{</span>
+    <span class="s2">&quot;get&quot;</span><span class="o">:</span><span class="s2">&quot;/api/v1/tasks/9222&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+<h1>Error Cases</h1>
+
+<p>The server will respond with different status codes when there is a problem posting the Task.</p>
+
+<h2>Incorrect Authorization</h2>
+
+<h3>POST &#47;api&#47;v1&#47;tasks</h3>
+
+<ul>
+<li>Authorization: OAuth XXXXXX</li>
+<li>Content-Type: application&#47;json</li>
+<li>X-Client-Id: jhfe92kjfklep902mrdfg3jdsuo32b1os</li>
+</ul>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;My First Task&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> 
+    <span class="s2">&quot;city_id&quot;</span><span class="o">:</span> <span class="mi">4</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+<h3>401 Unauthorized</h3>
+
+<ul>
+<li>Content-Type: application&#47;json</li>
+</ul>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="s2">&quot;There must be an authenticated user for this action&quot;</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+<h2>Missing Required Fields</h2>
+
+<h3>POST &#47;api&#47;v1&#47;tasks</h3>
+
+<ul>
+<li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
+<li>Content-Type: application&#47;json</li>
+</ul>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="s2">&quot;twenty&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+<h3>422 Unprocessable Entity</h3>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;errors&quot;</span><span class="o">:</span><span class="p">{</span>
+    <span class="s2">&quot;messages&quot;</span><span class="o">:</span><span class="p">[</span><span class="s2">&quot;Task title can&#39;t be blank&quot;</span><span class="p">,</span> <span class="s2">&quot;Amount you are willing to pay is not a number&quot;</span><span class="p">],</span>
+    <span class="s2">&quot;fields&quot;</span><span class="o">:</span><span class="p">[[</span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="s2">&quot;can&#39;t be blank&quot;</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;named_price&quot;</span><span class="p">,</span><span class="s2">&quot;is not a number&quot;</span><span class="p">]]</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="s2">&quot;Task title can&#39;t be blank, \nAmount you are willing to pay is not a number&quot;</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+<h2>Credit Card Problems</h2>
+
+<p>In the previous requests, TaskRabbit was using the user&#39;s credit card on file.</p>
+
+<ul>
+<li>Given the user does not have a credit card on file</li>
+<li>Then the Task will still be created, but not posted</li>
+</ul>
+
+<h3>POST &#47;api&#47;v1&#47;tasks</h3>
+
+<ul>
+<li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
+<li>Content-Type: application&#47;json</li>
+</ul>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;My Third Task&quot;</span><span class="p">,</span> 
+    <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> 
+    <span class="s2">&quot;city_id&quot;</span><span class="o">:</span> <span class="mi">4</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+<h3>Simplified Response</h3>
+
+<ul>
+<li>Status Code: 201</li>
+<li>Content-Type: application&#47;json</li>
+</ul>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">9223</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;My Third Task&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
+  <span class="s2">&quot;state&quot;</span><span class="o">:</span><span class="s2">&quot;unpaid&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;city&quot;</span><span class="o">:</span><span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">4</span><span class="p">,</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;New York City&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;links&quot;</span><span class="o">:</span><span class="p">{</span>
+    <span class="s2">&quot;get&quot;</span><span class="o">:</span><span class="s2">&quot;/api/v1/tasks/9223&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;redirect&quot;</span><span class="o">:</span><span class="s2">&quot;https://test.taskrabbit.com/tasks/my-third-task?card=true&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+<p>Whenever the links[redirect] key is present, the user should be shown the URL given. In this case, the page will allow the user to enter her credit card number to complete the transaction.</p>
+
+
+      </div>
+    </div>
+
+     <div id="footer" >
+    </div><!-- /#footer -->
+  </body>
+</html>
