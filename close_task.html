@@ -4,7 +4,7 @@
   
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TaskRabbit - Posting a Task with a sound</title>
+    <title>TaskRabbit - Closing a Task</title>
     <link href="/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/grid.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/documentation.css" media="screen" rel="stylesheet" type="text/css" />
@@ -51,34 +51,24 @@
         </div>
         <div id="content" class="span-18 last">
 
-          <h1>Posting a Task with a sound</h1>
+          <h1>Closing a Task</h1>
 
-<p>TaskRabbit allows the posting of a sound recording in MP3 and AAC format with a size limit of 2MB.
-Adding a descriptive sound recording from an application with limited text input greatly increases the assignment rate.</p>
+<p>TaskRabbit allows closing a Task</p>
 
 <h2>Setup</h2>
 
 <ul>
-<li>There is a user who is authenticated to your client application</li>
+<li>There is a user who is authenticated to your client application with id &quot;jhfe92kjfklep902mrdfg3jdsuo32b1os&quot;</li>
+<li>The client application secret is &quot;fei3on2o1in321XOIENOIn2io13zoin21x&quot;</li>
 <li>The user has an authorization token of &quot;rRou72pewt102y926jfhwow438238poQR31d&quot;</li>
+<li>The user has an assigned task &quot;My Task&quot; with id 1452</li>
 </ul>
 
-<h3>Required Values</h3>
-
-<h3>POST &#47;api&#47;v1&#47;tasks</h3>
+<h3>POST &#47;api&#47;v1&#47;tasks&#47;1452&#47;close</h3>
 
 <ul>
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
 </ul>
-<div class="highlight"><pre>task:
-  name: Walk my dog
-  named_price: 15
-  city_id: 3
-  uploaded_sounds_attributes:
-    &quot;1&quot;:
-      audio: BINARY_FILE_GETS_REPLACED_HERE
-</pre>
-</div>
 
 <h3>Simplified Response</h3>
 
@@ -87,24 +77,36 @@ Adding a descriptive sound recording from an application with limited text input
 <li>Content-Type: application&#47;json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">9221</span><span class="p">,</span>
-  <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;Walk my dog&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">15</span><span class="p">,</span>
-  <span class="s2">&quot;state&quot;</span><span class="o">:</span><span class="s2">&quot;opened&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;city&quot;</span><span class="o">:</span><span class="p">{</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">3</span><span class="p">,</span>
-    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;SF Bay Area&quot;</span>
-  <span class="p">},</span>
-  <span class="s2">&quot;links&quot;</span><span class="o">:</span><span class="p">{</span>
-    <span class="s2">&quot;get&quot;</span><span class="o">:</span><span class="s2">&quot;/api/v1/tasks/9221&quot;</span>
-  <span class="p">}</span>
+  <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">9222</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;My Task&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;state&quot;</span><span class="o">:</span><span class="s2">&quot;closed&quot;</span>
 <span class="p">}</span>
 </pre>
 </div>
 
+<h1>Error Cases</h1>
+
+<p>The server will respond with different status codes when there is a problem closing the Task.</p>
+
+<h2>Incorrect Authorization</h2>
+
+<h3>POST &#47;api&#47;v1&#47;tasks&#47;1452&#47;close</h3>
+
 <ul>
-<li>And the &quot;Walk my dog&quot; task should have 1 sound even though it&#39;s not returned in the JSON</li>
+<li>Authorization: OAuth XXXXXX</li>
+<li>X-Client-Application: fei3on2o1in321XOIENOIn2io13zoin21x</li>
 </ul>
+
+<h3>401 Unauthorized</h3>
+
+<ul>
+<li>Content-Type: application&#47;json</li>
+</ul>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="s2">&quot;There must be an authenticated user for this action&quot;</span>
+<span class="p">}</span>
+</pre>
+</div>
 
 
         </div>
