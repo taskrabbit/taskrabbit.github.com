@@ -49,6 +49,8 @@
           
             <li><a href="/update_task.html">Updating a Task</a></li>
           
+            <li><a href="/comments.html">Comments on a Task</a></li>
+          
           </ul>
         </div>
         <div id="content" class="span-18 last">
@@ -72,9 +74,10 @@
 <li>The task has to be completed by &quot;2011-09-09 09:00 AM&quot;</li>
 <li>The task has to be assigned by &quot;2011-09-10 09:00 AM&quot;</li>
 <li>There is a bid on the task</li>
+<li>The city of the runner is Boston</li>
 </ul>
 
-<h3>GET &#47;api&#47;v1&#47;tasks&#47;1452</h3>
+<h3>GET /api/v1/tasks/1452</h3>
 
 <ul>
 <li>Authorization: OAuth ewrubuewib12u2iu3b1221iu21b31iui1ui2</li>
@@ -84,7 +87,7 @@
 
 <ul>
 <li>Status Code: 200</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
     <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;My Task&quot;</span><span class="p">,</span>
@@ -161,7 +164,11 @@
 
 <p>You dont see the user if you are the user of the task</p>
 
-<h4>runner</h4>
+<h4>runners</h4>
+
+<h4>private_runner</h4>
+
+<p>Task publicity</p>
 
 <h4>links</h4>
 
@@ -171,11 +178,23 @@
 
 <h4>location_visits</h4>
 
+<h4>runner_rates</h4>
+
+<p>Runner rates when the Task is closed</p>
+
+<h4>runner_fee</h4>
+
+<p>Only the Runner see it</p>
+
+<h4>conversations</h4>
+
+<p>Conversations on the Task</p>
+
 <h1>Examples</h1>
 
 <h2>Not logged in user</h2>
 
-<h3>GET &#47;api&#47;v1&#47;tasks&#47;1452</h3>
+<h3>GET /api/v1/tasks/1452</h3>
 
 <ul>
 <li>X-Client-Application: fei3on2o1in321XOIENOIn2io13zoin21x</li>
@@ -185,7 +204,7 @@
 
 <ul>
 <li>Status Code: 200</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
     <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;My Task&quot;</span><span class="p">,</span>
@@ -234,7 +253,7 @@
 
 <h2>When logged in</h2>
 
-<h3>GET &#47;api&#47;v1&#47;tasks&#47;1452</h3>
+<h3>GET /api/v1/tasks/1452</h3>
 <div class="highlight"><pre>&quot;include&quot;:
   &quot;task&quot;: [
     &quot;id&quot;,
@@ -248,7 +267,8 @@
     &quot;named_price&quot;,
     &quot;city&quot;,
     &quot;user&quot;,
-    &quot;runner&quot;,
+    &quot;runners&quot;,
+    &quot;private_runner&quot;,
     &quot;links&quot;,
     &quot;offers&quot;,
     &quot;location_visits&quot;
@@ -260,7 +280,7 @@
 
 <ul>
 <li>Status Code: 200</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
     <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;My Task&quot;</span><span class="p">,</span>
@@ -311,7 +331,7 @@
 
 <h2>When logged in as the owner of the Task</h2>
 
-<h3>GET &#47;api&#47;v1&#47;tasks&#47;1452</h3>
+<h3>GET /api/v1/tasks/1452</h3>
 
 <ul>
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
@@ -329,7 +349,8 @@
     &quot;named_price&quot;,
     &quot;city&quot;,
     &quot;user&quot;,
-    &quot;runner&quot;,
+    &quot;runners&quot;,
+    &quot;private_runner&quot;,
     &quot;links&quot;,
     &quot;offers&quot;,
     &quot;location_visits&quot;
@@ -341,7 +362,7 @@
 
 <ul>
 <li>Status Code: 200</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
     <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;My Task&quot;</span><span class="p">,</span>
@@ -358,7 +379,7 @@
     <span class="s2">&quot;offers&quot;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">[</span>
             <span class="p">{</span>
-                <span class="s2">&quot;charge_price&quot;</span><span class="o">:</span> <span class="mi">14</span><span class="p">,</span>
+                <span class="s2">&quot;charge_price&quot;</span><span class="o">:</span> <span class="mi">15</span><span class="p">,</span>
                 <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">238</span><span class="p">,</span>
                 <span class="s2">&quot;state&quot;</span><span class="o">:</span> <span class="s2">&quot;sent&quot;</span>
             <span class="p">}</span>
@@ -380,6 +401,7 @@
     <span class="s2">&quot;location_visits&quot;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">[]</span>
     <span class="p">},</span>
+    <span class="s2">&quot;private_runner&quot;</span><span class="o">:</span> <span class="kc">false</span><span class="p">,</span>
     <span class="s2">&quot;state&quot;</span><span class="o">:</span> <span class="s2">&quot;opened&quot;</span>
 <span class="p">}</span>
 </pre>
@@ -389,9 +411,13 @@
 
 <ul>
 <li>When the task is assigned to Odell Clark</li>
+<li>The email of the runner is odell.clark@example.com</li>
+<li>The mobile phone of the runner is 4154154156</li>
+<li>The home phone of the runner is 5165165156</li>
+<li>The city of the runner is Boston</li>
 </ul>
 
-<h3>GET &#47;api&#47;v1&#47;tasks&#47;1452</h3>
+<h3>GET /api/v1/tasks/1452</h3>
 
 <ul>
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
@@ -421,7 +447,7 @@
 
 <ul>
 <li>Status Code: 200</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
     <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;My Task&quot;</span><span class="p">,</span>
@@ -440,23 +466,26 @@
     <span class="s2">&quot;state_changed_at&quot;</span><span class="o">:</span> <span class="mi">1315486800</span><span class="p">,</span>
     <span class="s2">&quot;cost_in_cents&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s2">&quot;runner&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;city&quot;</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Boston&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;lng&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">71.059773</span><span class="p">,</span>
-            <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-            <span class="s2">&quot;links&quot;</span><span class="o">:</span> <span class="p">{</span>
-                <span class="s2">&quot;get&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/cities/1&quot;</span>
-            <span class="p">},</span>
-            <span class="s2">&quot;lat&quot;</span><span class="o">:</span> <span class="mf">42.358431</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">2331</span><span class="p">,</span>
-        <span class="s2">&quot;links&quot;</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s2">&quot;get&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/users/2331&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;avatar_url&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;&lt;http://www.taskrabbit.com/images/default_avatars/runner_thumb.gif&gt;&gt;&quot;</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;full_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Odell C.&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;short_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Odell&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;display_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Odell C.&quot;</span>
+      <span class="s2">&quot;city&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Boston&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;lng&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">71.059773</span><span class="p">,</span>
+          <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="s2">&quot;links&quot;</span><span class="o">:</span> <span class="p">{</span>
+              <span class="s2">&quot;get&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/cities/1&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;lat&quot;</span><span class="o">:</span> <span class="mf">42.358431</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">2331</span><span class="p">,</span>
+      <span class="s2">&quot;links&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;get&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;&lt;/api/v1/users/2331&gt;&gt;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;avatar_url&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;&lt;http://www.taskrabbit.com/images/default_avatars/runner_thumb.gif&gt;&gt;&quot;</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;odell.clark@example.com&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;mobile_phone&quot;</span><span class="o">:</span> <span class="s2">&quot;4154154156&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;home_phone&quot;</span><span class="o">:</span> <span class="s2">&quot;5165165156&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;full_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Odell C.&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;short_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Odell&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;display_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Odell C.&quot;</span>
     <span class="p">},</span>
     <span class="s2">&quot;links&quot;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">&quot;html&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;&lt;http://www.taskrabbit.com/tasks/my-task&gt;&gt;&quot;</span><span class="p">,</span>
@@ -478,7 +507,7 @@
 <li>When the task is closed</li>
 </ul>
 
-<h3>GET &#47;api&#47;v1&#47;tasks&#47;1452</h3>
+<h3>GET /api/v1/tasks/1452</h3>
 
 <ul>
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
@@ -497,9 +526,11 @@
     &quot;city&quot;,
     &quot;user&quot;,
     &quot;runner&quot;,
+    &quot;runners&quot;,
     &quot;links&quot;,
     &quot;offers&quot;,
-    &quot;location_visits&quot;
+    &quot;location_visits&quot;,
+    &quot;runner_rates&quot;
   ]
 </pre>
 </div>
@@ -508,7 +539,7 @@
 
 <ul>
 <li>Status Code: 200</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
     <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;My Task&quot;</span><span class="p">,</span>
@@ -527,23 +558,26 @@
     <span class="s2">&quot;state_changed_at&quot;</span><span class="o">:</span> <span class="mi">1315486800</span><span class="p">,</span>
     <span class="s2">&quot;cost_in_cents&quot;</span><span class="o">:</span> <span class="mi">0</span><span class="p">,</span>
     <span class="s2">&quot;runner&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;city&quot;</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Boston&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;lng&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">71.059773</span><span class="p">,</span>
-            <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-            <span class="s2">&quot;links&quot;</span><span class="o">:</span> <span class="p">{</span>
-                <span class="s2">&quot;get&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/cities/1&quot;</span>
-            <span class="p">},</span>
-            <span class="s2">&quot;lat&quot;</span><span class="o">:</span> <span class="mf">42.358431</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">2331</span><span class="p">,</span>
-        <span class="s2">&quot;links&quot;</span><span class="o">:</span> <span class="p">{</span>
-            <span class="s2">&quot;get&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/users/2331&quot;</span><span class="p">,</span>
-            <span class="s2">&quot;avatar_url&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;&lt;http://www.taskrabbit.com/images/default_avatars/runner_thumb.gif&gt;&gt;&quot;</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;full_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Odell C.&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;short_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Odell&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;display_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Odell C.&quot;</span>
+      <span class="s2">&quot;city&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Boston&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;lng&quot;</span><span class="o">:</span> <span class="o">-</span><span class="mf">71.059773</span><span class="p">,</span>
+          <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+          <span class="s2">&quot;links&quot;</span><span class="o">:</span> <span class="p">{</span>
+              <span class="s2">&quot;get&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/cities/1&quot;</span>
+          <span class="p">},</span>
+          <span class="s2">&quot;lat&quot;</span><span class="o">:</span> <span class="mf">42.358431</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">2331</span><span class="p">,</span>
+      <span class="s2">&quot;links&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;get&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;&lt;/api/v1/users/2331&gt;&gt;&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;avatar_url&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;&lt;http://www.taskrabbit.com/images/default_avatars/runner_thumb.gif&gt;&gt;&quot;</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;email&quot;</span><span class="o">:</span> <span class="s2">&quot;odell.clark@example.com&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;mobile_phone&quot;</span><span class="o">:</span> <span class="s2">&quot;4154154156&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;home_phone&quot;</span><span class="o">:</span> <span class="s2">&quot;5165165156&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;full_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Odell C.&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;short_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Odell&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;display_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Odell C.&quot;</span>
     <span class="p">},</span>
     <span class="s2">&quot;links&quot;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">&quot;html&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;&lt;http://www.taskrabbit.com/tasks/my-task&gt;&gt;&quot;</span><span class="p">,</span>
@@ -552,6 +586,9 @@
     <span class="p">},</span>
     <span class="s2">&quot;assign_by_time&quot;</span><span class="o">:</span> <span class="mi">1315670400</span><span class="p">,</span>
     <span class="s2">&quot;location_visits&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">[]</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;runner_rates&quot;</span><span class="o">:</span> <span class="p">{</span>
         <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">[]</span>
     <span class="p">},</span>
     <span class="s2">&quot;state&quot;</span><span class="o">:</span> <span class="s2">&quot;closed&quot;</span>

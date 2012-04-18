@@ -49,6 +49,8 @@
           
             <li><a href="/update_task.html">Updating a Task</a></li>
           
+            <li><a href="/comments.html">Comments on a Task</a></li>
+          
           </ul>
         </div>
         <div id="content" class="span-18 last">
@@ -57,7 +59,7 @@
 
 <p>TaskRabbit allows posting of Tasks by a client application on behalf of a user that has authorized that application. Authorization is done through OAuth and assigns a unique token to the user for for the application to use. This key is passed in all requests.</p>
 
-<p>The same scenario is employed when an application&#47;company is posting directly to TaskRabbit. First create a user for the company&#47;application, authorize the user, and utilize the returned token for posting a Task to TaskRabbit.</p>
+<p>The same scenario is employed when an application/company is posting directly to TaskRabbit. First create a user for the company/application, authorize the user, and utilize the returned token for posting a Task to TaskRabbit.</p>
 
 <h2>Setup</h2>
 
@@ -138,11 +140,11 @@
 </pre>
 </div>
 
-<h3>POST &#47;api&#47;v1&#47;tasks</h3>
+<h3>POST /api/v1/tasks</h3>
 
 <ul>
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -161,7 +163,7 @@
 
 <ul>
 <li>Status Code: 200</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">2835</span><span class="p">,</span>
@@ -219,11 +221,11 @@
 
 <h2>Setting both parameters</h2>
 
-<h3>POST &#47;api&#47;v1&#47;tasks</h3>
+<h3>POST /api/v1/tasks</h3>
 
 <ul>
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -241,7 +243,7 @@
 
 <ul>
 <li>Status Code: 200</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;complete_by_time&quot;</span><span class="o">:</span> <span class="mi">1315582320</span><span class="p">,</span> <span class="c1">// 2011-09-09 11:32 AM</span>
@@ -254,11 +256,11 @@
 
 <h2>Setting only the complete by time</h2>
 
-<h3>POST &#47;api&#47;v1&#47;tasks</h3>
+<h3>POST /api/v1/tasks</h3>
 
 <ul>
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -275,7 +277,7 @@
 
 <ul>
 <li>Status Code: 200</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;complete_by_time&quot;</span><span class="o">:</span> <span class="mi">1315582320</span><span class="p">,</span> <span class="c1">// 2011-09-09 11:32 AM</span>
@@ -288,11 +290,11 @@
 
 <h2>Setting only the assign by time</h2>
 
-<h3>POST &#47;api&#47;v1&#47;tasks</h3>
+<h3>POST /api/v1/tasks</h3>
 
 <ul>
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -309,24 +311,24 @@
 
 <ul>
 <li>Status Code: 200</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;complete_by_time&quot;</span><span class="o">:</span> <span class="mi">1315591200</span><span class="p">,</span> <span class="c1">// 2011-09-09 02:00 PM</span>
-  <span class="s2">&quot;assign_by_time&quot;</span><span class="o">:</span> <span class="mi">1315578000</span>    <span class="c1">// 2011-09-09 10:20 AM</span>
+  <span class="s2">&quot;assign_by_time&quot;</span><span class="o">:</span> <span class="mi">1315578000</span><span class="p">,</span>   <span class="c1">// 2011-09-09 10:20 AM</span>
+  <span class="s2">&quot;complete_by_time&quot;</span><span class="o">:</span> <span class="mi">1315666800</span>  <span class="c1">// 2011-09-10 11:00 AM</span>
 <span class="p">}</span>
 </pre>
 </div>
 
-<p>The complete by time will have will be set to the assigned by time plus 3 hours.</p>
+<p>The complete by time will have will be set to the assigned by time plus 24 hours. But if it falls between 8pm and 11am (as it does here), then it is pushed to 11am.</p>
 
-<h2>Setting the complete by time in the past</h0>
+<h2>Setting the complete by time in the past</h2>
 
-<h3>POST &#47;api&#47;v1&#47;tasks</h3>
+<h3>POST /api/v1/tasks</h3>
 
 <ul>
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -343,11 +345,11 @@
 
 <ul>
 <li>Status Code: 200</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;complete_by_time&quot;</span><span class="o">:</span> <span class="mi">1315602000</span><span class="p">,</span> <span class="c1">// 2011-09-09 07:00 PM</span>
-  <span class="s2">&quot;assign_by_time&quot;</span><span class="o">:</span> <span class="mi">1315591200</span>    <span class="c1">// 2011-09-09 03:00 PM</span>
+  <span class="s2">&quot;assign_by_time&quot;</span><span class="o">:</span> <span class="mi">1315666800</span><span class="p">,</span>   <span class="c1">// 2011-09-10 11:00 AM</span>
+  <span class="s2">&quot;complete_by_time&quot;</span><span class="o">:</span> <span class="mi">1315753200</span>  <span class="c1">// 2011-09-11 11:00 AM</span>
 <span class="p">}</span>
 </pre>
 </div>
@@ -356,11 +358,11 @@
 
 <h2>Setting the assign by time in the past</h2>
 
-<h3>POST &#47;api&#47;v1&#47;tasks</h3>
+<h3>POST /api/v1/tasks</h3>
 
 <ul>
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -377,11 +379,11 @@
 
 <ul>
 <li>Status Code: 200</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;complete_by_time&quot;</span><span class="o">:</span> <span class="mi">1315602000</span><span class="p">,</span> <span class="c1">// 2011-09-09 07:00 PM</span>
-  <span class="s2">&quot;assign_by_time&quot;</span><span class="o">:</span> <span class="mi">1315591200</span>    <span class="c1">// 2011-09-09 03:00 PM</span>
+  <span class="s2">&quot;assign_by_time&quot;</span><span class="o">:</span> <span class="mi">1315666800</span><span class="p">,</span>   <span class="c1">// 2011-09-10 11:00 AM</span>
+  <span class="s2">&quot;complete_by_time&quot;</span><span class="o">:</span> <span class="mi">1315753200</span>  <span class="c1">// 2011-09-11 11:00 AM</span>
 <span class="p">}</span>
 </pre>
 </div>

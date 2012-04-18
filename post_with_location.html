@@ -49,6 +49,8 @@
           
             <li><a href="/update_task.html">Updating a Task</a></li>
           
+            <li><a href="/comments.html">Comments on a Task</a></li>
+          
           </ul>
         </div>
         <div id="content" class="span-18 last">
@@ -62,17 +64,18 @@
 <ul>
 <li>There is a user who is authenticated to your client application</li>
 <li>The user has an authorization token of &quot;rRou72pewt102y926jfhwow438238poQR31d&quot;</li>
+<li>The metro class stubs location lookups to return &quot;Boston&quot;</li>
 </ul>
 
 <h3>Required Values</h3>
 
-<p>By passing in the address of a Task location, source or destination (pickup&#47;delivery example) will allow us to geolocate the task for alerting. You do not need to pass in the city as it will be calculated and assigned automatically based on the location information provided.</p>
+<p>By passing in the address of a Task location, source or destination (pickup/delivery example) will allow us to geolocate the task for alerting. You do not need to pass in the city as it will be calculated and assigned automatically based on the location information provided.</p>
 
-<h3>POST &#47;api&#47;v1&#47;tasks</h3>
+<h3>POST /api/v1/tasks</h3>
 
 <ul>
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -103,7 +106,7 @@
 
 <ul>
 <li>Status Code: 200</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">2820</span><span class="p">,</span>

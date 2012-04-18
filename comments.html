@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>TaskRabbit - Comments on a Task</title>
+    <link href="/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/grid.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/documentation.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/pigments.css" media="screen" rel="stylesheet" type="text/css" />
+  </head>
+  
+  <body>
+    <div id="header-container">
+      <div id="header">
+        <div id="cloudburst"></div>
+        <a href="/" id="header-logo"><img src="/images/header-taskrabbitlogo.png" alt="TaskRabbit" height="62" width="162" border="0" /></a>
+      </div>
+    </div>
+    <div id="container">
+      <div id="main" class="span-24">
+        <div id="sidebar" class="span-6">
+          <ul>
+          
+            <li><a href="/post_simple.html">Posting a Simple Task</a></li>
+          
+            <li><a href="/oauth.html">OAuth</a></li>
+          
+            <li><a href="/post_task_parameters.html">Parameters for posting a task</a></li>
+          
+            <li><a href="/post_with_location.html">Posting a Task with locations</a></li>
+          
+            <li><a href="/post_with_photo.html">Posting a Task with a photo</a></li>
+          
+            <li><a href="/post_with_sound.html">Posting a Task with a sound</a></li>
+          
+            <li><a href="/account.html">User account information</a></li>
+          
+            <li><a href="/get_task.html">Task information</a></li>
+          
+            <li><a href="/get_user.html">User information</a></li>
+          
+            <li><a href="/city.html">City information</a></li>
+          
+            <li><a href="/close_task.html">Closing a Task</a></li>
+          
+            <li><a href="/cancel_task.html">Canceling a Task</a></li>
+          
+            <li><a href="/update_task.html">Updating a Task</a></li>
+          
+            <li><a href="/comments.html">Comments on a Task</a></li>
+          
+          </ul>
+        </div>
+        <div id="content" class="span-18 last">
+
+          <h1>Comments on a Task</h1>
+
+<p>TaskRabbit allows commenting on a Task</p>
+
+<h2>Setup</h2>
+
+<ul>
+<li>There is an user who is authenticated to your client application with id &quot;jhfe92kjfklep902mrdfg3jdsuo32b1os&quot;</li>
+<li>The user has an authorization token of &quot;rRou72pewt102y926jfhwow438238poQR31d&quot;</li>
+<li>There is an opened task &quot;Drop off&quot; with id 1452</li>
+<li>The user is the owner of the task &quot;Drop off&quot;</li>
+<li>The name of the user is &quot;Willis Ford&quot;</li>
+<li>There is a Rabbit who is authenticated to your client application</li>
+<li>The name of the user is &quot;Roger Rabbit&quot;</li>
+<li>The user has an authorization token of &quot;fei3on2o1in321XOIENOIn2io13zoin21xwq&quot;</li>
+</ul>
+
+<h2>Creating a new comment</h2>
+
+<h3>POST /api/v1/tasks/1452/comments</h3>
+
+<ul>
+<li>Authorization: OAuth fei3on2o1in321XOIENOIn2io13zoin21xwq</li>
+<li>Content-Type: application/json</li>
+</ul>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;comment&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;content&quot;</span><span class="o">:</span> <span class="s2">&quot;Where do you live?&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+<h3>Simplified Response</h3>
+
+<ul>
+<li>Status Code: 201</li>
+<li>Content-Type: application/json</li>
+</ul>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;content&quot;</span><span class="o">:</span> <span class="s2">&quot;Where do you live?&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;display_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Roger R.&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;conversation_id&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;&lt;22&gt;&gt;&quot;</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+<h2>Replying to a comment in a conversation</h2>
+
+<ul>
+<li>Given there is an opened task &quot;Heavy lifting&quot; with id 231</li>
+<li>The user &quot;Willis Ford&quot; is the owner of the task</li>
+<li>There is a conversation with id 23 created by &quot;Roger Rabbit&quot;</li>
+<li>The content of the conversation is &quot;How many items is there?&quot;</li>
+</ul>
+
+<h3>POST /api/v1/tasks/231/conversations/23/comments</h3>
+
+<ul>
+<li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
+<li>Content-Type: application/json</li>
+</ul>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;comment&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;content&quot;</span><span class="o">:</span> <span class="s2">&quot;Only 3&quot;</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+<h3>Simplified Response</h3>
+
+<ul>
+<li>Status Code: 201</li>
+<li>Content-Type: application/json</li>
+</ul>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;content&quot;</span><span class="o">:</span> <span class="s2">&quot;Only 3&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;display_name&quot;</span><span class="o">:</span> <span class="s2">&quot;Willis F.&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;conversation_id&quot;</span><span class="o">:</span> <span class="s2">&quot;&lt;&lt;23&gt;&gt;&quot;</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+<h2>Getting the conversations of a Task</h2>
+
+<h3>Directly inside the Task</h3>
+
+<h3>GET /api/v1/tasks/231</h3>
+
+<ul>
+<li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
+</ul>
+<div class="highlight"><pre>&quot;include&quot;:
+  &quot;task&quot;: [
+    &quot;conversations&quot;
+  ]
+  &quot;conversation&quot;: [
+    &quot;id&quot;,
+    &quot;name&quot;,
+    &quot;comments&quot;,
+    &quot;first&quot;,
+    &quot;last&quot;,
+    &quot;users&quot;,
+    &quot;counts&quot;
+  ]
+</pre>
+</div>
+
+<h3>Simplified Response</h3>
+
+<ul>
+<li>Status Code: 200</li>
+<li>Content-Type: application/json</li>
+</ul>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;conversations&quot;</span> <span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;items&quot;</span> <span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="mi">23</span><span class="p">,</span>
+        <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;How many items is there?&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;comments&quot;</span> <span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;items&quot;</span> <span class="o">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="s2">&quot;content&quot;</span> <span class="o">:</span> <span class="s2">&quot;How many items is there?&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;conversation_id&quot;</span> <span class="o">:</span> <span class="mi">23</span><span class="p">,</span>
+              <span class="s2">&quot;display_name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Roger R.&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="s2">&quot;content&quot;</span> <span class="o">:</span> <span class="s2">&quot;Only 3&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;conversation_id&quot;</span> <span class="o">:</span> <span class="mi">23</span><span class="p">,</span>
+              <span class="s2">&quot;display_name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Willis F.&quot;</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;first&quot;</span> <span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;content&quot;</span> <span class="o">:</span> <span class="s2">&quot;How many items is there?&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;conversation_id&quot;</span> <span class="o">:</span> <span class="mi">23</span><span class="p">,</span>
+          <span class="s2">&quot;display_name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Roger R.&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;last&quot;</span> <span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;content&quot;</span> <span class="o">:</span> <span class="s2">&quot;Only 3&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;conversation_id&quot;</span> <span class="o">:</span> <span class="mi">23</span><span class="p">,</span>
+          <span class="s2">&quot;display_name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Willis F.&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;users&quot;</span> <span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;items&quot;</span> <span class="o">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+              <span class="s2">&quot;display_name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Roger R.&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="mi">2132</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+              <span class="s2">&quot;display_name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Willis F.&quot;</span><span class="p">,</span>
+              <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="mi">2012</span>
+            <span class="p">}</span>
+          <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;counts&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;comments&quot;</span><span class="o">:</span> <span class="mi">2</span>
+        <span class="p">}</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+<h3>On the list of conversations</h3>
+
+<h3>GET /api/v1/tasks/231/conversations</h3>
+
+<ul>
+<li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
+</ul>
+
+<h3>Simplified Response</h3>
+
+<ul>
+<li>Status Code: 200</li>
+<li>Content-Type: application/json</li>
+</ul>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;items&quot;</span> <span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="mi">23</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;How many items is there?&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;comments&quot;</span> <span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;items&quot;</span> <span class="o">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s2">&quot;content&quot;</span> <span class="o">:</span> <span class="s2">&quot;How many items is there?&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;conversation_id&quot;</span> <span class="o">:</span> <span class="mi">23</span><span class="p">,</span>
+            <span class="s2">&quot;display_name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Roger R.&quot;</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="s2">&quot;content&quot;</span> <span class="o">:</span> <span class="s2">&quot;Only 3&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;conversation_id&quot;</span> <span class="o">:</span> <span class="mi">23</span><span class="p">,</span>
+            <span class="s2">&quot;display_name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Willis F.&quot;</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;first&quot;</span> <span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;content&quot;</span> <span class="o">:</span> <span class="s2">&quot;How many items is there?&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;conversation_id&quot;</span> <span class="o">:</span> <span class="mi">23</span><span class="p">,</span>
+        <span class="s2">&quot;display_name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Roger R.&quot;</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;last&quot;</span> <span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;content&quot;</span> <span class="o">:</span> <span class="s2">&quot;Only 3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;conversation_id&quot;</span> <span class="o">:</span> <span class="mi">23</span><span class="p">,</span>
+        <span class="s2">&quot;display_name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Willis F.&quot;</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;users&quot;</span> <span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;items&quot;</span> <span class="o">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s2">&quot;display_name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Roger R.&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="mi">2132</span>
+          <span class="p">},</span>
+          <span class="p">{</span>
+            <span class="s2">&quot;display_name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Willis F.&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="mi">2012</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">},</span>
+      <span class="s2">&quot;counts&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;comments&quot;</span><span class="o">:</span> <span class="mi">2</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+<h2>Display one conversation of a Task</h2>
+
+<h3>GET /api/v1/tasks/231/conversations/23</h3>
+
+<ul>
+<li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
+</ul>
+
+<h3>Simplified Response</h3>
+
+<ul>
+<li>Status Code: 200</li>
+<li>Content-Type: application/json</li>
+</ul>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="mi">23</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span> <span class="o">:</span> <span class="s2">&quot;How many items is there?&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;comments&quot;</span> <span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;items&quot;</span> <span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;content&quot;</span> <span class="o">:</span> <span class="s2">&quot;How many items is there?&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;conversation_id&quot;</span> <span class="o">:</span> <span class="mi">23</span><span class="p">,</span>
+        <span class="s2">&quot;display_name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Roger R.&quot;</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;content&quot;</span> <span class="o">:</span> <span class="s2">&quot;Only 3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;conversation_id&quot;</span> <span class="o">:</span> <span class="mi">23</span><span class="p">,</span>
+        <span class="s2">&quot;display_name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Willis F.&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;first&quot;</span> <span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;content&quot;</span> <span class="o">:</span> <span class="s2">&quot;How many items is there?&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;conversation_id&quot;</span> <span class="o">:</span> <span class="mi">23</span><span class="p">,</span>
+    <span class="s2">&quot;display_name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Roger R.&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;last&quot;</span> <span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;content&quot;</span> <span class="o">:</span> <span class="s2">&quot;Only 3&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;conversation_id&quot;</span> <span class="o">:</span> <span class="mi">23</span><span class="p">,</span>
+    <span class="s2">&quot;display_name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Willis F.&quot;</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;users&quot;</span> <span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;items&quot;</span> <span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;display_name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Roger R.&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="mi">2132</span>
+      <span class="p">},</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;display_name&quot;</span> <span class="o">:</span> <span class="s2">&quot;Willis F.&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="mi">2012</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">},</span>
+  <span class="s2">&quot;counts&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;comments&quot;</span><span class="o">:</span> <span class="mi">2</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+
+        </div>
+      </div>
+    </div>
+    <div id="footer"></div><!-- /#footer -->
+  </body>
+</html>

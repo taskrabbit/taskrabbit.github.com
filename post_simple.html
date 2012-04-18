@@ -49,6 +49,8 @@
           
             <li><a href="/update_task.html">Updating a Task</a></li>
           
+            <li><a href="/comments.html">Comments on a Task</a></li>
+          
           </ul>
         </div>
         <div id="content" class="span-18 last">
@@ -89,11 +91,11 @@
 </ul></li>
 </ul>
 
-<h3>POST &#47;api&#47;v1&#47;tasks</h3>
+<h3>POST /api/v1/tasks</h3>
 
 <ul>
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -109,7 +111,7 @@
 
 <ul>
 <li>Status Code: 200</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">9221</span><span class="p">,</span>
@@ -127,11 +129,11 @@
 </pre>
 </div>
 
-<h3>POST &#47;api&#47;v1&#47;tasks</h3>
+<h3>POST /api/v1/tasks</h3>
 
 <ul>
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
-<li>Content-Type: application&#47;x-www-form-urlencoded</li>
+<li>Content-Type: application/x-www-form-urlencoded</li>
 </ul>
 <div class="highlight"><pre>task:
   name: My Second Task
@@ -144,7 +146,7 @@
 
 <ul>
 <li>Status Code: 200</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">9222</span><span class="p">,</span>
@@ -168,11 +170,11 @@
 
 <h2>Incorrect Authorization</h2>
 
-<h3>POST &#47;api&#47;v1&#47;tasks</h3>
+<h3>POST /api/v1/tasks</h3>
 
 <ul>
 <li>Authorization: OAuth XXXXXX</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 <li>X-Client-Application: fei3on2o1in321XOIENOIn2io13zoin21x</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
@@ -188,7 +190,7 @@
 <h3>401 Unauthorized</h3>
 
 <ul>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="s2">&quot;There must be an authenticated user for this action&quot;</span>
@@ -198,11 +200,11 @@
 
 <h2>Missing Required Fields</h2>
 
-<h3>POST &#47;api&#47;v1&#47;tasks</h3>
+<h3>POST /api/v1/tasks</h3>
 
 <ul>
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -233,11 +235,11 @@
 <li>Then the Task will still be created, but not posted</li>
 </ul>
 
-<h3>POST &#47;api&#47;v1&#47;tasks</h3>
+<h3>POST /api/v1/tasks</h3>
 
 <ul>
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
@@ -253,7 +255,7 @@
 
 <ul>
 <li>Status Code: 201</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">9223</span><span class="p">,</span>

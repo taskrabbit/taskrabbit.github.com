@@ -49,6 +49,8 @@
           
             <li><a href="/update_task.html">Updating a Task</a></li>
           
+            <li><a href="/comments.html">Comments on a Task</a></li>
+          
           </ul>
         </div>
         <div id="content" class="span-18 last">
@@ -66,7 +68,9 @@
 <li>The user has an assigned task &quot;My Task&quot; with id 1452</li>
 </ul>
 
-<h3>POST &#47;api&#47;v1&#47;tasks&#47;1452&#47;close</h3>
+<h2>Simple close</h2>
+
+<h3>POST /api/v1/tasks/1452/close</h3>
 
 <ul>
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
@@ -76,12 +80,98 @@
 
 <ul>
 <li>Status Code: 200</li>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">1452</span><span class="p">,</span>
   <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;My Task&quot;</span><span class="p">,</span>
   <span class="s2">&quot;state&quot;</span><span class="o">:</span><span class="s2">&quot;closed&quot;</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+<h2>Set reimbursements on close</h2>
+
+<ul>
+<li>Given the user has an assigned task &quot;My Task&quot; with id 1454</li>
+<li>The assigned Rabbit id is 231</li>
+</ul>
+
+<h3>POST /api/v1/tasks/1454/close</h3>
+
+<ul>
+<li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
+<li>Content-Type: application/json</li>
+</ul>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;runners&quot;</span> <span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span> <span class="o">:</span> <span class="mi">231</span><span class="p">,</span>
+      <span class="s2">&quot;reimbursment_in_cents&quot;</span> <span class="o">:</span> <span class="mf">22.3</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+<h3>Simplified Response</h3>
+
+<ul>
+<li>Status Code: 200</li>
+<li>Content-Type: application/json</li>
+</ul>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">1454</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;My Task&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;state&quot;</span><span class="o">:</span><span class="s2">&quot;closed&quot;</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+<h2>Set the ratings on close</h2>
+
+<ul>
+<li>Given the user has an assigned task &quot;My Task&quot; with id 1455</li>
+<li>The assigned Rabbit id is 234</li>
+</ul>
+
+<h3>POST /api/v1/tasks/1455/close</h3>
+
+<ul>
+<li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
+<li>Content-Type: application/json</li>
+</ul>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;runners&quot;</span> <span class="o">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">234</span><span class="p">,</span>
+      <span class="s2">&quot;stars&quot;</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+      <span class="s2">&quot;comments&quot;</span><span class="o">:</span> <span class="s2">&quot;He was good!&quot;</span>
+    <span class="p">}</span>
+  <span class="p">]</span>
+<span class="p">}</span>
+</pre>
+</div>
+
+<h3>Simplified Response</h3>
+
+<ul>
+<li>Status Code: 200</li>
+<li>Content-Type: application/json</li>
+</ul>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">1455</span><span class="p">,</span>
+  <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;My Task&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;state&quot;</span><span class="o">:</span><span class="s2">&quot;closed&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;runner_rates&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;items&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;runner_id&quot;</span><span class="o">:</span> <span class="mi">234</span><span class="p">,</span>
+        <span class="s2">&quot;stars&quot;</span><span class="o">:</span> <span class="mi">5</span><span class="p">,</span>
+        <span class="s2">&quot;comments&quot;</span><span class="o">:</span> <span class="s2">&quot;He was good!&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span> 
 <span class="p">}</span>
 </pre>
 </div>
@@ -92,7 +182,7 @@
 
 <h2>Incorrect Authorization</h2>
 
-<h3>POST &#47;api&#47;v1&#47;tasks&#47;1452&#47;close</h3>
+<h3>POST /api/v1/tasks/1452/close</h3>
 
 <ul>
 <li>Authorization: OAuth XXXXXX</li>
@@ -102,7 +192,7 @@
 <h3>401 Unauthorized</h3>
 
 <ul>
-<li>Content-Type: application&#47;json</li>
+<li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
   <span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="s2">&quot;There must be an authenticated user for this action&quot;</span>
