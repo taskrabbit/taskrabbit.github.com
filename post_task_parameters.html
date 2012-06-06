@@ -134,6 +134,13 @@
 </pre>
 </div>
 
+<h4>private_description</h4>
+
+<p>The private description of the task</p>
+<div class="highlight"><pre>&quot;private_description&quot;: &quot;Secret informations&quot;
+</pre>
+</div>
+
 <h4>cost_in_cents</h4>
 
 <p>The estimate price that the Rabbit will have to spend in cents.</p>
@@ -176,8 +183,10 @@
     <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> 
     <span class="s2">&quot;city_id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;I want you to walk him to his favorite state park&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;private_description&quot;</span><span class="o">:</span> <span class="s2">&quot;Secret informations&quot;</span><span class="p">,</span>
     <span class="s2">&quot;cost_in_cents&quot;</span><span class="o">:</span> <span class="mi">500</span><span class="p">,</span>
-    <span class="s2">&quot;virtual&quot;</span><span class="o">:</span> <span class="kc">true</span>
+    <span class="s2">&quot;virtual&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+    <span class="s2">&quot;assignment_type&quot;</span><span class="o">:</span> <span class="s2">&quot;review&quot;</span>
   <span class="p">}</span>
 <span class="p">}</span>
 </pre>
@@ -201,6 +210,7 @@
   <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;I want you to walk him to his favorite state park&quot;</span><span class="p">,</span>
   <span class="s2">&quot;state&quot;</span><span class="o">:</span> <span class="s2">&quot;opened&quot;</span><span class="p">,</span>
   <span class="s2">&quot;virtual&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
+  <span class="s2">&quot;assignment_type&quot;</span><span class="o">:</span> <span class="s2">&quot;review&quot;</span><span class="p">,</span>
   <span class="s2">&quot;links&quot;</span><span class="o">:</span> <span class="p">{</span>
     <span class="s2">&quot;get&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/tasks/2835&quot;</span>
   <span class="p">}</span>
