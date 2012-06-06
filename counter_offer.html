@@ -4,7 +4,7 @@
   
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TaskRabbit - Canceling a Task</title>
+    <title>TaskRabbit - Countering an offer</title>
     <link href="/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/grid.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/documentation.css" media="screen" rel="stylesheet" type="text/css" />
@@ -63,9 +63,10 @@
         </div>
         <div id="content" class="span-18 last">
 
-          <h1>Canceling a Task</h1>
+          <h1>Countering an offer</h1>
 
-<p>TaskRabbit allows canceling a Task</p>
+<p>TaskRabbit allows Task posters to counter offers.
+You can set the charge price and the comments.</p>
 
 <h2>Setup</h2>
 
@@ -73,14 +74,24 @@
 <li>There is a user who is authenticated to your client application with id &quot;jhfe92kjfklep902mrdfg3jdsuo32b1os&quot;</li>
 <li>The client application secret is &quot;fei3on2o1in321XOIENOIn2io13zoin21x&quot;</li>
 <li>The user has an authorization token of &quot;rRou72pewt102y926jfhwow438238poQR31d&quot;</li>
+<li>The city of the user is Boston</li>
 <li>The user has an opened task &quot;My Task&quot; with id 1452</li>
+<li>There is an offer on the task with id 213</li>
+<li>The city of the runner is Boston</li>
 </ul>
 
-<h3>DELETE /api/v1/tasks/1452</h3>
+<h3>POST /api/v1/tasks/1452/offers/213/counter</h3>
 
 <ul>
 <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
+<li>Content-Type: application/json</li>
 </ul>
+<div class="highlight"><pre><span class="p">{</span>
+  <span class="s2">&quot;charge_price&quot;</span><span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="s2">&quot;comments&quot;</span><span class="o">:</span> <span class="s2">&quot;This is more fair.&quot;</span>
+<span class="p">}</span>
+</pre>
+</div>
 
 <h3>Simplified Response</h3>
 
@@ -89,43 +100,30 @@
 <li>Content-Type: application/json</li>
 </ul>
 <div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">1452</span><span class="p">,</span>
-  <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;My Task&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;state&quot;</span><span class="o">:</span><span class="s2">&quot;canceled&quot;</span>
+  <span class="s2">&quot;id&quot;</span><span class="o">:</span><span class="mi">214</span><span class="p">,</span>
+  <span class="s2">&quot;charge_price&quot;</span><span class="o">:</span> <span class="mi">30</span><span class="p">,</span>
+  <span class="s2">&quot;state&quot;</span><span class="o">:</span> <span class="s2">&quot;made&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;comments&quot;</span><span class="o">:</span> <span class="s2">&quot;This is more fair.&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;My Task&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s2">&quot;state&quot;</span><span class="o">:</span> <span class="s2">&quot;opened&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;city&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
+      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Boston&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
 <span class="p">}</span>
 </pre>
 </div>
 
 <h1>Error Cases</h1>
 
-<p>The server will respond with different status codes when there is a problem canceling the Task.</p>
-
-<h2>The Task is assigned</h2>
-
-<ul>
-<li>When the task is assigned</li>
-</ul>
-
-<h3>DELETE /api/v1/tasks/1452</h3>
-
-<ul>
-<li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
-</ul>
-
-<h3>403 Forbidden</h3>
-
-<ul>
-<li>Content-Type: application/json</li>
-</ul>
-<div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="s2">&quot;The user is not allowed to perform this action on this object&quot;</span>
-<span class="p">}</span>
-</pre>
-</div>
+<p>The server will respond with different status codes when there is a problem countering an offer.</p>
 
 <h2>Incorrect Authorization</h2>
 
-<h3>DELETE /api/v1/tasks/1452</h3>
+<h3>POST /api/v1/tasks/1452/offers/213/counter</h3>
 
 <ul>
 <li>Authorization: OAuth XXXXXX</li>
