@@ -1,0 +1,46 @@
+---
+layout: post
+title: Decline an offer on a Task
+---
+# Decline an offer on a Task
+
+
+## Setup
+
+### POST /api/v1/tasks/1452/offers/213/decline
+
+
+### Simplified Response
+
+```json
+{
+  "id": 213,
+  "charge_price": 15,
+  "state": "declined",
+  "task": {
+    "name": "My Task",
+    "named_price": 10,
+    "state": "opened",
+    "city": {
+      "id": 1,
+      "name": "Boston"
+    }
+  }
+}
+```
+
+# Error Cases
+
+## Incorrect Authorization
+
+### POST /api/v1/tasks/1452/offers/213/accept
+
+
+### 401 Unauthorized
+
+
+```json
+{
+  "error":"There must be an authenticated user for this action"
+}
+```

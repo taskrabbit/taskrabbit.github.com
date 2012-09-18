@@ -1,0 +1,247 @@
+---
+layout: post
+title: Comments on Task
+---
+# Comments on a Task
+
+Comment on a Task.
+
+## Setup
+* Willis Ford owns the Task.
+* Roger Rabbit is posting a comment.
+
+## Creating a new comment
+
+### POST /api/v1/tasks/1452/comments
+
+```json
+{
+  "comment": {
+    "content": "How many items are there?"
+  }
+}
+```
+
+### Simplified Response
+
+
+```json
+{
+  "content": "How many items are there?",
+  "display_name": "Roger R.",
+  "conversation_id": "<<22>>"
+}
+```
+
+## Replying to a comment in a conversation
+
+
+### POST /api/v1/tasks/231/conversations/23/comments
+
+
+```json
+{
+  "comment": {
+    "content": "Only 3"
+  }
+}
+```
+
+### Simplified Response
+
+```json
+{
+  "content": "Only 3",
+  "display_name": "Willis F.",
+  "conversation_id": "<<23>>"
+}
+```
+
+## Getting the conversations of a Task
+
+### Directly inside the Task
+
+### GET /api/v1/tasks/231
+
+```
+"include":
+  "task": [
+    "conversations"
+  ]
+  "conversation": [
+    "id",
+    "name",
+    "comments",
+    "first",
+    "last",
+    "users",
+    "counts"
+  ]
+```
+
+### Simplified Response
+
+
+```json
+{
+  "conversations" : {
+    "items" : [
+      {
+        "id" : 23,
+        "name" : "How many items is there?",
+        "comments" : {
+          "items" : [
+            {
+              "content" : "How many items is there?",
+              "conversation_id" : 23,
+              "display_name" : "Roger R."
+            },
+            {
+              "content" : "Only 3",
+              "conversation_id" : 23,
+              "display_name" : "Willis F."
+            }
+          ]
+        },
+        "first" : {
+          "content" : "How many items is there?",
+          "conversation_id" : 23,
+          "display_name" : "Roger R."
+        },
+        "last" : {
+          "content" : "Only 3",
+          "conversation_id" : 23,
+          "display_name" : "Willis F."
+        },
+        "users" : {
+          "items" : [
+            {
+              "display_name" : "Roger R.",
+              "id" : 2132
+            },
+            {
+              "display_name" : "Willis F.",
+              "id" : 2012
+            }
+          ]
+        },
+        "counts": {
+          "comments": 2
+        }
+      }
+    ]
+  }
+}
+```
+
+
+### On the list of conversations
+
+### GET /api/v1/tasks/231/conversations
+
+
+### Simplified Response
+
+```json
+{
+  "items" : [
+    {
+      "id" : 23,
+      "name" : "How many items is there?",
+      "comments" : {
+        "items" : [
+          {
+            "content" : "How many items is there?",
+            "conversation_id" : 23,
+            "display_name" : "Roger R."
+          },
+          {
+            "content" : "Only 3",
+            "conversation_id" : 23,
+            "display_name" : "Willis F."
+          }
+        ]
+      },
+      "first" : {
+        "content" : "How many items is there?",
+        "conversation_id" : 23,
+        "display_name" : "Roger R."
+      },
+      "last" : {
+        "content" : "Only 3",
+        "conversation_id" : 23,
+        "display_name" : "Willis F."
+      },
+      "users" : {
+        "items" : [
+          {
+            "display_name" : "Roger R.",
+            "id" : 2132
+          },
+          {
+            "display_name" : "Willis F.",
+            "id" : 2012
+          }
+        ]
+      },
+      "counts": {
+        "comments": 2
+      }
+    }
+  ]
+}
+```
+
+## Display one conversation of a Task
+
+### GET /api/v1/tasks/231/conversations/23
+
+
+### Simplified Response
+
+
+```json
+{
+  "id" : 23,
+  "name" : "How many items is there?",
+  "comments" : {
+    "items" : [
+      {
+        "content" : "How many items is there?",
+        "conversation_id" : 23,
+        "display_name" : "Roger R."
+      },
+      {
+        "content" : "Only 3",
+        "conversation_id" : 23,
+        "display_name" : "Willis F."
+      }
+    ]
+  },
+  "first" : {
+    "content" : "How many items is there?",
+    "conversation_id" : 23,
+    "display_name" : "Roger R."
+  },
+  "last" : {
+    "content" : "Only 3",
+    "conversation_id" : 23,
+    "display_name" : "Willis F."
+  },
+  "users" : {
+    "items" : [
+      {
+        "display_name" : "Roger R.",
+        "id" : 2132
+      },
+      {
+        "display_name" : "Willis F.",
+        "id" : 2012
+      }
+    ]
+  },
+  "counts": {
+    "comments": 2
+  }
+}
+```

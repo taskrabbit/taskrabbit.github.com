@@ -1,22 +1,14 @@
 ---
 layout: post
-title: Posting a Task with a sound
+title: Posting a Task with audio
 ---
-# Posting a Task with a sound
+# Posting a Task with audio
 
 TaskRabbit allows the posting of a sound recording in MP3 and AAC format with a size limit of 2MB.
-Adding a descriptive sound recording from application with limited text input greatly increases the assignment rate.
+Adding a descriptive sound recording from an application with limited text input greatly increases the assignment rate.
 
-## Setup
-
-* There is a user who is authenticated to your client application
-* The user has an authorization token of "rRou72pewt102y926jfhwow438238poQR31d"
-
-### Required Values
 
 ### POST /api/v1/tasks
-
-* Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d
 
 ```
 task:
@@ -29,9 +21,7 @@ task:
 ```
 
 ### Simplified Response
-
-* Status Code: 200
-* Content-Type: application/json
+At this time, the response does not confirm the audio upload.
 
 ```json
 {
@@ -48,5 +38,3 @@ task:
   }
 }
 ```
-
-* And the "Walk my dog" task should have 1 sound even though it's not returned in the JSON

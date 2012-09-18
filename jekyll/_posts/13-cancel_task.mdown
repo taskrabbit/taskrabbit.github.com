@@ -1,0 +1,47 @@
+---
+layout: post
+title: Canceling a Task
+---
+# Canceling a Task
+
+Given no Rabbits have been assigned, a Task can be cancelled.
+
+### DELETE /api/v1/tasks/1452
+
+### Simplified Response
+
+```json
+{
+  "id":1452,
+  "name":"My Task",
+  "state":"canceled"
+}
+```
+
+# Error Cases
+
+## The Task is assigned
+
+
+### DELETE /api/v1/tasks/1452
+
+### 403 Forbidden
+
+```json
+{
+  "error":"The user is not allowed to perform this action on this object"
+}
+```
+
+## Incorrect Authorization
+
+### DELETE /api/v1/tasks/1452
+
+### 401 Unauthorized
+
+
+```json
+{
+  "error":"There must be an authenticated user for this action"
+}
+```

@@ -8,60 +8,85 @@
     <link href="/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/grid.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/documentation.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/pigments.css" media="screen" rel="stylesheet" type="text/css" />
   </head>
   
   <body>
-    <div id="header">
-    </div>
-    <div id="main">
-      <div id="sidebar" class="span-6">
-        <ul>
-        
-          <li><a href="/post_simple.html">Posting a Simple Task</a></li>
-        
-          <li><a href="/auth.html">Oauth</a></li>
-        
-          <li><a href="/post_task_parameters.html">Parameters for posting a task</a></li>
-        
-          <li><a href="/post_with_location.html">Posting a Task with locations</a></li>
-        
-          <li><a href="/post_with_photo.html">Posting a Task with a photo</a></li>
-        
-          <li><a href="/post_with_sound.html">Posting a Task with a sound</a></li>
-        
-          <li><a href="/account.html">User account informations</a></li>
-        
-        </ul>
+    <div id="header-container">
+      <div id="header">
+        <div id="cloudburst"></div>
+        <a href="/" id="header-logo"><img src="/images/header-taskrabbitlogo.png" alt="TaskRabbit" height="62" width="162" border="0" /></a>
       </div>
-      <div id="content" class="span-18 last">
+    </div>
+    <div id="container">
+      <div id="main" class="span-24">
+        <div id="sidebar" class="span-6">
+          <ul>
+          
+            <li><a href="/post_simple.html">Posting a Simple Task</a></li>
+          
+            <li><a href="/oauth.html">Authentication</a></li>
+          
+            <li><a href="/post_task_parameters.html">Parameters for posting a task</a></li>
+          
+            <li><a href="/post_with_location.html">Posting a Task with locations</a></li>
+          
+            <li><a href="/post_with_photo.html">Posting a Task with a photo</a></li>
+          
+            <li><a href="/post_with_sound.html">Posting a Task with audio</a></li>
+          
+            <li><a href="/account.html">User account information</a></li>
+          
+            <li><a href="/get_task.html">Task information</a></li>
+          
+            <li><a href="/get_user.html">User information</a></li>
+          
+            <li><a href="/city.html">City information</a></li>
+          
+            <li><a href="/close_task.html">Close a Task</a></li>
+          
+            <li><a href="/cancel_task.html">Canceling a Task</a></li>
+          
+            <li><a href="/update_task.html">Parameters for posting a task</a></li>
+          
+            <li><a href="/comments.html">Comments on Task</a></li>
+          
+            <li><a href="/offers_listing.html">Offers listing of Task</a></li>
+          
+            <li><a href="/accept_offer.html">Accept an offer on a Task</a></li>
+          
+            <li><a href="/counter_offer.html">Countering an offer</a></li>
+          
+            <li><a href="/decline_offer.html">Decline an offer on a Task</a></li>
+          
+          </ul>
+        </div>
+        <div id="content" class="span-18 last">
 
-        <h1 id="posting-a-simple-task">Posting a Simple Task</h1>
+          <h1 id="posting-a-simple-task">Posting a Simple Task</h1>
 
 <p>TaskRabbit allows posting of Tasks by a client application on behalf of a user that has authorized that application. Authorization is done through OAuth and assigns a unique token to the user for for the application to use. This key is passed in all requests.</p>
 
-<h2 id="setup">Setup</h2>
-
-<ul>
-  <li>There is a user who is authenticated to your client application</li>
-  <li>The user has an authorization token of &ldquo;rRou72pewt102y926jfhwow438238poQR31d&rdquo;</li>
-</ul>
-
 <h2 id="creating-a-new-task">Creating a new Task</h2>
 
-<p>To create a task, the client application POSTs data, the content can be either a json or x-www-form-urlencoded.</p>
+<p>To create a Task, the client application POSTs data. The content can be either a json or x-www-form-urlencoded.</p>
 
 <h3 id="required-values">Required Values</h3>
 
 <ul>
-  <li>name: The short, public text shown to describe the Task</li>
-  <li>named_price: The integer amount, in whole US Dollars, the TaskPoster is willing to pay for the Task</li>
-  <li>city_id: The metro area where the Task will occur
+  <li><code>name</code>: The short, public text shown to describe the Task</li>
+  <li><code>named_price</code>: The integer amount, in whole US Dollars, the TaskPoster is willing to pay for the Task</li>
+  <li><code>city_id</code>: The metro area where the Task will occur
     <ul>
       <li>1 -&gt; Boston</li>
       <li>3 -&gt; SF Bay Area</li>
       <li>4 -&gt; New York City</li>
-      <li>6 -&gt; Los Angeles</li>
-      <li>40 -&gt; Orange County</li>
+      <li>5 -&gt; Chicago</li>
+      <li>6 -&gt; Los Angeles and Orange County</li>
+      <li>8 -&gt; Austin</li>
+      <li>10 -&gt; Portland</li>
+      <li>11 -&gt; Seattle</li>
+      <li>148 -&gt; San Antonio</li>
     </ul>
   </li>
 </ul>
@@ -145,7 +170,7 @@ task:
 
 <h1 id="error-cases">Error Cases</h1>
 
-<p>The server will respond with different status codes when there is a problem posting the Task.</p>
+<p>The server will respond with a status codes when there is a problem posting the Task.</p>
 
 <h2 id="incorrect-authorization">Incorrect Authorization</h2>
 
@@ -154,6 +179,7 @@ task:
 <ul>
   <li>Authorization: OAuth XXXXXX</li>
   <li>Content-Type: application/json</li>
+  <li>X-Client-Application: fei3on2o1in321XOIENOIn2io13zoin21x</li>
 </ul>
 
 <p><code>json
@@ -167,6 +193,7 @@ task:
 </code></p>
 
 <h3 id="unauthorized">401 Unauthorized</h3>
+
 <ul>
   <li>Content-Type: application/json</li>
 </ul>
@@ -209,12 +236,7 @@ task:
 
 <h2 id="credit-card-problems">Credit Card Problems</h2>
 
-<p>In the previous requests, TaskRabbit was using the user&rsquo;s credit card on file.</p>
-
-<ul>
-  <li>Given the user does not have a credit card on file</li>
-  <li>Then the Task will still be created, but not posted</li>
-</ul>
+<p>In the previous requests, TaskRabbit was using the user&rsquo;s credit card on file. If the user does not have a credit card on file, the Task will still be created, but not posted.</p>
 
 <h3 id="post-apiv1tasks-4">POST /api/v1/tasks</h3>
 
@@ -260,10 +282,10 @@ task:
 <p>Whenever the links[redirect] key is present, the user should be shown the URL given. In this case, the page will allow the user to enter her credit card number to complete the transaction.</p>
 
 
+        </div>
       </div>
     </div>
 
-     <div id="footer" >
-    </div><!-- /#footer -->
+    <div id="footer"></div><!-- /#footer -->
   </body>
 </html>
