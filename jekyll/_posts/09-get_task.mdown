@@ -1,10 +1,12 @@
-<h1 id="task-information">Task information</h1>
+# Task information
 
-<h3 id="get-apiv1tasks1452">GET /api/v1/tasks/1452</h3>
+### GET /api/v1/tasks/1452
 
-<h3 id="simplified-response">Simplified Response</h3>
 
-<p><code>json
+### Simplified Response
+
+
+```json
 {
     "name": "My Task",
     "city": {
@@ -21,7 +23,7 @@
     "state_changed_at": 1315486800,
     "cost_in_cents": 0,
     "links": {
-        "html": "&lt;&lt;http://www.taskrabbit.com/tasks/my-task&gt;&gt;",
+        "html": "<<http://www.taskrabbit.com/tasks/my-task>>",
         "get": "/api/v1/tasks/1452"
     },
     "state_label": "posted",
@@ -39,7 +41,7 @@
         "id": 2314,
         "links": {
             "get": "/api/v1/users/2314",
-            "avatar_url": "&lt;&lt;http://www.taskrabbit.com/images/default_avatars/poster_thumb.gif&gt;&gt;"
+            "avatar_url": "<<http://www.taskrabbit.com/images/default_avatars/poster_thumb.gif>>"
         },
         "full_name": "Willis F.",
         "short_name": "Willis",
@@ -47,7 +49,7 @@
     },
     "state": "opened"
 }
-</code></p>
+```
 
 <!-- # Includes
 
@@ -113,15 +115,16 @@ Only the Runner see it
 
 Conversations on the Task
  -->
-<p># Examples</p>
+# Examples
 
-<h2 id="logged-out-user">Logged-out User</h2>
+## Logged-out User
 
-<h3 id="get-apiv1tasks1452-1">GET /api/v1/tasks/1452</h3>
+### GET /api/v1/tasks/1452
 
-<h3 id="simplified-response-1">Simplified Response</h3>
 
-<p><code>json
+### Simplified Response
+
+```json
 {
     "name": "My Task",
     "city": {
@@ -156,7 +159,7 @@ Conversations on the Task
         "id": 5070,
         "links": {
             "get": "/api/v1/users/5070",
-            "avatar_url": "&lt;&lt;http://www.taskrabbit.com/images/default_avatars/poster_thumb.gif&gt;&gt;"
+            "avatar_url": "<<http://www.taskrabbit.com/images/default_avatars/poster_thumb.gif>>"
         },
         "full_name": "Willis F.",
         "short_name": "Willis",
@@ -164,13 +167,13 @@ Conversations on the Task
     },
     "state": "opened"
 }
-</code></p>
+```
 
-<h2 id="logged-in-user">Logged-in User</h2>
+## Logged-in User
 
-<h3 id="get-apiv1tasks1452-2">GET /api/v1/tasks/1452</h3>
+### GET /api/v1/tasks/1452
 
-<p><code>
+```
 "include":
   "task": [
     "id",
@@ -190,11 +193,12 @@ Conversations on the Task
     "offers",
     "location_visits"
   ]
-</code></p>
+```
 
-<h3 id="simplified-response-2">Simplified Response</h3>
+### Simplified Response
 
-<p><code>json
+
+```json
 {
     "name": "My Task",
     "city": {
@@ -211,7 +215,7 @@ Conversations on the Task
     "state_changed_at": 1315486800,
     "cost_in_cents": 0,
     "links": {
-        "html": "&lt;&lt;http://www.taskrabbit.com/tasks/my-task&gt;&gt;",
+        "html": "<<http://www.taskrabbit.com/tasks/my-task>>",
         "get": "/api/v1/tasks/1452"
     },
     "assign_by_time": 1315670400,
@@ -228,7 +232,7 @@ Conversations on the Task
         "id": 2320,
         "links": {
             "get": "/api/v1/users/2320",
-            "avatar_url": "&lt;&lt;http://www.taskrabbit.com/images/default_avatars/poster_thumb.gif&gt;&gt;"
+            "avatar_url": "<<http://www.taskrabbit.com/images/default_avatars/poster_thumb.gif>>"
         },
         "full_name": "Willis F.",
         "short_name": "Willis",
@@ -239,13 +243,14 @@ Conversations on the Task
     },
     "state": "opened"
 }
-</code></p>
+```
 
-<h2 id="logged-in-as-the-owner-of-the-task">Logged-in as the owner of the Task</h2>
+## Logged-in as the owner of the Task
 
-<h3 id="get-apiv1tasks1452-3">GET /api/v1/tasks/1452</h3>
+### GET /api/v1/tasks/1452
 
-<p><code>
+
+```
 "include":
   "task": [
     "id",
@@ -266,11 +271,11 @@ Conversations on the Task
     "offers",
     "location_visits"
   ]
-</code></p>
+```
 
-<h3 id="simplified-response-3">Simplified Response</h3>
+### Simplified Response
 
-<p><code>json
+```json
 {
     "name": "My Task",
     "city": {
@@ -298,12 +303,12 @@ Conversations on the Task
     "cost_in_cents": 0,
     "assignment_type": "auto",
     "links": {
-        "html": "&lt;&lt;http://www.taskrabbit.com/tasks/my-task&gt;&gt;",
+        "html": "<<http://www.taskrabbit.com/tasks/my-task>>",
         "get": "/api/v1/tasks/1452",
         "delete": "/api/v1/tasks/1452",
         "offers": "/api/v1/tasks/1452/offers",
         "put": "/api/v1/tasks/1452",
-        "authenticated": "&lt;&lt;https://www.taskrabbit.com/go/7b10a62039cd9f0f7a63c9790cf2470d71ff2e1b5d6da6995e31421faefd1db632ef0d66427ac31958a5c891339587024537&gt;&gt;"
+        "authenticated": "<<https://www.taskrabbit.com/go/7b10a62039cd9f0f7a63c9790cf2470d71ff2e1b5d6da6995e31421faefd1db632ef0d66427ac31958a5c891339587024537>>"
     },
     "assign_by_time": 1315670400,
     "location_visits": {
@@ -312,13 +317,14 @@ Conversations on the Task
     "private_runner": false,
     "state": "opened"
 }
-</code></p>
+```
 
-<h2 id="assigned-task">Assigned Task</h2>
+## Assigned Task
 
-<h3 id="get-apiv1tasks1452-4">GET /api/v1/tasks/1452</h3>
+### GET /api/v1/tasks/1452
 
-<p><code>
+
+```
 "include":
   "task": [
     "id",
@@ -337,11 +343,12 @@ Conversations on the Task
     "offers",
     "location_visits"
   ]
-</code></p>
+```
 
-<h3 id="simplified-response-4">Simplified Response</h3>
+### Simplified Response
 
-<p><code>json
+
+```json
 {
     "name": "My Task",
     "city": {
@@ -370,8 +377,8 @@ Conversations on the Task
       },
       "id": 2331,
       "links": {
-          "get": "&lt;&lt;/api/v1/users/2331&gt;&gt;",
-          "avatar_url": "&lt;&lt;http://www.taskrabbit.com/images/default_avatars/runner_thumb.gif&gt;&gt;"
+          "get": "<</api/v1/users/2331>>",
+          "avatar_url": "<<http://www.taskrabbit.com/images/default_avatars/runner_thumb.gif>>"
       },
       "email": "odell.clark@example.com",
       "mobile_phone": "4154154156",
@@ -381,9 +388,9 @@ Conversations on the Task
       "display_name": "Odell C."
     },
     "links": {
-        "html": "&lt;&lt;http://www.taskrabbit.com/tasks/my-task&gt;&gt;",
+        "html": "<<http://www.taskrabbit.com/tasks/my-task>>",
         "get": "/api/v1/tasks/1452",
-        "authenticated": "&lt;&lt;https://www.taskrabbit.com/go/f4746fa25b80ba121fae6514c2e6df3d721010f7f54c997731ac142b9255bc54a1e9921a6334622001500b3248097319b274&gt;&gt;"
+        "authenticated": "<<https://www.taskrabbit.com/go/f4746fa25b80ba121fae6514c2e6df3d721010f7f54c997731ac142b9255bc54a1e9921a6334622001500b3248097319b274>>"
     },
     "assign_by_time": 1315670400,
     "location_visits": {
@@ -391,13 +398,15 @@ Conversations on the Task
     },
     "state": "assigned"
 }
-</code></p>
+```
 
-<h2 id="closed-task">Closed Task</h2>
+## Closed Task
 
-<h3 id="get-apiv1tasks1452-5">GET /api/v1/tasks/1452</h3>
 
-<p><code>
+### GET /api/v1/tasks/1452
+
+
+```
 "include":
   "task": [
     "id",
@@ -418,11 +427,12 @@ Conversations on the Task
     "location_visits",
     "runner_rates"
   ]
-</code></p>
+```
 
-<h3 id="simplified-response-5">Simplified Response</h3>
+### Simplified Response
 
-<p><code>json
+
+```json
 {
     "name": "My Task",
     "city": {
@@ -451,8 +461,8 @@ Conversations on the Task
       },
       "id": 2331,
       "links": {
-          "get": "&lt;&lt;/api/v1/users/2331&gt;&gt;",
-          "avatar_url": "&lt;&lt;http://www.taskrabbit.com/images/default_avatars/runner_thumb.gif&gt;&gt;"
+          "get": "<</api/v1/users/2331>>",
+          "avatar_url": "<<http://www.taskrabbit.com/images/default_avatars/runner_thumb.gif>>"
       },
       "email": "odell.clark@example.com",
       "mobile_phone": "4154154156",
@@ -462,9 +472,9 @@ Conversations on the Task
       "display_name": "Odell C."
     },
     "links": {
-        "html": "&lt;&lt;http://www.taskrabbit.com/tasks/my-task&gt;&gt;",
+        "html": "<<http://www.taskrabbit.com/tasks/my-task>>",
         "get": "/api/v1/tasks/1452",
-        "authenticated": "&lt;&lt;https://www.taskrabbit.com/go/f4746fa25b80ba121fae6514c2e6df3d721010f7f54c997731ac142b9255bc54a1e9921a6334622001500b3248097319b274&gt;&gt;"
+        "authenticated": "<<https://www.taskrabbit.com/go/f4746fa25b80ba121fae6514c2e6df3d721010f7f54c997731ac142b9255bc54a1e9921a6334622001500b3248097319b274>>"
     },
     "assign_by_time": 1315670400,
     "location_visits": {
@@ -475,4 +485,4 @@ Conversations on the Task
     },
     "state": "closed"
 }
-</code></p>
+```

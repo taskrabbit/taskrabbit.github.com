@@ -1,64 +1,65 @@
-<h1 id="comments-on-a-task">Comments on a Task</h1>
+# Comments on a Task
 
-<p>Comment on a Task.</p>
+Comment on a Task.
 
-<h2 id="setup">Setup</h2>
-<ul>
-  <li>Willis Ford owns the Task.</li>
-  <li>Roger Rabbit is posting a comment.</li>
-</ul>
+## Setup
+* Willis Ford owns the Task.
+* Roger Rabbit is posting a comment.
 
-<h2 id="creating-a-new-comment">Creating a new comment</h2>
+## Creating a new comment
 
-<h3 id="post-apiv1tasks1452comments">POST /api/v1/tasks/1452/comments</h3>
+### POST /api/v1/tasks/1452/comments
 
-<p><code>json
+```json
 {
   "comment": {
     "content": "How many items are there?"
   }
 }
-</code></p>
+```
 
-<h3 id="simplified-response">Simplified Response</h3>
+### Simplified Response
 
-<p><code>json
+
+```json
 {
   "content": "How many items are there?",
   "display_name": "Roger R.",
-  "conversation_id": "&lt;&lt;22&gt;&gt;"
+  "conversation_id": "<<22>>"
 }
-</code></p>
+```
 
-<h2 id="replying-to-a-comment-in-a-conversation">Replying to a comment in a conversation</h2>
+## Replying to a comment in a conversation
 
-<h3 id="post-apiv1tasks231conversations23comments">POST /api/v1/tasks/231/conversations/23/comments</h3>
 
-<p><code>json
+### POST /api/v1/tasks/231/conversations/23/comments
+
+
+```json
 {
   "comment": {
     "content": "Only 3"
   }
 }
-</code></p>
+```
 
-<h3 id="simplified-response-1">Simplified Response</h3>
+### Simplified Response
 
-<p><code>json
+```json
 {
   "content": "Only 3",
   "display_name": "Willis F.",
-  "conversation_id": "&lt;&lt;23&gt;&gt;"
+  "conversation_id": "<<23>>"
 }
-</code></p>
+```
 
-<h2 id="getting-the-conversations-of-a-task">Getting the conversations of a Task</h2>
+## Getting the conversations of a Task
 
-<h3 id="directly-inside-the-task">Directly inside the Task</h3>
+### Directly inside the Task
 
-<h3 id="get-apiv1tasks231">GET /api/v1/tasks/231</h3>
+### GET /api/v1/tasks/231
 
-<p><code>
+```
 "include":
   "task": [
     "conversations"
@@ -72,11 +73,12 @@
     "users",
     "counts"
   ]
-</code></p>
+```
 
-<h3 id="simplified-response-2">Simplified Response</h3>
+### Simplified Response
 
-<p><code>json
+
+```json
 {
   "conversations" : {
     "items" : [
@@ -126,15 +128,17 @@
     ]
   }
 }
-</code></p>
+```
 
-<h3 id="on-the-list-of-conversations">On the list of conversations</h3>
 
-<h3 id="get-apiv1tasks231conversations">GET /api/v1/tasks/231/conversations</h3>
+### On the list of conversations
 
-<h3 id="simplified-response-3">Simplified Response</h3>
+### GET /api/v1/tasks/231/conversations
 
-<p><code>json
+
+### Simplified Response
+
+```json
 {
   "items" : [
     {
@@ -182,15 +186,17 @@
     }
   ]
 }
-</code></p>
+```
 
-<h2 id="display-one-conversation-of-a-task">Display one conversation of a Task</h2>
+## Display one conversation of a Task
 
-<h3 id="get-apiv1tasks231conversations23">GET /api/v1/tasks/231/conversations/23</h3>
+### GET /api/v1/tasks/231/conversations/23
 
-<h3 id="simplified-response-4">Simplified Response</h3>
 
-<p><code>json
+### Simplified Response
+
+
+```json
 {
   "id" : 23,
   "name" : "How many items is there?",
@@ -234,4 +240,4 @@
     "comments": 2
   }
 }
-</code></p>
+```

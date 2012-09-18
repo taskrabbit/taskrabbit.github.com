@@ -1,12 +1,12 @@
-<h1 id="user-information">User information</h1>
+# User information
 
-<p>Retrieve the public information of any user. Use the <code>account</code> request to access private information for the current authenticated user.</p>
+Retrieve the public information of any user. Use the `account` request to access private information for the current authenticated user.
 
-<h3 id="get-apiv1users2132">GET /api/v1/users/2132</h3>
+### GET /api/v1/users/2132
 
-<h3 id="simplified-response">Simplified Response</h3>
+### Simplified Response
 
-<p><code>json
+```json
 {
     "city": {
         "name": "Boston",
@@ -26,4 +26,4 @@
     },
     "display_name": "Willis F."
 }
-</code></p>
+```

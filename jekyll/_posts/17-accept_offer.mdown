@@ -1,0 +1,47 @@
+# Accept an offer on a Task
+
+Accept an offer on the user's Task.
+
+### POST /api/v1/tasks/1452/offers/213/accept
+
+
+### Simplified Response
+
+```json
+{
+  "id": 213,
+  "charge_price": 15,
+  "state": "accepted",
+  "task": {
+    "name": "My Task",
+    "named_price": 10,
+    "runner": {
+      "id": 3576,
+      "city": {
+        "id": 1,
+        "name": "Boston"
+      }
+    },
+    "state": "assigned",
+    "city": {
+      "id": 1,
+      "name": "Boston"
+    }
+  }
+}
+```
+
+# Error Cases
+
+## Incorrect Authorization
+
+### POST /api/v1/tasks/1452/offers/213/accept
+
+### 401 Unauthorized
+
+
+```json
+{
+  "error":"There must be an authenticated user for this action"
+}
+```

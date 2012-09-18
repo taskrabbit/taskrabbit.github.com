@@ -1,91 +1,52 @@
----
-layout: post
-title: Parameters for posting a task
----
-# Parameters for posting a task
+# Parameters for posting a Task
 
 TaskRabbit allows posting of Tasks by a client application on behalf of a user that has authorized that application. Authorization is done through OAuth and assigns a unique token to the user for for the application to use. This key is passed in all requests.
 
 The same scenario is employed when an application/company is posting directly to TaskRabbit. First create a user for the company/application, authorize the user, and utilize the returned token for posting a Task to TaskRabbit.
 
-## Setup
-
-* There is a user who is authenticated to your client application
-* The user has an authorization token of "rRou72pewt102y926jfhwow438238poQR31d"
-
 ## Creating a new Task
 
-To create a task, the client application POSTs data, the content can be either a json or x-www-form-urlencoded.
+To create a Task, the client application POSTs json or x-www-form-urlencoded data.
 
-### Parameters list
+### Parameters
 
-The following is a list of parameters available, each parameter is marked as "required" when needed.
+_\* = required_
 
-#### name
+**name***  - The short, public text shown to describe the Task `string`
 
-The short, public text shown to describe the Task 
+**named_price*** - Amount in USD the TaskPoster is willing to pay for the Task `integer`
 
-* required
+**city_id*** - The metro area (see below) where the Task will occur (required when location is not set) `integer`
 
-```
-"name": "Dog walking"
-```
+* `1` Boston
+* `3` San Francisco Bay Area
+* `4` New York City
+* `5` Chicago
+* `6` Los Angeles
+* `8` Austin
+* `10` Portland
+* `11` Seattle
+* `148`  San Antonio
+* `9999` Virtual (Anywhere)
 
-#### named_price
-
-The integer amount, in whole US Dollars, the TaskPoster is willing to pay for the Task
-
-* required
-
-```
-"named_price": 20
-```
-
-#### city_id
-
-The metro area where the Task will occur
-
-* Possible Values
-  * 1 -> Boston
-  * 3 -> SF Bay Area
-  * 4 -> New York City
-  * 5 -> Chicago
-  * 6 -> Los Angeles
-  * 40 -> Orange County
-* required when no locations are sent
-
-```
-"city_id": 1
-```
-
-#### description
-
-The description of the task
-
-```
-"description": "I want you to walk him to his favorite state park"
-```
+**description** - The description of the Task `string`
   
-#### cost_in_cents
+**private_description** - The private description of the Task (only visible to the Poster and assigned TaskRabbit) `string`
 
-The estimate price that the Rabbit will have to spend in cents.
+**cost\_in\_cents** - The estimate price that the Rabbit will have to spend *in cents* `integer`
 
-```
-"cost_in_cents": 500
-```
+**virtual** - The Task can be done online (`true` or `false`)
 
-#### virtual
+**assignment\_type** - Type of assignment
 
-The task can be done online.
+* `auto` Will auto assign best offer (default)
+* `review` Let me review the offers
 
-```
-"virtual": true
-```
 
+**number\_runners\_to\_fill** - If assignment_type is `auto`, maximum number of runners to automatically auto assign to fill the Task `integer`
 
 ### POST /api/v1/tasks
 
-* Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d
 * Content-Type: application/json
 
 ```json
@@ -95,8 +56,10 @@ The task can be done online.
     "named_price": 20, 
     "city_id": 1,
     "description": "I want you to walk him to his favorite state park",
+    "private_description": "Secret informations",
     "cost_in_cents": 500,
-    "virtual": true
+    "virtual": true,
+    "assignment_type": "review"
   }
 }
 ```
@@ -110,13 +73,16 @@ The task can be done online.
 {
   "id": 2835,
   "name": "Dog walking",
+  "named_price": 20,
   "city": {
     "name": "Boston",
     "id": 1
   },
-  "named_price": 20,
-  "cost_in_cents": 500,
   "description": "I want you to walk him to his favorite state park",
+  "private_description": "Secret informations",
+  "cost_in_cents": 500,
+  "virtual": true,
+  "assignment_type": "review",
   "state": "opened",
   "links": {
     "get": "/api/v1/tasks/2835"
@@ -126,41 +92,16 @@ The task can be done online.
 
 ## Task Times
 
-All times are epoch GMT.
+All times are epoch GMT (e.g. 1315582320)
 
-### Setup
-
-* The timezone is "Eastern Time (US & Canada)" (GMT-05:00)
-* The date is "2011-09-09 09:00 AM"
-
-#### complete_by_time
-
+**complete\_by\_time** - 
 A specific time that the Task must be completed by. 
 
-* timestamp of the time
-
-```
-"complete_by_time": 1315582320 // 2011-09-09 11:32 AM
-```
-
-#### assign_by_time
-
-A specific time that the Task must be assigned by. This time is set so that the end user knows that a TaskRabbit is on the job or not.
-
-* timestamp of the time
-
-```
-"assign_by_time": 1315578000 // 2011-09-09 10:20 AM
-```
-
-### Examples
+**assign\_by\_time** - A specific time that the Task must be assigned by. This time is set so that the end user knows that a TaskRabbit is on the job or not.
 
 ## Setting both parameters
 
 ### POST /api/v1/tasks
-
-* Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d
-* Content-Type: application/json
 
 ```json
 {
@@ -175,10 +116,6 @@ A specific time that the Task must be assigned by. This time is set so that the 
 ```
 
 ### Simplified Response
-
-* Status Code: 200
-* Content-Type: application/json
-
 ```json
 {
   "complete_by_time": 1315582320, // 2011-09-09 11:32 AM
@@ -191,9 +128,6 @@ If the assigned by time is later than the complete by time, we will reset the as
 ## Setting only the complete by time
 
 ### POST /api/v1/tasks
-
-* Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d
-* Content-Type: application/json
 
 ```json
 {
@@ -208,9 +142,6 @@ If the assigned by time is later than the complete by time, we will reset the as
 
 ### Simplified Response
 
-* Status Code: 200
-* Content-Type: application/json
-
 ```json
 {
   "complete_by_time": 1315582320, // 2011-09-09 11:32 AM
@@ -222,9 +153,6 @@ The assign by time is set to the same time as complete by time.
 ## Setting only the assign by time
 
 ### POST /api/v1/tasks
-
-* Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d
-* Content-Type: application/json
 
 ```json
 {
@@ -239,24 +167,18 @@ The assign by time is set to the same time as complete by time.
 
 ### Simplified Response
 
-* Status Code: 200
-* Content-Type: application/json
-
 ```json
 {
-  "complete_by_time": 1315591200, // 2011-09-09 02:00 PM
-  "assign_by_time": 1315578000    // 2011-09-09 10:20 AM
+  "assign_by_time": 1315578000,   // 2011-09-09 10:20 AM
+  "complete_by_time": 1315666800  // 2011-09-10 11:00 AM
 }
 ```
 
-The complete by time will have will be set to the assigned by time plus 3 hours.
+The complete by time will have will be set to the assigned by time plus 24 hours. But if it falls between 8pm and 11am (as it does here), then it is pushed to 11am.
 
 ## Setting the complete by time in the past
 
 ### POST /api/v1/tasks
-
-* Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d
-* Content-Type: application/json
 
 ```json
 {
@@ -271,13 +193,10 @@ The complete by time will have will be set to the assigned by time plus 3 hours.
 
 ### Simplified Response
 
-* Status Code: 200
-* Content-Type: application/json
-
 ```json
 {
-  "complete_by_time": 1315609200, // 2011-09-09 07:00 PM
-  "assign_by_time": 1315594800    // 2011-09-09 03:00 PM
+  "assign_by_time": 1315666800,   // 2011-09-10 11:00 AM
+  "complete_by_time": 1315753200  // 2011-09-11 11:00 AM
 }
 ```
 
@@ -286,10 +205,6 @@ Default times will be set by TaskRabbit. Defaults are determined programmaticall
 ## Setting the assign by time in the past
 
 ### POST /api/v1/tasks
-
-* Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d
-* Content-Type: application/json
-
 ```json
 {
   "task": {
@@ -303,13 +218,11 @@ Default times will be set by TaskRabbit. Defaults are determined programmaticall
 
 ### Simplified Response
 
-* Status Code: 200
-* Content-Type: application/json
 
 ```json
 {
-  "complete_by_time": 1315609200, // 2011-09-09 07:00 PM
-  "assign_by_time": 1315594800    // 2011-09-09 03:00 PM
+  "assign_by_time": 1315666800,   // 2011-09-10 11:00 AM
+  "complete_by_time": 1315753200  // 2011-09-11 11:00 AM
 }
 ```
 

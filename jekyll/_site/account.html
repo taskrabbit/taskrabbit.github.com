@@ -1,67 +1,10 @@
-<!DOCTYPE html>
+<h1 id="user-account-information">User account information</h1>
 
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-  
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>TaskRabbit - User account informations</title>
-    <link href="/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
-    <link href="/stylesheets/grid.css" media="screen" rel="stylesheet" type="text/css" />
-    <link href="/stylesheets/documentation.css" media="screen" rel="stylesheet" type="text/css" />
-  </head>
-  
-  <body>
-    <div id="header">
-    </div>
-    <div id="main">
-      <div id="sidebar" class="span-6">
-        <ul>
-        
-          <li><a href="/post_simple.html">Posting a Simple Task</a></li>
-        
-          <li><a href="/auth.html">Oauth</a></li>
-        
-          <li><a href="/post_task_parameters.html">Parameters for posting a task</a></li>
-        
-          <li><a href="/post_with_location.html">Posting a Task with locations</a></li>
-        
-          <li><a href="/post_with_photo.html">Posting a Task with a photo</a></li>
-        
-          <li><a href="/post_with_sound.html">Posting a Task with a sound</a></li>
-        
-          <li><a href="/account.html">User account informations</a></li>
-        
-        </ul>
-      </div>
-      <div id="content" class="span-18 last">
-
-        <h1 id="user-account-informations">User account informations</h1>
-
-<p>TODO: Describe</p>
-
-<h2 id="setup">Setup</h2>
-
-<ul>
-  <li>There is a user who is authenticated to your client application</li>
-  <li>The name of the user is &ldquo;Willis Ford&rdquo;</li>
-  <li>The zip code of the user is 02102</li>
-  <li>The city of the user is Boston</li>
-  <li>The user has an authorization token of &ldquo;rRou72pewt102y926jfhwow438238poQR31d&rdquo;</li>
-  <li>The user has an opened task &ldquo;My Task&rdquo; with id 1452</li>
-</ul>
+<p>TaskRabbit allows the retrieval of the currently authenticated user&rsquo;s account information via an authorized client application.</p>
 
 <h3 id="get-apiv1account">GET /api/v1/account</h3>
 
-<ul>
-  <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
-</ul>
-
 <h3 id="simplified-response">Simplified Response</h3>
-
-<ul>
-  <li>Status Code: 200</li>
-  <li>Content-Type: application/json</li>
-</ul>
 
 <p><code>json
 {
@@ -93,7 +36,7 @@
   "display_name": "Willis F.",
   "links": {
     "get": "/api/v1/users/3766",
-    "avatar_url": "http://test.taskrabbit.com/images/default_avatars/poster_thumb.gif"
+    "avatar_url": "http://test.taskrabbit.com/images/default_avatars/poster_thumb.png"
   },
   "locations": {
     "items": [],
@@ -104,34 +47,14 @@
 }
 </code></p>
 
-<h1 id="error-cases">Error Cases</h1>
-
-<p>TODO: describe</p>
-
 <h2 id="incorrect-authorization">Incorrect Authorization</h2>
 
 <h3 id="get-apiv1account-1">GET /api/v1/account</h3>
 
-<ul>
-  <li>Authorization: OAuth XXXXXX</li>
-</ul>
-
 <h3 id="unauthorized">401 Unauthorized</h3>
-<ul>
-  <li>Content-Type: application/json</li>
-</ul>
 
 <p><code>json
 {
   "error":"There must be an authenticated user for this action"
 }
 </code></p>
-
-
-      </div>
-    </div>
-
-     <div id="footer" >
-    </div><!-- /#footer -->
-  </body>
-</html>
