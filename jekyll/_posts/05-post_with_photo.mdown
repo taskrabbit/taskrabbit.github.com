@@ -1,3 +1,7 @@
+---
+layout: post
+title: Posting a Task with a photo
+---
 # Posting a Task with a photo
 
 TaskRabbit allows the posting of a photo in the PNG, JPEG or GIF format with a size limit of 2MB.

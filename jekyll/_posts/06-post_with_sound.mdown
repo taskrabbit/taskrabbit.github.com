@@ -1,3 +1,7 @@
+---
+layout: post
+title: Posting a Task with audio
+---
 # Posting a Task with audio
 
 TaskRabbit allows the posting of a sound recording in MP3 and AAC format with a size limit of 2MB.

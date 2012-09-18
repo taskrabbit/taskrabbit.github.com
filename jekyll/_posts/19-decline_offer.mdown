@@ -1,3 +1,7 @@
+---
+layout: post
+title: Decline an offer on a Task
+---
 # Decline an offer on a Task
 
 

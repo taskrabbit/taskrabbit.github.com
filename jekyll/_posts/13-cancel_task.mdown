@@ -1,3 +1,7 @@
+---
+layout: post
+title: Canceling a Task
+---
 # Canceling a Task
 
 Given no Rabbits have been assigned, a Task can be cancelled.

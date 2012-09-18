@@ -1,3 +1,7 @@
+---
+layout: post
+title: Posting a Task with locations
+---
 # Posting a Task with locations
 
 TaskRabbit prefers Tasks to include location information. Including location information allows TaskRabbit to alert based on geography in conjunction with other Task attributes.

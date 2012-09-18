@@ -1,3 +1,7 @@
+---
+layout: post
+title: Parameters for posting a task
+---
 # Updating a Task
 
 Update an unassigned, open Task.

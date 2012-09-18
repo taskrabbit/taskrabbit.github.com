@@ -1,3 +1,7 @@
+---
+layout: post
+title: Close a Task
+---
 # Closing a Task
 
 After a Task is complete, it must be closed.

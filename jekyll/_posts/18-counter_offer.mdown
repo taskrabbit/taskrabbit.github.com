@@ -1,3 +1,7 @@
+---
+layout: post
+title: Countering an offer
+---
 # Countering an offer
 
 TaskRabbit allows Task posters to counter offers.

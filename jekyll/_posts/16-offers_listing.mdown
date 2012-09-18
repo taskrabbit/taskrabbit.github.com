@@ -1,3 +1,7 @@
+---
+layout: post
+title: Offers listing of Task
+---
 # Offers listing of a Task
 
 TaskRabbit allows retrieval of offers on a Task posted by authorized application.

@@ -1,3 +1,7 @@
+---
+layout: post
+title: User account information
+---
 # User account information
 
 TaskRabbit allows the retrieval of the currently authenticated user's account information via an authorized client application.

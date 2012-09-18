@@ -1,3 +1,7 @@
+---
+layout: post
+title: Posting a Simple Task
+---
 # Posting a Simple Task
 
 TaskRabbit allows posting of Tasks by a client application on behalf of a user that has authorized that application. Authorization is done through OAuth and assigns a unique token to the user for for the application to use. This key is passed in all requests.

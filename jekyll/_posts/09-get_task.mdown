@@ -1,3 +1,7 @@
+---
+layout: post
+title: Task information
+---
 # Task information
 
 ### GET /api/v1/tasks/1452

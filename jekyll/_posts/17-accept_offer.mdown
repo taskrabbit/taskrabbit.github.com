@@ -1,3 +1,7 @@
+---
+layout: post
+title: Accept an offer on a Task
+---
 # Accept an offer on a Task
 
 Accept an offer on the user's Task.

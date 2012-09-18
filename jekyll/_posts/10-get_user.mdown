@@ -1,3 +1,7 @@
+---
+layout: post
+title: User information
+---
 # User information
 
 Retrieve the public information of any user. Use the `account` request to access private information for the current authenticated user.
