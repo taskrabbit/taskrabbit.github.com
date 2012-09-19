@@ -6,39 +6,37 @@ title: Posting a Simple Task
 
 TaskRabbit allows posting of Tasks by a client application on behalf of a user that has authorized that application. Authorization is done through OAuth and assigns a unique token to the user for for the application to use. This key is passed in all requests.
 
-## Setup
-
-* There is a user who is authenticated to your client application
-* The user has an authorization token of "rRou72pewt102y926jfhwow438238poQR31d"
-
 ## Creating a new Task
 
-To create a task, the client application POSTs data, the content can be either a json or x-www-form-urlencoded.
+To create a Task, the client application POSTs data. The content can be either a json or x-www-form-urlencoded.
 
 ### Required Values
 
-* name: The short, public text shown to describe the Task
-* named_price: The integer amount, in whole US Dollars, the TaskPoster is willing to pay for the Task
-* city_id: The metro area where the Task will occur
+* `name`: The short, public text shown to describe the Task
+* `named_price`: The integer amount, in whole US Dollars, the TaskPoster is willing to pay for the Task
+* `city_id`: The metro area where the Task will occur
   * 1 -> Boston
   * 3 -> SF Bay Area
   * 4 -> New York City
-  * 6 -> Los Angeles
-  * 40 -> Orange County
+  * 5 -> Chicago
+  * 6 -> Los Angeles and Orange County
+  * 8 -> Austin
+  * 10 -> Portland
+  * 11 -> Seattle
+  * 148 -> San Antonio
+  
   
 ### POST /api/v1/tasks
 
 * Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d
 * Content-Type: application/json
 
-```json
-{
+```
   "task": {
     "name":"My First Task", 
     "named_price": 20, 
     "city_id": 4
   }
-}
 ```
 
 ### Simplified Response
@@ -46,7 +44,7 @@ To create a task, the client application POSTs data, the content can be either a
 * Status Code: 200
 * Content-Type: application/json
 
-```json
+```
 {
   "id":9221,
   "name":"My First Task",
@@ -79,7 +77,7 @@ task:
 * Status Code: 200
 * Content-Type: application/json
 
-```json
+```
 {
   "id":9222,
   "name":"My Second Task",
@@ -98,7 +96,7 @@ task:
 
 # Error Cases
 
-The server will respond with different status codes when there is a problem posting the Task.
+The server will respond with a status codes when there is a problem posting the Task.
 
 ## Incorrect Authorization
 
@@ -106,21 +104,21 @@ The server will respond with different status codes when there is a problem post
 
 * Authorization: OAuth XXXXXX
 * Content-Type: application/json
+* X-Client-Application: fei3on2o1in321XOIENOIn2io13zoin21x
 
-```json
-{
-  "task": {
-    "name":"My First Task", 
-    "named_price": 20, 
-    "city_id": 4
-  }
+```
+"task": {
+  "name":"My First Task", 
+  "named_price": 20, 
+  "city_id": 4
 }
 ```
 
 ### 401 Unauthorized
+
 * Content-Type: application/json
 
-```json
+```
 {
   "error":"There must be an authenticated user for this action"
 }
@@ -133,7 +131,7 @@ The server will respond with different status codes when there is a problem post
 * Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d
 * Content-Type: application/json
 
-```json
+```
 {
   "task": {
     "name":"", 
@@ -144,7 +142,7 @@ The server will respond with different status codes when there is a problem post
 
 ### 422 Unprocessable Entity
 
-```json
+```
 {
   "errors":{
     "messages":["Task title can't be blank", "Amount you are willing to pay is not a number"],
@@ -156,17 +154,14 @@ The server will respond with different status codes when there is a problem post
 
 ## Credit Card Problems
 
-In the previous requests, TaskRabbit was using the user's credit card on file.
-
-* Given the user does not have a credit card on file
-* Then the Task will still be created, but not posted
+In the previous requests, TaskRabbit was using the user's credit card on file. If the user does not have a credit card on file, the Task will still be created, but not posted.
 
 ### POST /api/v1/tasks
 
 * Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d
 * Content-Type: application/json
 
-```json
+```
 {
   "task": {
     "name":"My Third Task", 
@@ -181,7 +176,7 @@ In the previous requests, TaskRabbit was using the user's credit card on file.
 * Status Code: 201
 * Content-Type: application/json
 
-```json
+```
 {
   "id":9223,
   "name":"My Third Task",

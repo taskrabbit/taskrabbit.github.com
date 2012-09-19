@@ -4,23 +4,11 @@ title: Posting a Task with locations
 ---
 # Posting a Task with locations
 
-Posting a Task with locations allows TaskRabbit to alert based on geography in conjunction with other Task attributes.
-
-## Setup
-
-* There is a user who is authenticated to your client application
-* The user has an authorization token of "rRou72pewt102y926jfhwow438238poQR31d"
-
-### Required Values
-
-By passing in the address of a Task location, source or destination (pickup/delivery example) will allow us to geolocate the task for alerting. You do not need to pass in the city as it will be calculated and assigned automatically based on the location information provided.
+TaskRabbit prefers Tasks to include location information. Including location information allows TaskRabbit to alert based on geography in conjunction with other Task attributes.
 
 ### POST /api/v1/tasks
 
-* Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d
-* Content-Type: application/json
-
-```json
+```
 {
   "task": {
     "name":"My First Task", 
@@ -47,10 +35,7 @@ By passing in the address of a Task location, source or destination (pickup/deli
 
 ### Simplified Response
 
-* Status Code: 200
-* Content-Type: application/json
-
-```json
+```
 {
   "id": 2820,
   "name": "My First Task",
@@ -62,6 +47,31 @@ By passing in the address of a Task location, source or destination (pickup/deli
   },
   "links": {
     "get": "/api/v1/tasks/2820"
-  }
-}
+  },
+    "location_visits": {
+      "items": [
+      {
+        "address": "123 Main St",
+        "approximate_radius": 0,
+        "city": "Boston",
+        "name": "Home",
+        "zip": "02154",
+        "partial": "Main St, Boston, MA 02154",
+        "lng": -71.059774,
+        "id": 35,
+        "complete": "123 Main St, Boston, MA 02154",
+        "location_id": "<<296>>",
+        "lat": 42.358432,
+        "state": "MA"
+      },
+      {
+        "approximate_radius": 0,
+        "name": "Middle of the park",
+        "lng": -71.059772,
+        "id": 36,
+        "location_id": "<<297>>",
+        "lat": 42.35843
+      }
+      ]
+  }}
 ```

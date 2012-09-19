@@ -1,0 +1,98 @@
+---
+layout: post
+title: Close a Task
+---
+# Closing a Task
+
+After a Task is complete, it must be closed.
+
+## Simple close
+
+### POST /api/v1/tasks/1452/close
+
+### Simplified Response
+
+```
+{
+  "id":1452,
+  "name":"My Task",
+  "state":"closed"
+}
+```
+
+## Set reimbursements on close
+Set the reimbursement for each Rabbit (runner) assigned to the Task by passing the Rabbit's user id and the amount to be reimbursed _in cents_.
+
+### POST /api/v1/tasks/1454/close
+
+```
+{
+  "runners" : [
+    {
+      "id" : 231,
+      "reimbursement_in_cents" : 2230
+    }
+  ]
+}
+```
+
+### Simplified Response
+
+```
+{
+  "id":1454,
+  "name":"My Task",
+  "state":"closed"
+}
+```
+
+## Set the ratings on close
+Set the rating for each Rabbit (runner) assigned to the Task by passing the Rabbit's user id and the number of stars (`integer` 1-5), along with a comment.
+
+### POST /api/v1/tasks/1455/close
+
+```
+{
+  "runners" : [
+    {
+      "id": 234,
+      "stars": 5,
+      "comments": "He was good!"
+    }
+  ]
+}
+```
+
+### Simplified Response
+
+
+```
+{
+  "id":1455,
+  "name":"My Task",
+  "state":"closed",
+  "runner_rates": {
+    "items": [
+      {
+        "runner_id": 234,
+        "stars": 5,
+        "comments": "He was good!"
+      }
+    ]
+  } 
+}
+```
+# Error Cases
+
+## Incorrect Authorization
+
+### POST /api/v1/tasks/1452/close
+
+### 401 Unauthorized
+
+
+```
+{
+  "error":"There must be an authenticated user for this action"
+}
+```

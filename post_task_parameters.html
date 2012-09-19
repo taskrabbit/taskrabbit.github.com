@@ -25,7 +25,7 @@
           
             <li><a href="/post_simple.html">Posting a Simple Task</a></li>
           
-            <li><a href="/oauth.html">OAuth</a></li>
+            <li><a href="/auth.html">Authentication</a></li>
           
             <li><a href="/post_task_parameters.html">Parameters for posting a task</a></li>
           
@@ -33,7 +33,7 @@
           
             <li><a href="/post_with_photo.html">Posting a Task with a photo</a></li>
           
-            <li><a href="/post_with_sound.html">Posting a Task with a sound</a></li>
+            <li><a href="/post_with_sound.html">Posting a Task with audio</a></li>
           
             <li><a href="/account.html">User account information</a></li>
           
@@ -43,393 +43,259 @@
           
             <li><a href="/city.html">City information</a></li>
           
-            <li><a href="/close_task.html">Closing a Task</a></li>
+            <li><a href="/close_task.html">Close a Task</a></li>
           
             <li><a href="/cancel_task.html">Canceling a Task</a></li>
           
-            <li><a href="/update_task.html">Updating a Task</a></li>
+            <li><a href="/update_task.html">Parameters for posting a task</a></li>
           
-            <li><a href="/comments.html">Comments on a Task</a></li>
+            <li><a href="/comments.html">Comments on Task</a></li>
           
-            <li><a href="/offers_listing.html">Offers listing of a Task</a></li>
+            <li><a href="/offers_listing.html">Offers listing of Task</a></li>
           
             <li><a href="/accept_offer.html">Accept an offer on a Task</a></li>
           
             <li><a href="/counter_offer.html">Countering an offer</a></li>
           
-            <li><a href="/decline_offer.html">Declining an offer on a Task</a></li>
+            <li><a href="/decline_offer.html">Decline an offer on a Task</a></li>
           
           </ul>
         </div>
         <div id="content" class="span-18 last">
 
-          <h1>Parameters for posting a task</h1>
+          <h1 id="parameters-for-posting-a-task">Parameters for posting a Task</h1>
 
 <p>TaskRabbit allows posting of Tasks by a client application on behalf of a user that has authorized that application. Authorization is done through OAuth and assigns a unique token to the user for for the application to use. This key is passed in all requests.</p>
 
 <p>The same scenario is employed when an application/company is posting directly to TaskRabbit. First create a user for the company/application, authorize the user, and utilize the returned token for posting a Task to TaskRabbit.</p>
 
-<h2>Setup</h2>
+<h2 id="creating-a-new-task">Creating a new Task</h2>
+
+<p>To create a Task, the client application POSTs json or x-www-form-urlencoded data.</p>
+
+<h3 id="parameters">Parameters</h3>
+
+<p><em>* = required</em></p>
+
+<p><strong>name</strong>*  - The short, public text shown to describe the Task <code>string</code></p>
+
+<p><strong>named_price</strong>* - Amount in USD the TaskPoster is willing to pay for the Task <code>integer</code></p>
+
+<p><strong>city_id</strong>* - The metro area (see below) where the Task will occur (required when location is not set) <code>integer</code></p>
 
 <ul>
-<li>There is a user who is authenticated to your client application</li>
-<li>The user has an authorization token of &quot;rRou72pewt102y926jfhwow438238poQR31d&quot;</li>
+  <li><code>1</code> Boston</li>
+  <li><code>3</code> San Francisco Bay Area</li>
+  <li><code>4</code> New York City</li>
+  <li><code>5</code> Chicago</li>
+  <li><code>6</code> Los Angeles</li>
+  <li><code>8</code> Austin</li>
+  <li><code>10</code> Portland</li>
+  <li><code>11</code> Seattle</li>
+  <li><code>148</code>  San Antonio</li>
+  <li><code>9999</code> Virtual (Anywhere)</li>
 </ul>
 
-<h2>Creating a new Task</h2>
+<p><strong>description</strong> - The description of the Task <code>string</code></p>
 
-<p>To create a task, the client application POSTs data, the content can be either a json or x-www-form-urlencoded.</p>
+<p><strong>private_description</strong> - The private description of the Task (only visible to the Poster and assigned TaskRabbit) <code>string</code></p>
 
-<h3>Parameters list</h3>
+<p><strong>cost_in_cents</strong> - The estimate price that the Rabbit will have to spend <em>in cents</em> <code>integer</code></p>
 
-<p>The following is a list of parameters available, each parameter is marked as &quot;required&quot; when needed.</p>
+<p><strong>virtual</strong> - The Task can be done online (<code>true</code> or <code>false</code>)</p>
 
-<h4>name</h4>
-
-<p>The short, public text shown to describe the Task </p>
+<p><strong>assignment_type</strong> - Type of assignment</p>
 
 <ul>
-<li>required</li>
-</ul>
-<div class="highlight"><pre>&quot;name&quot;: &quot;Dog walking&quot;
-</pre>
-</div>
-
-<h4>named_price</h4>
-
-<p>The integer amount, in whole US Dollars, the TaskPoster is willing to pay for the Task</p>
-
-<ul>
-<li>required</li>
-</ul>
-<div class="highlight"><pre>&quot;named_price&quot;: 20
-</pre>
-</div>
-
-<h4>city_id</h4>
-
-<p>The metro area where the Task will occur</p>
-
-<ul>
-<li>Possible Values
-
-<ul>
-<li>1 -&gt; Boston</li>
-<li>3 -&gt; SF Bay Area</li>
-<li>4 -&gt; New York City</li>
-<li>5 -&gt; Chicago</li>
-<li>6 -&gt; Los Angeles</li>
-<li>40 -&gt; Orange County</li>
-</ul></li>
-<li>required when no locations are sent</li>
-</ul>
-<div class="highlight"><pre>&quot;city_id&quot;: 1
-</pre>
-</div>
-
-<h4>description</h4>
-
-<p>The description of the task</p>
-<div class="highlight"><pre>&quot;description&quot;: &quot;I want you to walk him to his favorite state park&quot;
-</pre>
-</div>
-
-<h4>private_description</h4>
-
-<p>The private description of the task</p>
-<div class="highlight"><pre>&quot;private_description&quot;: &quot;Secret informations&quot;
-</pre>
-</div>
-
-<h4>cost_in_cents</h4>
-
-<p>The estimate price that the Rabbit will have to spend in cents.</p>
-<div class="highlight"><pre>&quot;cost_in_cents&quot;: 500
-</pre>
-</div>
-
-<h4>virtual</h4>
-
-<p>The task can be done online.</p>
-<div class="highlight"><pre>&quot;virtual&quot;: true
-</pre>
-</div>
-
-<h4>assignment_type</h4>
-
-<p>Type of assignment</p>
-
-<ul>
-<li>Possible Values
-
-<ul>
-<li>auto -&gt; Will auto assign best offer ( default value )</li>
-<li>review -&gt; Let me review the offers</li>
-</ul></li>
-</ul>
-<div class="highlight"><pre>&quot;assignment_type&quot;: &quot;auto&quot;
-</pre>
-</div>
-
-<h4>number_runners_to_fill</h4>
-
-<p>Maximum number of runners to automatically auto assign to fill the Task.
-This option only works when the assignment_type is <code>auto</code>.</p>
-<div class="highlight"><pre>&quot;number_runners_to_fill&quot;: 5
-</pre>
-</div>
-
-<h3>POST /api/v1/tasks</h3>
-
-<ul>
-<li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
-<li>Content-Type: application/json</li>
-</ul>
-<div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;Dog walking&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> 
-    <span class="s2">&quot;city_id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;I want you to walk him to his favorite state park&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;private_description&quot;</span><span class="o">:</span> <span class="s2">&quot;Secret informations&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;cost_in_cents&quot;</span><span class="o">:</span> <span class="mi">500</span><span class="p">,</span>
-    <span class="s2">&quot;virtual&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-    <span class="s2">&quot;assignment_type&quot;</span><span class="o">:</span> <span class="s2">&quot;review&quot;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre>
-</div>
-
-<h3>Simplified Response</h3>
-
-<ul>
-<li>Status Code: 200</li>
-<li>Content-Type: application/json</li>
-</ul>
-<div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">2835</span><span class="p">,</span>
-  <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Dog walking&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span>
-  <span class="s2">&quot;city&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Boston&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">1</span>
-  <span class="p">},</span>
-  <span class="s2">&quot;description&quot;</span><span class="o">:</span> <span class="s2">&quot;I want you to walk him to his favorite state park&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;private_description&quot;</span><span class="o">:</span> <span class="s2">&quot;Secret informations&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;cost_in_cents&quot;</span><span class="o">:</span> <span class="mi">500</span><span class="p">,</span>
-  <span class="s2">&quot;virtual&quot;</span><span class="o">:</span> <span class="kc">true</span><span class="p">,</span>
-  <span class="s2">&quot;assignment_type&quot;</span><span class="o">:</span> <span class="s2">&quot;review&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;state&quot;</span><span class="o">:</span> <span class="s2">&quot;opened&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;links&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;get&quot;</span><span class="o">:</span> <span class="s2">&quot;/api/v1/tasks/2835&quot;</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre>
-</div>
-
-<h2>Task Times</h2>
-
-<p>All times are epoch GMT.</p>
-
-<h3>Setup</h3>
-
-<ul>
-<li>The timezone is &quot;Eastern Time (US &amp; Canada)&quot; (GMT-05:00)</li>
-<li>The date is &quot;2011-09-09 09:00 AM&quot;</li>
+  <li><code>auto</code> Will auto assign best offer (default)</li>
+  <li><code>review</code> Let me review the offers</li>
 </ul>
 
-<h4>complete_by_time</h4>
+<p><strong>number_runners_to_fill</strong> - If assignment_type is <code>auto</code>, maximum number of runners to automatically auto assign to fill the Task <code>integer</code></p>
 
-<p>A specific time that the Task must be completed by. </p>
-
-<ul>
-<li>timestamp of the time</li>
-</ul>
-<div class="highlight"><pre>&quot;complete_by_time&quot;: 1315582320 // 2011-09-09 11:32 AM
-</pre>
-</div>
-
-<h4>assign_by_time</h4>
-
-<p>A specific time that the Task must be assigned by. This time is set so that the end user knows that a TaskRabbit is on the job or not.</p>
+<h3 id="post-apiv1tasks">POST /api/v1/tasks</h3>
 
 <ul>
-<li>timestamp of the time</li>
+  <li>Content-Type: application/json</li>
 </ul>
-<div class="highlight"><pre>&quot;assign_by_time&quot;: 1315578000 // 2011-09-09 10:20 AM
-</pre>
-</div>
 
-<h3>Examples</h3>
+<p><code>
+{
+  "task": {
+    "name":"Dog walking",
+    "named_price": 20, 
+    "city_id": 1,
+    "description": "I want you to walk him to his favorite state park",
+    "private_description": "Secret informations",
+    "cost_in_cents": 500,
+    "virtual": true,
+    "assignment_type": "review"
+  }
+}
+</code></p>
 
-<h2>Setting both parameters</h2>
-
-<h3>POST /api/v1/tasks</h3>
+<h3 id="simplified-response">Simplified Response</h3>
 
 <ul>
-<li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
-<li>Content-Type: application/json</li>
+  <li>Status Code: 200</li>
+  <li>Content-Type: application/json</li>
 </ul>
-<div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;Dog walking&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> 
-    <span class="s2">&quot;city_id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">&quot;complete_by_time&quot;</span><span class="o">:</span> <span class="mi">1315582320</span><span class="p">,</span> <span class="c1">// 2011-09-09 11:32 AM</span>
-    <span class="s2">&quot;assign_by_time&quot;</span><span class="o">:</span> <span class="mi">1315578000</span>    <span class="c1">// 2011-09-09 10:20 AM</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre>
-</div>
 
-<h3>Simplified Response</h3>
+<p><code>
+{
+  "id": 2835,
+  "name": "Dog walking",
+  "named_price": 20,
+  "city": {
+    "name": "Boston",
+    "id": 1
+  },
+  "description": "I want you to walk him to his favorite state park",
+  "private_description": "Secret informations",
+  "cost_in_cents": 500,
+  "virtual": true,
+  "assignment_type": "review",
+  "state": "opened",
+  "links": {
+    "get": "/api/v1/tasks/2835"
+  }
+}
+</code></p>
 
-<ul>
-<li>Status Code: 200</li>
-<li>Content-Type: application/json</li>
-</ul>
-<div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;complete_by_time&quot;</span><span class="o">:</span> <span class="mi">1315582320</span><span class="p">,</span> <span class="c1">// 2011-09-09 11:32 AM</span>
-  <span class="s2">&quot;assign_by_time&quot;</span><span class="o">:</span> <span class="mi">1315578000</span>    <span class="c1">// 2011-09-09 10:20 AM</span>
-<span class="p">}</span>
-</pre>
-</div>
+<h2 id="task-times">Task Times</h2>
+
+<p>All times are epoch GMT (e.g. 1315582320)</p>
+
+<p><strong>complete_by_time</strong> - 
+A specific time that the Task must be completed by. </p>
+
+<p><strong>assign_by_time</strong> - A specific time that the Task must be assigned by. This time is set so that the end user knows that a TaskRabbit is on the job or not.</p>
+
+<h2 id="setting-both-parameters">Setting both parameters</h2>
+
+<h3 id="post-apiv1tasks-1">POST /api/v1/tasks</h3>
+
+<p><code>
+{
+  "task": {
+    "name":"Dog walking",
+    "named_price": 20, 
+    "city_id": 1,
+    "complete_by_time": 1315582320, // 2011-09-09 11:32 AM
+    "assign_by_time": 1315578000    // 2011-09-09 10:20 AM
+  }
+}
+</code></p>
+
+<h3 id="simplified-response-1">Simplified Response</h3>
+<p><code>
+{
+  "complete_by_time": 1315582320, // 2011-09-09 11:32 AM
+  "assign_by_time": 1315578000    // 2011-09-09 10:20 AM
+}
+</code></p>
 
 <p>If the assigned by time is later than the complete by time, we will reset the assigned by time to the same time as the complete by time.</p>
 
-<h2>Setting only the complete by time</h2>
+<h2 id="setting-only-the-complete-by-time">Setting only the complete by time</h2>
 
-<h3>POST /api/v1/tasks</h3>
+<h3 id="post-apiv1tasks-2">POST /api/v1/tasks</h3>
 
-<ul>
-<li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
-<li>Content-Type: application/json</li>
-</ul>
-<div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;Dog walking&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> 
-    <span class="s2">&quot;city_id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">&quot;complete_by_time&quot;</span><span class="o">:</span> <span class="mi">1315582320</span> <span class="c1">// 2011-09-09 11:32 AM</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre>
-</div>
+<p><code>
+{
+  "task": {
+    "name":"Dog walking",
+    "named_price": 20, 
+    "city_id": 1,
+    "complete_by_time": 1315582320 // 2011-09-09 11:32 AM
+  }
+}
+</code></p>
 
-<h3>Simplified Response</h3>
+<h3 id="simplified-response-2">Simplified Response</h3>
 
-<ul>
-<li>Status Code: 200</li>
-<li>Content-Type: application/json</li>
-</ul>
-<div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;complete_by_time&quot;</span><span class="o">:</span> <span class="mi">1315582320</span><span class="p">,</span> <span class="c1">// 2011-09-09 11:32 AM</span>
-  <span class="s2">&quot;assign_by_time&quot;</span><span class="o">:</span> <span class="mi">1315582320</span>    <span class="c1">// 2011-09-09 11:32 AM</span>
-<span class="p">}</span>
-</pre>
-</div>
+<p><code>
+{
+  "complete_by_time": 1315582320, // 2011-09-09 11:32 AM
+  "assign_by_time": 1315582320    // 2011-09-09 11:32 AM
+}
+</code>
+The assign by time is set to the same time as complete by time.</p>
 
-<p>The assign by time is set to the same time as complete by time.</p>
+<h2 id="setting-only-the-assign-by-time">Setting only the assign by time</h2>
 
-<h2>Setting only the assign by time</h2>
+<h3 id="post-apiv1tasks-3">POST /api/v1/tasks</h3>
 
-<h3>POST /api/v1/tasks</h3>
+<p><code>
+{
+  "task": {
+    "name":"Dog walking",
+    "named_price": 20, 
+    "city_id": 1,
+    "assign_by_time": 1315578000 // 2011-09-09 10:20 AM
+  }
+}
+</code></p>
 
-<ul>
-<li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
-<li>Content-Type: application/json</li>
-</ul>
-<div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;Dog walking&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> 
-    <span class="s2">&quot;city_id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">&quot;assign_by_time&quot;</span><span class="o">:</span> <span class="mi">1315578000</span> <span class="c1">// 2011-09-09 10:20 AM</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre>
-</div>
+<h3 id="simplified-response-3">Simplified Response</h3>
 
-<h3>Simplified Response</h3>
-
-<ul>
-<li>Status Code: 200</li>
-<li>Content-Type: application/json</li>
-</ul>
-<div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;assign_by_time&quot;</span><span class="o">:</span> <span class="mi">1315578000</span><span class="p">,</span>   <span class="c1">// 2011-09-09 10:20 AM</span>
-  <span class="s2">&quot;complete_by_time&quot;</span><span class="o">:</span> <span class="mi">1315666800</span>  <span class="c1">// 2011-09-10 11:00 AM</span>
-<span class="p">}</span>
-</pre>
-</div>
+<p><code>
+{
+  "assign_by_time": 1315578000,   // 2011-09-09 10:20 AM
+  "complete_by_time": 1315666800  // 2011-09-10 11:00 AM
+}
+</code></p>
 
 <p>The complete by time will have will be set to the assigned by time plus 24 hours. But if it falls between 8pm and 11am (as it does here), then it is pushed to 11am.</p>
 
-<h2>Setting the complete by time in the past</h2>
+<h2 id="setting-the-complete-by-time-in-the-past">Setting the complete by time in the past</h2>
 
-<h3>POST /api/v1/tasks</h3>
+<h3 id="post-apiv1tasks-4">POST /api/v1/tasks</h3>
 
-<ul>
-<li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
-<li>Content-Type: application/json</li>
-</ul>
-<div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;Dog walking&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> 
-    <span class="s2">&quot;city_id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">&quot;complete_by_time&quot;</span><span class="o">:</span> <span class="mi">1315571520</span> <span class="c1">// 2011-09-09 08:32 AM</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre>
-</div>
+<p><code>
+{
+  "task": {
+    "name":"Dog walking",
+    "named_price": 20, 
+    "city_id": 1,
+    "complete_by_time": 1315571520 // 2011-09-09 08:32 AM
+  }
+}
+</code></p>
 
-<h3>Simplified Response</h3>
+<h3 id="simplified-response-4">Simplified Response</h3>
 
-<ul>
-<li>Status Code: 200</li>
-<li>Content-Type: application/json</li>
-</ul>
-<div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;assign_by_time&quot;</span><span class="o">:</span> <span class="mi">1315666800</span><span class="p">,</span>   <span class="c1">// 2011-09-10 11:00 AM</span>
-  <span class="s2">&quot;complete_by_time&quot;</span><span class="o">:</span> <span class="mi">1315753200</span>  <span class="c1">// 2011-09-11 11:00 AM</span>
-<span class="p">}</span>
-</pre>
-</div>
+<p><code>
+{
+  "assign_by_time": 1315666800,   // 2011-09-10 11:00 AM
+  "complete_by_time": 1315753200  // 2011-09-11 11:00 AM
+}
+</code></p>
 
 <p>Default times will be set by TaskRabbit. Defaults are determined programmatically based on task types.</p>
 
-<h2>Setting the assign by time in the past</h2>
+<h2 id="setting-the-assign-by-time-in-the-past">Setting the assign by time in the past</h2>
 
-<h3>POST /api/v1/tasks</h3>
+<h3 id="post-apiv1tasks-5">POST /api/v1/tasks</h3>
+<p><code>
+{
+  "task": {
+    "name":"Dog walking",
+    "named_price": 20, 
+    "city_id": 1,
+    "assign_by_time": 1315571520 // 2011-09-09 08:32 AM
+  }
+}
+</code></p>
 
-<ul>
-<li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
-<li>Content-Type: application/json</li>
-</ul>
-<div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;name&quot;</span><span class="o">:</span><span class="s2">&quot;Dog walking&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">20</span><span class="p">,</span> 
-    <span class="s2">&quot;city_id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s2">&quot;assign_by_time&quot;</span><span class="o">:</span> <span class="mi">1315571520</span> <span class="c1">// 2011-09-09 08:32 AM</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre>
-</div>
+<h3 id="simplified-response-5">Simplified Response</h3>
 
-<h3>Simplified Response</h3>
-
-<ul>
-<li>Status Code: 200</li>
-<li>Content-Type: application/json</li>
-</ul>
-<div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;assign_by_time&quot;</span><span class="o">:</span> <span class="mi">1315666800</span><span class="p">,</span>   <span class="c1">// 2011-09-10 11:00 AM</span>
-  <span class="s2">&quot;complete_by_time&quot;</span><span class="o">:</span> <span class="mi">1315753200</span>  <span class="c1">// 2011-09-11 11:00 AM</span>
-<span class="p">}</span>
-</pre>
-</div>
+<p><code>
+{
+  "assign_by_time": 1315666800,   // 2011-09-10 11:00 AM
+  "complete_by_time": 1315753200  // 2011-09-11 11:00 AM
+}
+</code></p>
 
 <p>Default times will be set by TaskRabbit. Defaults are determined programmatically based on task types.</p>
 
@@ -437,6 +303,8 @@ This option only works when the assignment_type is <code>auto</code>.</p>
         </div>
       </div>
     </div>
-    <div id="footer"></div><!-- /#footer -->
+
+     <div id="footer" >
+    </div><!-- /#footer -->
   </body>
 </html>

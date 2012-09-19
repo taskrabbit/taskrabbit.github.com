@@ -25,7 +25,7 @@
           
             <li><a href="/post_simple.html">Posting a Simple Task</a></li>
           
-            <li><a href="/oauth.html">OAuth</a></li>
+            <li><a href="/auth.html">Authentication</a></li>
           
             <li><a href="/post_task_parameters.html">Parameters for posting a task</a></li>
           
@@ -33,7 +33,7 @@
           
             <li><a href="/post_with_photo.html">Posting a Task with a photo</a></li>
           
-            <li><a href="/post_with_sound.html">Posting a Task with a sound</a></li>
+            <li><a href="/post_with_sound.html">Posting a Task with audio</a></li>
           
             <li><a href="/account.html">User account information</a></li>
           
@@ -43,106 +43,78 @@
           
             <li><a href="/city.html">City information</a></li>
           
-            <li><a href="/close_task.html">Closing a Task</a></li>
+            <li><a href="/close_task.html">Close a Task</a></li>
           
             <li><a href="/cancel_task.html">Canceling a Task</a></li>
           
-            <li><a href="/update_task.html">Updating a Task</a></li>
+            <li><a href="/update_task.html">Parameters for posting a task</a></li>
           
-            <li><a href="/comments.html">Comments on a Task</a></li>
+            <li><a href="/comments.html">Comments on Task</a></li>
           
-            <li><a href="/offers_listing.html">Offers listing of a Task</a></li>
+            <li><a href="/offers_listing.html">Offers listing of Task</a></li>
           
             <li><a href="/accept_offer.html">Accept an offer on a Task</a></li>
           
             <li><a href="/counter_offer.html">Countering an offer</a></li>
           
-            <li><a href="/decline_offer.html">Declining an offer on a Task</a></li>
+            <li><a href="/decline_offer.html">Decline an offer on a Task</a></li>
           
           </ul>
         </div>
         <div id="content" class="span-18 last">
 
-          <h1>Accept an offer on a Task</h1>
+          <h1 id="accept-an-offer-on-a-task">Accept an offer on a Task</h1>
 
-<p>TaskRabbit allows the acceptance of an offer on an authorized users posted task.</p>
+<p>Accept an offer on the user’s Task.</p>
 
-<h2>Setup</h2>
+<h3 id="post-apiv1tasks1452offers213accept">POST /api/v1/tasks/1452/offers/213/accept</h3>
 
-<ul>
-<li>There is a user who is authenticated to your client application with id &quot;jhfe92kjfklep902mrdfg3jdsuo32b1os&quot;</li>
-<li>The client application secret is &quot;fei3on2o1in321XOIENOIn2io13zoin21x&quot;</li>
-<li>The user has an authorization token of &quot;rRou72pewt102y926jfhwow438238poQR31d&quot;</li>
-<li>The city of the user is Boston</li>
-<li>The user has an opened task &quot;My Task&quot; with id 1452</li>
-<li>There is an offer on the task with id 213</li>
-<li>The city of the runner is Boston</li>
-</ul>
+<h3 id="simplified-response">Simplified Response</h3>
 
-<h3>POST /api/v1/tasks/1452/offers/213/accept</h3>
+<p><code>
+{
+  "id": 213,
+  "charge_price": 15,
+  "state": "accepted",
+  "task": {
+    "name": "My Task",
+    "named_price": 10,
+    "runner": {
+      "id": 3576,
+      "city": {
+        "id": 1,
+        "name": "Boston"
+      }
+    },
+    "state": "assigned",
+    "city": {
+      "id": 1,
+      "name": "Boston"
+    }
+  }
+}
+</code></p>
 
-<ul>
-<li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
-</ul>
+<h1 id="error-cases">Error Cases</h1>
 
-<h3>Simplified Response</h3>
+<h2 id="incorrect-authorization">Incorrect Authorization</h2>
 
-<ul>
-<li>Status Code: 200</li>
-<li>Content-Type: application/json</li>
-</ul>
-<div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">213</span><span class="p">,</span>
-  <span class="s2">&quot;charge_price&quot;</span><span class="o">:</span> <span class="mi">15</span><span class="p">,</span>
-  <span class="s2">&quot;state&quot;</span><span class="o">:</span> <span class="s2">&quot;accepted&quot;</span><span class="p">,</span>
-  <span class="s2">&quot;task&quot;</span><span class="o">:</span> <span class="p">{</span>
-    <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;My Task&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;named_price&quot;</span><span class="o">:</span> <span class="mi">10</span><span class="p">,</span>
-    <span class="s2">&quot;runner&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">3576</span><span class="p">,</span>
-      <span class="s2">&quot;city&quot;</span><span class="o">:</span> <span class="p">{</span>
-        <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-        <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Boston&quot;</span>
-      <span class="p">}</span>
-    <span class="p">},</span>
-    <span class="s2">&quot;state&quot;</span><span class="o">:</span> <span class="s2">&quot;assigned&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;city&quot;</span><span class="o">:</span> <span class="p">{</span>
-      <span class="s2">&quot;id&quot;</span><span class="o">:</span> <span class="mi">1</span><span class="p">,</span>
-      <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;Boston&quot;</span>
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
-</pre>
-</div>
+<h3 id="post-apiv1tasks1452offers213accept-1">POST /api/v1/tasks/1452/offers/213/accept</h3>
 
-<h1>Error Cases</h1>
+<h3 id="unauthorized">401 Unauthorized</h3>
 
-<p>The server will respond with different status codes when there is a problem accepting an offer.</p>
-
-<h2>Incorrect Authorization</h2>
-
-<h3>POST /api/v1/tasks/1452/offers/213/accept</h3>
-
-<ul>
-<li>Authorization: OAuth XXXXXX</li>
-<li>X-Client-Application: fei3on2o1in321XOIENOIn2io13zoin21x</li>
-</ul>
-
-<h3>401 Unauthorized</h3>
-
-<ul>
-<li>Content-Type: application/json</li>
-</ul>
-<div class="highlight"><pre><span class="p">{</span>
-  <span class="s2">&quot;error&quot;</span><span class="o">:</span><span class="s2">&quot;There must be an authenticated user for this action&quot;</span>
-<span class="p">}</span>
-</pre>
-</div>
+<p><code>
+{
+  "error":"There must be an authenticated user for this action"
+}
+</code></p>
 
 
         </div>
       </div>
     </div>
-    <div id="footer"></div><!-- /#footer -->
+
+     <div id="footer" >
+    </div><!-- /#footer -->
   </body>
 </html>
