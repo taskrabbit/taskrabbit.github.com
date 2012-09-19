@@ -18,8 +18,6 @@ Create an application from the (http://taskrabbit.com/developer)[Developer Dashb
 ## Payment Information
 By default, the user is prompted (but not required) to enter payment information if none exists. To bypass this prompt, append `&card=false` to your authorization url. The user must enter their payment information before posting a Task.
 
-## Parameters
-
 ## Prefill fields
 To prefill fields, append the appropriate values to the authorization url:
 
