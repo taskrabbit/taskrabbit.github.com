@@ -1,0 +1,492 @@
+---
+layout: post
+title: Task information
+---
+# Task information
+
+### GET /api/v1/tasks/1452
+
+
+### Simplified Response
+
+
+```
+{
+    "name": "My Task",
+    "city": {
+        "name": "Boston",
+        "lng": -71.059773,
+        "id": 1,
+        "links": {
+            "get": "/api/v1/cities/1"
+        },
+        "lat": 42.358431
+    },
+    "complete_by_time": 1315584000,
+    "id": 1452,
+    "state_changed_at": 1315486800,
+    "cost_in_cents": 0,
+    "links": {
+        "html": "<<http://www.taskrabbit.com/tasks/my-task>>",
+        "get": "/api/v1/tasks/1452"
+    },
+    "state_label": "posted",
+    "assign_by_time": 1315670400,
+    "user": {
+        "city": {
+            "name": "Boston",
+            "lng": -71.059773,
+            "id": 1,
+            "links": {
+                "get": "/api/v1/cities/1"
+            },
+            "lat": 42.358431
+        },
+        "id": 2314,
+        "links": {
+            "get": "/api/v1/users/2314",
+            "avatar_url": "<<http://www.taskrabbit.com/images/default_avatars/poster_thumb.gif>>"
+        },
+        "full_name": "Willis F.",
+        "short_name": "Willis",
+        "display_name": "Willis F."
+    },
+    "state": "opened"
+}
+```
+
+<!-- # Includes
+
+TODO: Description
+
+Some element are private
+
+#### id
+
+#### name
+
+#### description
+
+#### assign\_by\_time
+
+#### complete\_by\_time
+
+#### state
+
+#### state\_changed\_at
+
+#### cost\_in\_cents
+
+#### assignment\_type
+
+Type of assignment
+
+* Possible Values
+  * auto -> Will auto assign best offer ( default value )
+  * review -> Let me review the offers
+
+#### named_price
+
+#### city
+
+#### user
+
+You dont see the user if you are the user of the task
+
+#### runners
+
+#### private_runner
+
+Task publicity
+
+#### links
+
+#### offers
+
+#### events
+
+#### location_visits
+
+#### runner_rates
+
+Runner rates when the Task is closed
+
+#### runner_fee 
+
+Only the Runner see it
+
+#### conversations
+
+Conversations on the Task
+ -->
+# Examples
+
+## Logged-out User
+
+### GET /api/v1/tasks/1452
+
+
+### Simplified Response
+
+```
+{
+    "name": "My Task",
+    "city": {
+        "name": "Boston",
+        "lng": -71.059773,
+        "id": 1,
+        "links": {
+            "get": "/api/v1/cities/1"
+        },
+        "lat": 42.358431
+    },
+    "complete_by_time": 1315584000,
+    "id": 1452,
+    "state_changed_at": 1315486800,
+    "cost_in_cents": 0,
+    "links": {
+        "html": "http://test.taskrabbit.com/tasks/my-task",
+        "get": "/api/v1/tasks/1452"
+    },
+    "state_label": "posted",
+    "assign_by_time": 1315670400,
+    "user": {
+        "city": {
+            "name": "Boston",
+            "lng": -71.059773,
+            "id": 1,
+            "links": {
+                "get": "/api/v1/cities/1"
+            },
+            "lat": 42.358431
+        },
+        "id": 5070,
+        "links": {
+            "get": "/api/v1/users/5070",
+            "avatar_url": "<<http://www.taskrabbit.com/images/default_avatars/poster_thumb.gif>>"
+        },
+        "full_name": "Willis F.",
+        "short_name": "Willis",
+        "display_name": "Willis F."
+    },
+    "state": "opened"
+}
+```
+
+## Logged-in User
+
+### GET /api/v1/tasks/1452
+
+```
+"include":
+  "task": [
+    "id",
+    "name",
+    "description",
+    "assign_by_time",
+    "complete_by_time",
+    "state",
+    "state_changed_at",
+    "cost_in_cents",
+    "named_price",
+    "city",
+    "user",
+    "runners",
+    "private_runner",
+    "links",
+    "offers",
+    "location_visits"
+  ]
+```
+
+### Simplified Response
+
+
+```
+{
+    "name": "My Task",
+    "city": {
+        "name": "Boston",
+        "lng": -71.059773,
+        "id": 1,
+        "links": {
+            "get": "/api/v1/cities/1"
+        },
+        "lat": 42.358431
+    },
+    "complete_by_time": 1315584000,
+    "id": 1452,
+    "state_changed_at": 1315486800,
+    "cost_in_cents": 0,
+    "links": {
+        "html": "<<http://www.taskrabbit.com/tasks/my-task>>",
+        "get": "/api/v1/tasks/1452"
+    },
+    "assign_by_time": 1315670400,
+    "user": {
+        "city": {
+            "name": "Boston",
+            "lng": -71.059773,
+            "id": 1,
+            "links": {
+                "get": "/api/v1/cities/1"
+            },
+            "lat": 42.358431
+        },
+        "id": 2320,
+        "links": {
+            "get": "/api/v1/users/2320",
+            "avatar_url": "<<http://www.taskrabbit.com/images/default_avatars/poster_thumb.gif>>"
+        },
+        "full_name": "Willis F.",
+        "short_name": "Willis",
+        "display_name": "Willis F."
+    },
+    "location_visits": {
+        "items": []
+    },
+    "state": "opened"
+}
+```
+
+## Logged-in as the owner of the Task
+
+### GET /api/v1/tasks/1452
+
+
+```
+"include":
+  "task": [
+    "id",
+    "name",
+    "description",
+    "assign_by_time",
+    "complete_by_time",
+    "state",
+    "state_changed_at",
+    "cost_in_cents",
+    "assignment_type",
+    "named_price",
+    "city",
+    "user",
+    "runners",
+    "private_runner",
+    "links",
+    "offers",
+    "location_visits"
+  ]
+```
+
+### Simplified Response
+
+```
+{
+    "name": "My Task",
+    "city": {
+        "name": "Boston",
+        "lng": -71.059773,
+        "id": 1,
+        "links": {
+            "get": "/api/v1/cities/1"
+        },
+        "lat": 42.358431
+    },
+    "named_price": 10,
+    "offers": {
+        "items": [
+            {
+                "charge_price": 15,
+                "id": 238,
+                "state": "sent"
+            }
+        ]
+    },
+    "complete_by_time": 1315584000,
+    "id": 1452,
+    "state_changed_at": 1315486800,
+    "cost_in_cents": 0,
+    "assignment_type": "auto",
+    "links": {
+        "html": "<<http://www.taskrabbit.com/tasks/my-task>>",
+        "get": "/api/v1/tasks/1452",
+        "delete": "/api/v1/tasks/1452",
+        "offers": "/api/v1/tasks/1452/offers",
+        "put": "/api/v1/tasks/1452",
+        "authenticated": "<<https://www.taskrabbit.com/go/7b10a62039cd9f0f7a63c9790cf2470d71ff2e1b5d6da6995e31421faefd1db632ef0d66427ac31958a5c891339587024537>>"
+    },
+    "assign_by_time": 1315670400,
+    "location_visits": {
+        "items": []
+    },
+    "private_runner": false,
+    "state": "opened"
+}
+```
+
+## Assigned Task
+
+### GET /api/v1/tasks/1452
+
+
+```
+"include":
+  "task": [
+    "id",
+    "name",
+    "description",
+    "assign_by_time",
+    "complete_by_time",
+    "state",
+    "state_changed_at",
+    "cost_in_cents",
+    "named_price",
+    "city",
+    "user",
+    "runner",
+    "links",
+    "offers",
+    "location_visits"
+  ]
+```
+
+### Simplified Response
+
+
+```
+{
+    "name": "My Task",
+    "city": {
+        "name": "Boston",
+        "lng": -71.059773,
+        "id": 1,
+        "links": {
+            "get": "/api/v1/cities/1"
+        },
+        "lat": 42.358431
+    },
+    "named_price": 10,
+    "complete_by_time": 1315584000,
+    "id": 1452,
+    "state_changed_at": 1315486800,
+    "cost_in_cents": 0,
+    "runner": {
+      "city": {
+          "name": "Boston",
+          "lng": -71.059773,
+          "id": 1,
+          "links": {
+              "get": "/api/v1/cities/1"
+          },
+          "lat": 42.358431
+      },
+      "id": 2331,
+      "links": {
+          "get": "<</api/v1/users/2331>>",
+          "avatar_url": "<<http://www.taskrabbit.com/images/default_avatars/runner_thumb.gif>>"
+      },
+      "email": "odell.clark@example.com",
+      "mobile_phone": "4154154156",
+      "home_phone": "5165165156",
+      "full_name": "Odell C.",
+      "short_name": "Odell",
+      "display_name": "Odell C."
+    },
+    "links": {
+        "html": "<<http://www.taskrabbit.com/tasks/my-task>>",
+        "get": "/api/v1/tasks/1452",
+        "authenticated": "<<https://www.taskrabbit.com/go/f4746fa25b80ba121fae6514c2e6df3d721010f7f54c997731ac142b9255bc54a1e9921a6334622001500b3248097319b274>>"
+    },
+    "assign_by_time": 1315670400,
+    "location_visits": {
+        "items": []
+    },
+    "state": "assigned"
+}
+```
+
+## Closed Task
+
+
+### GET /api/v1/tasks/1452
+
+
+```
+"include":
+  "task": [
+    "id",
+    "name",
+    "description",
+    "assign_by_time",
+    "complete_by_time",
+    "state",
+    "state_changed_at",
+    "cost_in_cents",
+    "named_price",
+    "city",
+    "user",
+    "runner",
+    "runners",
+    "links",
+    "offers",
+    "location_visits",
+    "runner_rates"
+  ]
+```
+
+### Simplified Response
+
+
+```
+{
+    "name": "My Task",
+    "city": {
+        "name": "Boston",
+        "lng": -71.059773,
+        "id": 1,
+        "links": {
+            "get": "/api/v1/cities/1"
+        },
+        "lat": 42.358431
+    },
+    "named_price": 10,
+    "complete_by_time": 1315584000,
+    "id": 1452,
+    "state_changed_at": 1315486800,
+    "cost_in_cents": 0,
+    "runner": {
+      "city": {
+          "name": "Boston",
+          "lng": -71.059773,
+          "id": 1,
+          "links": {
+              "get": "/api/v1/cities/1"
+          },
+          "lat": 42.358431
+      },
+      "id": 2331,
+      "links": {
+          "get": "<</api/v1/users/2331>>",
+          "avatar_url": "<<http://www.taskrabbit.com/images/default_avatars/runner_thumb.gif>>"
+      },
+      "email": "odell.clark@example.com",
+      "mobile_phone": "4154154156",
+      "home_phone": "5165165156",
+      "full_name": "Odell C.",
+      "short_name": "Odell",
+      "display_name": "Odell C."
+    },
+    "links": {
+        "html": "<<http://www.taskrabbit.com/tasks/my-task>>",
+        "get": "/api/v1/tasks/1452",
+        "authenticated": "<<https://www.taskrabbit.com/go/f4746fa25b80ba121fae6514c2e6df3d721010f7f54c997731ac142b9255bc54a1e9921a6334622001500b3248097319b274>>"
+    },
+    "assign_by_time": 1315670400,
+    "location_visits": {
+        "items": []
+    },
+    "runner_rates": {
+        "items": []
+    },
+    "state": "closed"
+}
+```

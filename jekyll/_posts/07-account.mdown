@@ -1,30 +1,16 @@
 ---
 layout: post
-title: User account informations
+title: User account information
 ---
-# User account informations
+# User account information
 
-TODO: Describe
-
-## Setup
-
-* There is a user who is authenticated to your client application
-* The name of the user is "Willis Ford"
-* The zip code of the user is 02102
-* The city of the user is Boston
-* The user has an authorization token of "rRou72pewt102y926jfhwow438238poQR31d"
-* The user has an opened task "My Task" with id 1452
+TaskRabbit allows the retrieval of the currently authenticated user's account information via an authorized client application.
 
 ### GET /api/v1/account
 
-* Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d
-
 ### Simplified Response
 
-* Status Code: 200
-* Content-Type: application/json
-
-```json
+```
 {
   "city": {
     "id": 1,
@@ -54,7 +40,7 @@ TODO: Describe
   "display_name": "Willis F.",
   "links": {
     "get": "/api/v1/users/3766",
-    "avatar_url": "http://test.taskrabbit.com/images/default_avatars/poster_thumb.gif"
+    "avatar_url": "http://test.taskrabbit.com/images/default_avatars/poster_thumb.png"
   },
   "locations": {
     "items": [],
@@ -65,20 +51,14 @@ TODO: Describe
 }
 ```
 
-# Error Cases
-
-TODO: describe
-
 ## Incorrect Authorization
 
 ### GET /api/v1/account
 
-* Authorization: OAuth XXXXXX
 
 ### 401 Unauthorized
-* Content-Type: application/json
 
-```json
+```
 {
   "error":"There must be an authenticated user for this action"
 }
