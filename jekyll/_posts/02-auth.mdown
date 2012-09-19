@@ -12,8 +12,8 @@ Create an application from the (http://taskrabbit.com/developer)[Developer Dashb
 
 ## Examples
 
-Python [https://github.com/liluo/py-oauth2](wrapper) / [https://gist.github.com/3691669](example)
-Ruby [https://github.com/intridea/omniauth](gem) / [https://github.com/nolastan/tr_template](example)
+Python [wrapper](https://github.com/liluo/py-oauth2) / [example](https://gist.github.com/3691669)
+Ruby [gem](https://github.com/intridea/omniauth) / [example](https://github.com/nolastan/tr_template)
 
 ## Payment Information
 By default, the user is prompted (but not required) to enter payment information if none exists. To bypass this prompt, append `&card=false` to your authorization url. The user must enter their payment information before posting a Task.
