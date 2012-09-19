@@ -8,56 +8,68 @@
     <link href="/stylesheets/application.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/grid.css" media="screen" rel="stylesheet" type="text/css" />
     <link href="/stylesheets/documentation.css" media="screen" rel="stylesheet" type="text/css" />
+    <link href="/stylesheets/pigments.css" media="screen" rel="stylesheet" type="text/css" />
   </head>
   
   <body>
-    <div id="header">
-    </div>
-    <div id="main">
-      <div id="sidebar" class="span-6">
-        <ul>
-        
-          <li><a href="/post_simple.html">Posting a Simple Task</a></li>
-        
-          <li><a href="/auth.html">Oauth</a></li>
-        
-          <li><a href="/post_task_parameters.html">Parameters for posting a task</a></li>
-        
-          <li><a href="/post_with_location.html">Posting a Task with locations</a></li>
-        
-          <li><a href="/post_with_photo.html">Posting a Task with a photo</a></li>
-        
-          <li><a href="/post_with_sound.html">Posting a Task with a sound</a></li>
-        
-          <li><a href="/account.html">User account informations</a></li>
-        
-        </ul>
+    <div id="header-container">
+      <div id="header">
+        <div id="cloudburst"></div>
+        <a href="/" id="header-logo"><img src="/images/header-taskrabbitlogo.png" alt="TaskRabbit" height="62" width="162" border="0" /></a>
       </div>
-      <div id="content" class="span-18 last">
+    </div>
+    <div id="container">
+      <div id="main" class="span-24">
+        <div id="sidebar" class="span-6">
+          <ul>
+          
+            <li><a href="/post_simple.html">Posting a Simple Task</a></li>
+          
+            <li><a href="/auth.html">Authentication</a></li>
+          
+            <li><a href="/post_task_parameters.html">Parameters for posting a task</a></li>
+          
+            <li><a href="/post_with_location.html">Posting a Task with locations</a></li>
+          
+            <li><a href="/post_with_photo.html">Posting a Task with a photo</a></li>
+          
+            <li><a href="/post_with_sound.html">Posting a Task with audio</a></li>
+          
+            <li><a href="/account.html">User account information</a></li>
+          
+            <li><a href="/get_task.html">Task information</a></li>
+          
+            <li><a href="/get_user.html">User information</a></li>
+          
+            <li><a href="/city.html">City information</a></li>
+          
+            <li><a href="/close_task.html">Close a Task</a></li>
+          
+            <li><a href="/cancel_task.html">Canceling a Task</a></li>
+          
+            <li><a href="/update_task.html">Parameters for posting a task</a></li>
+          
+            <li><a href="/comments.html">Comments on Task</a></li>
+          
+            <li><a href="/offers_listing.html">Offers listing of Task</a></li>
+          
+            <li><a href="/accept_offer.html">Accept an offer on a Task</a></li>
+          
+            <li><a href="/counter_offer.html">Countering an offer</a></li>
+          
+            <li><a href="/decline_offer.html">Decline an offer on a Task</a></li>
+          
+          </ul>
+        </div>
+        <div id="content" class="span-18 last">
 
-        <h1 id="posting-a-task-with-locations">Posting a Task with locations</h1>
+          <h1 id="posting-a-task-with-locations">Posting a Task with locations</h1>
 
-<p>Posting a Task with locations allows TaskRabbit to alert based on geography in conjunction with other Task attributes.</p>
-
-<h2 id="setup">Setup</h2>
-
-<ul>
-  <li>There is a user who is authenticated to your client application</li>
-  <li>The user has an authorization token of &ldquo;rRou72pewt102y926jfhwow438238poQR31d&rdquo;</li>
-</ul>
-
-<h3 id="required-values">Required Values</h3>
-
-<p>By passing in the address of a Task location, source or destination (pickup/delivery example) will allow us to geolocate the task for alerting. You do not need to pass in the city as it will be calculated and assigned automatically based on the location information provided.</p>
+<p>TaskRabbit prefers Tasks to include location information. Including location information allows TaskRabbit to alert based on geography in conjunction with other Task attributes.</p>
 
 <h3 id="post-apiv1tasks">POST /api/v1/tasks</h3>
 
-<ul>
-  <li>Authorization: OAuth rRou72pewt102y926jfhwow438238poQR31d</li>
-  <li>Content-Type: application/json</li>
-</ul>
-
-<p><code>json
+<p><code>
 {
   "task": {
     "name":"My First Task", 
@@ -84,12 +96,7 @@
 
 <h3 id="simplified-response">Simplified Response</h3>
 
-<ul>
-  <li>Status Code: 200</li>
-  <li>Content-Type: application/json</li>
-</ul>
-
-<p><code>json
+<p><code>
 {
   "id": 2820,
   "name": "My First Task",
@@ -101,11 +108,37 @@
   },
   "links": {
     "get": "/api/v1/tasks/2820"
-  }
-}
+  },
+    "location_visits": {
+      "items": [
+      {
+        "address": "123 Main St",
+        "approximate_radius": 0,
+        "city": "Boston",
+        "name": "Home",
+        "zip": "02154",
+        "partial": "Main St, Boston, MA 02154",
+        "lng": -71.059774,
+        "id": 35,
+        "complete": "123 Main St, Boston, MA 02154",
+        "location_id": "&lt;&lt;296&gt;&gt;",
+        "lat": 42.358432,
+        "state": "MA"
+      },
+      {
+        "approximate_radius": 0,
+        "name": "Middle of the park",
+        "lng": -71.059772,
+        "id": 36,
+        "location_id": "&lt;&lt;297&gt;&gt;",
+        "lat": 42.35843
+      }
+      ]
+  }}
 </code></p>
 
 
+        </div>
       </div>
     </div>
 

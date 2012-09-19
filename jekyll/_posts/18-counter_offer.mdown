@@ -1,0 +1,56 @@
+---
+layout: post
+title: Countering an offer
+---
+# Countering an offer
+
+TaskRabbit allows Task posters to counter offers.
+You can set the charge price and the comments.
+
+
+### POST /api/v1/tasks/1452/offers/213/counter
+
+```
+{
+  "charge_price": 30,
+  "comments": "This is more fair."
+}
+```
+
+
+### Simplified Response
+
+
+```
+{
+  "id":214,
+  "charge_price": 30,
+  "state": "made",
+  "comments": "This is more fair.",
+  "task": {
+    "name": "My Task",
+    "named_price": 10,
+    "state": "opened",
+    "city": {
+      "id": 1,
+      "name": "Boston"
+    }
+  }
+}
+```
+
+# Error Cases
+
+## Incorrect Authorization
+
+### POST /api/v1/tasks/1452/offers/213/counter
+
+
+### 401 Unauthorized
+
+
+```
+{
+  "error":"There must be an authenticated user for this action"
+}
+```
