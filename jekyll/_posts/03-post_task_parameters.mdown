@@ -18,7 +18,7 @@ _\* = required_
 
 **name***  - The short, public text shown to describe the Task `string`
 
-**named_price*** - Amount in USD the TaskPoster is willing to pay for the Task `integer`
+**named_price*** - (unless `assignment_type = review`) Amount in USD the TaskPoster is willing to pay for the Task `integer`
 
 **city_id*** - The metro area (see below) where the Task will occur (required when location is not set) `integer`
 

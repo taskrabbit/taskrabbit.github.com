@@ -75,7 +75,7 @@
 
 <ul>
   <li><code>name</code>: The short, public text shown to describe the Task</li>
-  <li><code>named_price</code>: The integer amount, in whole US Dollars, the TaskPoster is willing to pay for the Task</li>
+  <li><code>named_price</code>: (unless <code>assignment_type = review</code>) The integer amount, in whole US Dollars, the TaskPoster is willing to pay for the Task</li>
   <li><code>city_id</code>: The metro area where the Task will occur
     <ul>
       <li>1 -&gt; Boston</li>
@@ -232,7 +232,7 @@ task:
 
 <h2 id="credit-card-problems">Credit Card Problems</h2>
 
-<p>In the previous requests, TaskRabbit was using the user’s credit card on file. If the user does not have a credit card on file, the Task will still be created, but not posted.</p>
+<p>In the previous requests, TaskRabbit was using the user&rsquo;s credit card on file. If the user does not have a credit card on file, the Task will still be created, but not posted.</p>
 
 <h3 id="post-apiv1tasks-4">POST /api/v1/tasks</h3>
 
