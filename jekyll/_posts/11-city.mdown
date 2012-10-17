@@ -6,7 +6,7 @@ title: Geography information
 
 ### Possible values 
 
-[List of active TaskRabbit geographies](http://taskrabbit.com/developer/geographies)
+[List of active TaskRabbit geographies](http://taskrabbit.com/developer/cities)
 
 
 ### GET /api/v1/geographies/3
