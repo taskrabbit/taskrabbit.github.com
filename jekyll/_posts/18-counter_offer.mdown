@@ -31,8 +31,8 @@ You can set the charge price and the comments.
     "name": "My Task",
     "named_price": 10,
     "state": "opened",
-    "city": {
-      "id": 1,
+    "geography": {
+      "id": 1052,
       "name": "Boston"
     }
   }

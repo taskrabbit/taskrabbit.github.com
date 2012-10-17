@@ -21,8 +21,8 @@ title: Decline an offer on a Task
     "name": "My Task",
     "named_price": 10,
     "state": "opened",
-    "city": {
-      "id": 1,
+    "geography": {
+      "id": 1052,
       "name": "Boston"
     }
   }

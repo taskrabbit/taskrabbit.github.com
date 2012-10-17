@@ -17,7 +17,7 @@ TaskRabbit prefers Tasks to include location information. Including location inf
       {
         "name": "Home",
         "address": "123 Main St",
-        "city": "Boston",
+        "geography": "Boston",
         "state": "MA",
         "zip": "02154",
         "lat": "42.358432",
@@ -41,7 +41,7 @@ TaskRabbit prefers Tasks to include location information. Including location inf
   "name": "My First Task",
   "named_price": 20,
   "state": "opened",
-  "city": {
+  "geography": {
     "name": "Boston",
     "id": 1
   },
@@ -53,7 +53,7 @@ TaskRabbit prefers Tasks to include location information. Including location inf
       {
         "address": "123 Main St",
         "approximate_radius": 0,
-        "city": "Boston",
+        "geography": "Boston",
         "name": "Home",
         "zip": "02154",
         "partial": "Main St, Boston, MA 02154",

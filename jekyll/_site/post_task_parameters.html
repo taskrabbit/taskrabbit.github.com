@@ -41,7 +41,7 @@
           
             <li><a href="/get_user.html">User information</a></li>
           
-            <li><a href="/city.html">City information</a></li>
+            <li><a href="/city.html">Geography information</a></li>
           
             <li><a href="/close_task.html">Close a Task</a></li>
           
@@ -81,20 +81,7 @@
 
 <p><strong>named_price</strong>* - (unless <code>assignment_type = review</code>) Amount in USD the TaskPoster is willing to pay for the Task <code>integer</code></p>
 
-<p><strong>city_id</strong>* - The metro area (see below) where the Task will occur (required when location is not set) <code>integer</code></p>
-
-<ul>
-  <li><code>1</code> Boston</li>
-  <li><code>3</code> San Francisco Bay Area</li>
-  <li><code>4</code> New York City</li>
-  <li><code>5</code> Chicago</li>
-  <li><code>6</code> Los Angeles</li>
-  <li><code>8</code> Austin</li>
-  <li><code>10</code> Portland</li>
-  <li><code>11</code> Seattle</li>
-  <li><code>148</code>  San Antonio</li>
-  <li><code>9999</code> Virtual (Anywhere)</li>
-</ul>
+<p><strong>geography_id</strong>* - The metro area (see below) where the Task will occur (required when location is not set) <code>integer</code> (<a href="https://taskrabbitdev.com/developer/cities">see active geographies</a>)</p>
 
 <p><strong>description</strong> - The description of the Task <code>string</code></p>
 
@@ -124,7 +111,7 @@
   "task": {
     "name":"Dog walking",
     "named_price": 20, 
-    "city_id": 1,
+    "geography_id": 1,
     "description": "I want you to walk him to his favorite state park",
     "private_description": "Secret informations",
     "cost_in_cents": 500,
@@ -146,7 +133,7 @@
   "id": 2835,
   "name": "Dog walking",
   "named_price": 20,
-  "city": {
+  "geography": {
     "name": "Boston",
     "id": 1
   },
@@ -180,7 +167,7 @@ A specific time that the Task must be completed by. </p>
   "task": {
     "name":"Dog walking",
     "named_price": 20, 
-    "city_id": 1,
+    "geography_id": 1,
     "complete_by_time": 1315582320, // 2011-09-09 11:32 AM
     "assign_by_time": 1315578000    // 2011-09-09 10:20 AM
   }
@@ -206,7 +193,7 @@ A specific time that the Task must be completed by. </p>
   "task": {
     "name":"Dog walking",
     "named_price": 20, 
-    "city_id": 1,
+    "geography_id": 1,
     "complete_by_time": 1315582320 // 2011-09-09 11:32 AM
   }
 }
@@ -231,7 +218,7 @@ The assign by time is set to the same time as complete by time.</p>
   "task": {
     "name":"Dog walking",
     "named_price": 20, 
-    "city_id": 1,
+    "geography_id": 1,
     "assign_by_time": 1315578000 // 2011-09-09 10:20 AM
   }
 }
@@ -257,7 +244,7 @@ The assign by time is set to the same time as complete by time.</p>
   "task": {
     "name":"Dog walking",
     "named_price": 20, 
-    "city_id": 1,
+    "geography_id": 1,
     "complete_by_time": 1315571520 // 2011-09-09 08:32 AM
   }
 }
@@ -282,7 +269,7 @@ The assign by time is set to the same time as complete by time.</p>
   "task": {
     "name":"Dog walking",
     "named_price": 20, 
-    "city_id": 1,
+    "geography_id": 1,
     "assign_by_time": 1315571520 // 2011-09-09 08:32 AM
   }
 }

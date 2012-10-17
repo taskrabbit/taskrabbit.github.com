@@ -1,15 +1,15 @@
 ---
 layout: post
-title: City information
+title: Geography information
 ---
-# City information
+# Geography information
 
 ### Possible values 
 
-(http://taskrabbit.com/developer/cities)[List of active TaskRabbit cities]
+(http://taskrabbit.com/developer/geographies)[List of active TaskRabbit geographies]
 
 
-### GET /api/v1/cities/3
+### GET /api/v1/geographies/3
 
 ### Simplified Response
 
@@ -19,6 +19,6 @@ title: City information
   "name":"SF Bay Area",
   "lat": 37.77493,
   "lng":-122.419416,
-  "links": {"get": "/api/v1/cities/3"}
+  "links": {"get": "/api/v1/geographies/3"}
 }
 ```
