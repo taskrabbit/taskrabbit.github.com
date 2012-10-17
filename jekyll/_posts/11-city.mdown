@@ -6,7 +6,7 @@ title: Geography information
 
 ### Possible values 
 
-(http://taskrabbit.com/developer/geographies)[List of active TaskRabbit geographies]
+[List of active TaskRabbit geographies](http://taskrabbit.com/developer/geographies)
 
 
 ### GET /api/v1/geographies/3
@@ -15,7 +15,7 @@ title: Geography information
 
 ```
 {
-  "id":3,
+  "id":1053,
   "name":"SF Bay Area",
   "lat": 37.77493,
   "lng":-122.419416,
