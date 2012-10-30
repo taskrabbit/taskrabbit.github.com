@@ -21,14 +21,14 @@ Accept an offer on the user's Task.
     "named_price": 10,
     "runner": {
       "id": 3576,
-      "city": {
-        "id": 1,
+      "geography": {
+        "id": 1052,
         "name": "Boston"
       }
     },
     "state": "assigned",
-    "city": {
-      "id": 1,
+    "geography": {
+      "id": 1052,
       "name": "Boston"
     }
   }

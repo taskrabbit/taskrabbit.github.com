@@ -41,7 +41,7 @@
           
             <li><a href="/get_user.html">User information</a></li>
           
-            <li><a href="/city.html">City information</a></li>
+            <li><a href="/city.html">Geography information</a></li>
           
             <li><a href="/close_task.html">Close a Task</a></li>
           
@@ -75,20 +75,8 @@
 
 <ul>
   <li><code>name</code>: The short, public text shown to describe the Task</li>
-  <li><code>named_price</code>: The integer amount, in whole US Dollars, the TaskPoster is willing to pay for the Task</li>
-  <li><code>city_id</code>: The metro area where the Task will occur
-    <ul>
-      <li>1 -&gt; Boston</li>
-      <li>3 -&gt; SF Bay Area</li>
-      <li>4 -&gt; New York City</li>
-      <li>5 -&gt; Chicago</li>
-      <li>6 -&gt; Los Angeles and Orange County</li>
-      <li>8 -&gt; Austin</li>
-      <li>10 -&gt; Portland</li>
-      <li>11 -&gt; Seattle</li>
-      <li>148 -&gt; San Antonio</li>
-    </ul>
-  </li>
+  <li><code>named_price</code>: (unless <code>assignment_type = review</code>) The integer amount, in whole US Dollars, the TaskPoster is willing to pay for the Task</li>
+  <li><code>geography_id</code>: The metro area where the Task will occur (<a href="https://taskrabbitdev.com/developer/cities">see active geographies</a>)</li>
 </ul>
 
 <h3 id="post-apiv1tasks">POST /api/v1/tasks</h3>
@@ -102,7 +90,7 @@
   "task": {
     "name":"My First Task", 
     "named_price": 20, 
-    "city_id": 4
+    "geography_id": 4
   }
 </code></p>
 
@@ -119,7 +107,7 @@
   "name":"My First Task",
   "named_price": 20,
   "state":"opened",
-  "city":{
+  "geography":{
     "id":4,
     "name":"New York City"
   },
@@ -140,7 +128,7 @@
 task:
   name: My Second Task
   named_price: 20
-  city_id: 4
+  geography_id: 4
 </code></p>
 
 <h3 id="simplified-response-1">Simplified Response</h3>
@@ -156,7 +144,7 @@ task:
   "name":"My Second Task",
   "named_price": 20,
   "state":"opened",
-  "city":{
+  "geography":{
     "id":4,
     "name":"New York City"
   },
@@ -184,7 +172,7 @@ task:
 "task": {
   "name":"My First Task", 
   "named_price": 20, 
-  "city_id": 4
+  "geography_id": 4
 }
 </code></p>
 
@@ -232,7 +220,7 @@ task:
 
 <h2 id="credit-card-problems">Credit Card Problems</h2>
 
-<p>In the previous requests, TaskRabbit was using the user’s credit card on file. If the user does not have a credit card on file, the Task will still be created, but not posted.</p>
+<p>In the previous requests, TaskRabbit was using the user&rsquo;s credit card on file. If the user does not have a credit card on file, the Task will still be created, but not posted.</p>
 
 <h3 id="post-apiv1tasks-4">POST /api/v1/tasks</h3>
 
@@ -246,7 +234,7 @@ task:
   "task": {
     "name":"My Third Task", 
     "named_price": 20, 
-    "city_id": 4
+    "geography_id": 4
   }
 }
 </code></p>
@@ -264,7 +252,7 @@ task:
   "name":"My Third Task",
   "named_price": 20,
   "state":"unpaid",
-  "city":{
+  "geography":{
     "id":4,
     "name":"New York City"
   },

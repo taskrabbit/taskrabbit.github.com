@@ -14,7 +14,7 @@ Adding a descriptive sound recording from an application with limited text input
 task:
   name: Walk my dog
   named_price: 15
-  city_id: 3
+  geography_id: 3
   uploaded_sounds_attributes:
     "1":
       audio: BINARY_FILE_GETS_REPLACED_HERE
@@ -29,8 +29,8 @@ At this time, the response does not confirm the audio upload.
   "name":"Walk my dog",
   "named_price": 15,
   "state":"opened",
-  "city":{
-    "id":3,
+  "geography":{
+    "id":1053,
     "name":"SF Bay Area"
   },
   "links":{

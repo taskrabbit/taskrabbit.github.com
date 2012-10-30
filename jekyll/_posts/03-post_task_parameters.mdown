@@ -18,20 +18,9 @@ _\* = required_
 
 **name***  - The short, public text shown to describe the Task `string`
 
-**named_price*** - Amount in USD the TaskPoster is willing to pay for the Task `integer`
+**named_price*** - (unless `assignment_type = review`) Amount in USD the TaskPoster is willing to pay for the Task `integer`
 
-**city_id*** - The metro area (see below) where the Task will occur (required when location is not set) `integer`
-
-* `1` Boston
-* `3` San Francisco Bay Area
-* `4` New York City
-* `5` Chicago
-* `6` Los Angeles
-* `8` Austin
-* `10` Portland
-* `11` Seattle
-* `148`  San Antonio
-* `9999` Virtual (Anywhere)
+**geography_id*** - The metro area (see below) where the Task will occur (required when location is not set) `integer` [(see active geographies)](https://taskrabbitdev.com/developer/cities)
 
 **description** - The description of the Task `string`
   
@@ -58,7 +47,7 @@ _\* = required_
   "task": {
     "name":"Dog walking",
     "named_price": 20, 
-    "city_id": 1,
+    "geography_id": 1,
     "description": "I want you to walk him to his favorite state park",
     "private_description": "Secret informations",
     "cost_in_cents": 500,
@@ -78,7 +67,7 @@ _\* = required_
   "id": 2835,
   "name": "Dog walking",
   "named_price": 20,
-  "city": {
+  "geography": {
     "name": "Boston",
     "id": 1
   },
@@ -112,7 +101,7 @@ A specific time that the Task must be completed by.
   "task": {
     "name":"Dog walking",
     "named_price": 20, 
-    "city_id": 1,
+    "geography_id": 1,
     "complete_by_time": 1315582320, // 2011-09-09 11:32 AM
     "assign_by_time": 1315578000    // 2011-09-09 10:20 AM
   }
@@ -138,7 +127,7 @@ If the assigned by time is later than the complete by time, we will reset the as
   "task": {
     "name":"Dog walking",
     "named_price": 20, 
-    "city_id": 1,
+    "geography_id": 1,
     "complete_by_time": 1315582320 // 2011-09-09 11:32 AM
   }
 }
@@ -163,7 +152,7 @@ The assign by time is set to the same time as complete by time.
   "task": {
     "name":"Dog walking",
     "named_price": 20, 
-    "city_id": 1,
+    "geography_id": 1,
     "assign_by_time": 1315578000 // 2011-09-09 10:20 AM
   }
 }
@@ -189,7 +178,7 @@ The complete by time will have will be set to the assigned by time plus 24 hours
   "task": {
     "name":"Dog walking",
     "named_price": 20, 
-    "city_id": 1,
+    "geography_id": 1,
     "complete_by_time": 1315571520 // 2011-09-09 08:32 AM
   }
 }
@@ -214,7 +203,7 @@ Default times will be set by TaskRabbit. Defaults are determined programmaticall
   "task": {
     "name":"Dog walking",
     "named_price": 20, 
-    "city_id": 1,
+    "geography_id": 1,
     "assign_by_time": 1315571520 // 2011-09-09 08:32 AM
   }
 }

@@ -41,7 +41,7 @@ TaskRabbit prefers Tasks to include location information. Including location inf
   "name": "My First Task",
   "named_price": 20,
   "state": "opened",
-  "city": {
+  "geography": {
     "name": "Boston",
     "id": 1
   },

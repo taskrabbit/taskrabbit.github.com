@@ -12,12 +12,12 @@ Retrieve the public information of any user. Use the `account` request to access
 
 ```
 {
-    "city": {
+    "geography": {
         "name": "Boston",
         "lng": -71.059773,
-        "id": 1,
+        "id": 1052,
         "links": {
-            "get": "/api/v1/cities/1"
+            "get": "/api/v1/geographies/1"
         },
         "lat": 42.358431
     },

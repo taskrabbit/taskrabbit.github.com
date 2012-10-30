@@ -13,17 +13,8 @@ To create a Task, the client application POSTs data. The content can be either a
 ### Required Values
 
 * `name`: The short, public text shown to describe the Task
-* `named_price`: The integer amount, in whole US Dollars, the TaskPoster is willing to pay for the Task
-* `city_id`: The metro area where the Task will occur
-  * 1 -> Boston
-  * 3 -> SF Bay Area
-  * 4 -> New York City
-  * 5 -> Chicago
-  * 6 -> Los Angeles and Orange County
-  * 8 -> Austin
-  * 10 -> Portland
-  * 11 -> Seattle
-  * 148 -> San Antonio
+* `named_price`: (unless `assignment_type = review`) The integer amount, in whole US Dollars, the TaskPoster is willing to pay for the Task
+* `geography_id`: The metro area where the Task will occur. See [list of active geographies](https://taskrabbitdev.com/developer/cities).
   
   
 ### POST /api/v1/tasks
@@ -35,7 +26,7 @@ To create a Task, the client application POSTs data. The content can be either a
   "task": {
     "name":"My First Task", 
     "named_price": 20, 
-    "city_id": 4
+    "geography_id": 4
   }
 ```
 
@@ -50,9 +41,9 @@ To create a Task, the client application POSTs data. The content can be either a
   "name":"My First Task",
   "named_price": 20,
   "state":"opened",
-  "city":{
+  "geography":{
     "id":4,
-    "name":"New York City"
+    "name":"New York Geography"
   },
   "links":{
     "get":"/api/v1/tasks/9221"
@@ -69,7 +60,7 @@ To create a Task, the client application POSTs data. The content can be either a
 task:
   name: My Second Task
   named_price: 20
-  city_id: 4
+  geography_id: 4
 ```
 
 ### Simplified Response
@@ -83,7 +74,7 @@ task:
   "name":"My Second Task",
   "named_price": 20,
   "state":"opened",
-  "city":{
+  "geography":{
     "id":4,
     "name":"New York City"
   },
@@ -110,7 +101,7 @@ The server will respond with a status codes when there is a problem posting the 
 "task": {
   "name":"My First Task", 
   "named_price": 20, 
-  "city_id": 4
+  "geography_id": 4
 }
 ```
 
@@ -166,7 +157,7 @@ In the previous requests, TaskRabbit was using the user's credit card on file. I
   "task": {
     "name":"My Third Task", 
     "named_price": 20, 
-    "city_id": 4
+    "geography_id": 4
   }
 }
 ```
@@ -182,7 +173,7 @@ In the previous requests, TaskRabbit was using the user's credit card on file. I
   "name":"My Third Task",
   "named_price": 20,
   "state":"unpaid",
-  "city":{
+  "geography":{
     "id":4,
     "name":"New York City"
   },
