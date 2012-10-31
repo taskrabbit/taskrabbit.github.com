@@ -301,6 +301,27 @@
 }
 </code></p>
 
+<h2 id="respond-to-offer">Replying to a comment of an offer</h2>
+
+<h3 id="post-respond-to-offer">POST /api/v1/tasks/1452/offers/23/reply</h3>
+
+<p><code>
+{
+  "comment": {
+    "content": "How many items are there?"
+  }
+}
+</code></p>
+
+<h3 id="simplified-response">Simplified Response</h3>
+
+<p><code>
+{
+  "content": "How many items are there?",
+  "display_name": "Roger R.",
+  "conversation_id": "&lt;&lt;22&gt;&gt;"
+}
+</code></p>
 
         </div>
       </div>
